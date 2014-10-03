@@ -28,9 +28,9 @@ Certificate Note: This certificate is only for the signing of the EXE, you'll ne
 the C:\Development\StrokesPlus\bin\StrokesPlus.cer file into the Trusted Root Certification Authorities, or simply 
 run the StrokesPlus Signed setup EXE to install the certificate. If the certificate is not present, you will receive 
 the error "A referral was returned from the server" upon running a signed version. Ignore the StrokesPlus.pfx, 
-that's my version with a separate password; AWEStrokesPlus.pfx is a full export of that cert, but with a different 
-password. The AWEStrokesPlus.pfx cert can sign for the StrokesPlus.cer, so anywhere you've already installed 
-StrokesPlus will still work when you build and sign with the AWEStrokesPlus cert.
+that's my version with a separate password; (removed) is a full export of that cert, but with a different 
+password. The (removed) cert can sign for the StrokesPlus.cer, so anywhere you've already installed 
+StrokesPlus will still work when you build and sign with the (removed) cert.
 
 
 ------------------------------------------------------
