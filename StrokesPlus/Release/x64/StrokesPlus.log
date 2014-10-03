@@ -1,0 +1,54 @@
+﻿Build started 8/19/2014 5:54:19 PM.
+     1>Project "C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\StrokesPlus\StrokesPlus.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Release\x64\StrokesPlus.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       ResourceCompile:
+         All outputs are up-to-date.
+       Link:
+         All outputs are up-to-date.
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\bin\Release\x64\StrokesPlus.exe" /INCREMENTAL:NO /NOLOGO winmm.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\x64\StrokesPlus.exe.intermediate.manifest" /MANIFESTDEPENDENCY:"type='Win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='amd64' publicKeyToken='6595b64144ccf1df' language='*'" /MANIFESTUAC:NO /PDB:"C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\bin\Release\x64\StrokesPlus.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\bin\Release\x64\StrokesPlus.lib" /MACHINE:X64 Release\x64\StrokesPlus.res
+         Release\x64\stdafx.obj
+         Release\x64\StrokesPlus.obj
+         "C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\StrokesPlusHook\StrokesPlusHook.lib" /WS 
+     1>LINK : warning LNK4044: unrecognized option '/WS'; ignored
+            Creating library C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\bin\Release\x64\StrokesPlus.lib and object C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\bin\Release\x64\StrokesPlus.exp
+         Generating code
+         Finished generating code
+         StrokesPlus.vcxproj -> C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\bin\Release\x64\StrokesPlus.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\bin\Release\x64\StrokesPlus.exe;#1" /manifest Release\x64\StrokesPlus.exe.intermediate.manifest
+       CustomBuildStep:
+         Description: Performing Custom Build Step
+         "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\signtool.exe" sign /v /s StrokesPlusCertStore /n StrokesPlusCert /t http://timestamp.comodoca.com/authenticode "C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\bin\Release\x64\StrokesPlus.exe"
+         :VCEnd
+         The following certificate was selected:
+             Issued to: StrokesPlusCert
+         
+             Issued by: StrokesPlusCert
+         
+             Expires:   Sat Dec 31 18:59:59 2039
+         
+             SHA1 hash: 304D7F434C441E1B59249347C2AAF44D962FF8CF
+         
+         
+         Done Adding Additional Store
+         Successfully signed and timestamped: C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\bin\Release\x64\StrokesPlus.exe
+         
+         
+         Number of files successfully Signed: 1
+         
+         Number of warnings: 0
+         
+         Number of errors: 0
+         
+       FinalizeBuildStatus:
+         Deleting file "Release\x64\StrokesPlus.unsuccessfulbuild".
+         Touching "Release\x64\StrokesPlus.lastbuildstate".
+     1>Done Building Project "C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\StrokesPlus\StrokesPlus.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:03.23

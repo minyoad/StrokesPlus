@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StrokesPlus", "StrokesPlus\StrokesPlus.vcxproj", "{A61C1427-1FF9-4B71-97C8-7925B00CF2B4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StrokesPlusHook", "StrokesPlusHook\StrokesPlusHook.vcxproj", "{4FD34C97-D415-43B1-9AF8-6CB895860E44}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{211A2FA7-775A-4933-9070-993C0E12845F}"
+	ProjectSection(SolutionItems) = preProject
+		AWENotes.txt = AWENotes.txt
+		ChangeLog.txt = ChangeLog.txt
+		Snippets.txt = Snippets.txt
+		StrokesNotes.txt = StrokesNotes.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Release (Signed)|x64 = Release (Signed)|x64
+		Release (Signed)|x86 = Release (Signed)|x86
+		Release (Unsigned)|x64 = Release (Unsigned)|x64
+		Release (Unsigned)|x86 = Release (Unsigned)|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A61C1427-1FF9-4B71-97C8-7925B00CF2B4}.Release (Signed)|x64.ActiveCfg = Release|x64
+		{A61C1427-1FF9-4B71-97C8-7925B00CF2B4}.Release (Signed)|x64.Build.0 = Release|x64
+		{A61C1427-1FF9-4B71-97C8-7925B00CF2B4}.Release (Signed)|x86.ActiveCfg = Release|Win32
+		{A61C1427-1FF9-4B71-97C8-7925B00CF2B4}.Release (Signed)|x86.Build.0 = Release|Win32
+		{A61C1427-1FF9-4B71-97C8-7925B00CF2B4}.Release (Unsigned)|x64.ActiveCfg = Release (Unsigned)|x64
+		{A61C1427-1FF9-4B71-97C8-7925B00CF2B4}.Release (Unsigned)|x64.Build.0 = Release (Unsigned)|x64
+		{A61C1427-1FF9-4B71-97C8-7925B00CF2B4}.Release (Unsigned)|x86.ActiveCfg = Release (Unsigned)|Win32
+		{A61C1427-1FF9-4B71-97C8-7925B00CF2B4}.Release (Unsigned)|x86.Build.0 = Release (Unsigned)|Win32
+		{4FD34C97-D415-43B1-9AF8-6CB895860E44}.Release (Signed)|x64.ActiveCfg = Release|x64
+		{4FD34C97-D415-43B1-9AF8-6CB895860E44}.Release (Signed)|x64.Build.0 = Release|x64
+		{4FD34C97-D415-43B1-9AF8-6CB895860E44}.Release (Signed)|x86.ActiveCfg = Release|Win32
+		{4FD34C97-D415-43B1-9AF8-6CB895860E44}.Release (Signed)|x86.Build.0 = Release|Win32
+		{4FD34C97-D415-43B1-9AF8-6CB895860E44}.Release (Unsigned)|x64.ActiveCfg = Release (Unsigned)|x64
+		{4FD34C97-D415-43B1-9AF8-6CB895860E44}.Release (Unsigned)|x64.Build.0 = Release (Unsigned)|x64
+		{4FD34C97-D415-43B1-9AF8-6CB895860E44}.Release (Unsigned)|x86.ActiveCfg = Release (Unsigned)|Win32
+		{4FD34C97-D415-43B1-9AF8-6CB895860E44}.Release (Unsigned)|x86.Build.0 = Release (Unsigned)|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

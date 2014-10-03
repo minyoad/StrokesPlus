@@ -1,0 +1,1 @@
+You simplay cannot run S+ in debug mode due to the mouse/keyboard hooks...don't even bother trying.

@@ -1,0 +1,77 @@
+﻿Build started 3/2/2014 11:01:44 AM.
+     1>Project "C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\StrokesPlus\StrokesPlus.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Release (Unsigned)\StrokesPlus.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Ot /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release (Unsigned)\\" /Fd"Release (Unsigned)\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt StrokesPlus.cpp
+         StrokesPlus.cpp
+     1>c:\users\rob\documents\development\visual studio 2008\projects\strokesplus\strokesplushook\Resource.h(32): warning C4005: 'IDC_TABMAIN' : macro redefinition
+                 c:\users\rob\documents\development\visual studio 2008\projects\strokesplus\strokesplus\Resource.h(23) : see previous definition of 'IDC_TABMAIN'
+     1>StrokesPlus.cpp(30): warning C4005: '_WIN32_IE' : macro redefinition
+                 c:\users\rob\documents\development\visual studio 2008\projects\strokesplus\strokesplus\targetver.h(23) : see previous definition of '_WIN32_IE'
+     1>StrokesPlus.cpp(130): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>StrokesPlus.cpp(157): warning C4996: '_splitpath': This function or variable may be unsafe. Consider using _splitpath_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdlib.h(791) : see declaration of '_splitpath'
+     1>StrokesPlus.cpp(159): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(110) : see declaration of 'strcat'
+     1>StrokesPlus.cpp(160): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(110) : see declaration of 'strcat'
+     1>StrokesPlus.cpp(165): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlus.cpp(168): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlus.cpp(178): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlus.cpp(132): warning C4101: 'e' : unreferenced local variable
+     1>StrokesPlus.cpp(394): warning C4390: ';' : empty controlled statement found; is this the intent?
+     1>StrokesPlus.cpp(396): warning C4390: ';' : empty controlled statement found; is this the intent?
+     1>StrokesPlus.cpp(399): warning C4800: 'BOOL' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlus.cpp(332): warning C4101: 'e' : unreferenced local variable
+     1>StrokesPlus.cpp(446): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlus.cpp(449): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlus.cpp(455): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlus.cpp(570): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlus.cpp(606): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlus.cpp(622): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlus.cpp(626): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlus.cpp(695): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlus.cpp(699): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlus.cpp(711): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlus.cpp(811): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlus.cpp(823): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlus.cpp(828): warning C4800: 'BOOL' : forcing value to bool 'true' or 'false' (performance warning)
+       ResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /l"0x0409" /nologo /fo"Release (Unsigned)\StrokesPlus.res" StrokesPlus.rc 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\bin\Release (Unsigned)\x86\StrokesPlus.exe" /INCREMENTAL:NO /NOLOGO winmm.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release (Unsigned)\StrokesPlus.exe.intermediate.manifest" /MANIFESTDEPENDENCY:"type='Win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='X86' publicKeyToken='6595b64144ccf1df' language='*'" /MANIFESTUAC:NO /PDB:"C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\bin\Release (Unsigned)\x86\StrokesPlus.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\bin\Release (Unsigned)\x86\StrokesPlus.lib" /MACHINE:X86 "Release (Unsigned)\StrokesPlus.res"
+         "Release (Unsigned)\stdafx.obj"
+         "Release (Unsigned)\StrokesPlus.obj"
+         "C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\StrokesPlusHook\StrokesPlusHook.lib" /WS 
+     1>LINK : warning LNK4044: unrecognized option '/WS'; ignored
+            Creating library C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\bin\Release (Unsigned)\x86\StrokesPlus.lib and object C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\bin\Release (Unsigned)\x86\StrokesPlus.exp
+         Generating code
+         Finished generating code
+         StrokesPlus.vcxproj -> C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\bin\Release (Unsigned)\x86\StrokesPlus.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\bin\Release (Unsigned)\x86\StrokesPlus.exe;#1" /manifest "Release (Unsigned)\StrokesPlus.exe.intermediate.manifest"
+       FinalizeBuildStatus:
+         Deleting file "Release (Unsigned)\StrokesPlus.unsuccessfulbuild".
+         Touching "Release (Unsigned)\StrokesPlus.lastbuildstate".
+     1>Done Building Project "C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\StrokesPlus\StrokesPlus.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:06.04

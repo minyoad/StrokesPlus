@@ -1,0 +1,1714 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>StrokesPlus Help</title>
+</head>
+ 
+<body style="font-family:Verdana, Helvetica;">
+<div style="width:1015px;margin:0 auto;">
+<a href="http://www.strokesplus.com/" tabindex="-1"><img src="./images/StrokesPlus.png" border="0" alt="StrokesPlus" title="StrokesPlus"></a>
+
+  <hr>
+  <a name="Contents"><b>Table of Contents:</b></a><br />
+  <hr>  
+  <ol>
+	<li><a href="#Overview">Overview</a></li>
+	<li><a href="#GettingStarted">Getting Started</a></li>
+	<li><a href="#Preferences">Preferences</a></li>
+	<li><a href="#Training">Training Gestures</a></li>
+	<li><a href="#CreatingActions">Creating Actions</a></li>
+	<li><a href="#DefiningApplications">Defining Applications</a></li>
+	<li><a href="#CreatingHotkeys">Creating Hotkeys</a></li>
+	<li><a href="#IgnoredWindows">Ignored Windows</a></li>
+	<li><a href="#ActionReport">Action Report</a></li>
+	<li><a href="#GlobalLua">Global Lua</a></li>
+	<li><a href="#Variables">Variables available to all Lua scripts</a></li>
+	<li><a href="#Actions">Action Functions</a></li>
+  </ol>  
+  
+  <hr>
+  <a href="#Contents">[back to top]</a> &nbsp;&nbsp;
+  <a name="Overview"><b>Overview:</b> </a> 
+  <hr>
+    <p>StrokesPlus is a mouse gesture recognition program that allows you to automate repetitive tasks by simply drawing a gesture with your mouse or performing mouse and/or keyboard modifiers to fire off an action sequence.</p>
+	<p>Whether the action sequence you're wanting to fire uses a gesture, mouse/keyboard modifier(s), or both, you begin with pressing the selected Stroke button on your mouse.  By default, the Stroke button is assigned to the right mouse button.  To begin, press and hold the Stroke button and either draw the gesture or perform the mouse/keyboard modifier(s), then release the Stroke button.  If the events are recognized as being tied to an action sequence, StrokesPlus will fire the action sequence.</p>
+	<p>In <b>Figure 1</b> below, we're going to draw the letter R by holding down the right mouse button, drawing the gesture R, then release the right mouse button.  The gesture R is assigned to an action which opens the Windows Run dialog and types "notepad" (<b>Figure 2</b>), presses Enter, pauses for a moment, then types "hello world" followed by pressing ALT+H (to open the Help menu in Notepad) and finally presses "a" to select About Notepad from the menu, which displays the About Notepad window (<b>Figure 3</b>).</p>
+	<center>
+	<h2>Figure 1</h2>
+	<img src="./images/Draw.png" border="0" alt="" title="" />
+	</center>
+	<center>
+	<h2>Figure 2</h2>
+	<img src="./images/Run.png" border="0" alt="" title="" />
+	</center>
+	<center>
+	<h2>Figure 3</h2>
+	<img src="./images/Notepad.png" border="0" alt="" title="" />
+	</center>
+	<p>Many of the common tasks which people choose to create action sequences for are the very mundane aspects of using Windows, such as minimizing or maximizing a window, refreshing a web page, or closing a program.  But the extent to which you can leverage StrokesPlus to increase your productivity is only limited by your imagination!</p>
+  <hr>
+  <a href="#Contents">[back to top]</a> &nbsp;&nbsp;
+  <a name="GettingStarted"><b>Getting Started:</b></a> 
+  <hr>  
+  <p>StrokesPlus comes with several gestures already trained and a variety of common action sequences already defined.  To do anything other than use StrokesPlus to fire action sequences, you must right-click the StrokesPlus icon in the tray area of your taskbar, near the clock (<b>Figure 4</b>).  </p>
+
+	<center><h2> Figure 4</h2>
+  <img src="./images/Menu.png" border="0" alt="" title="">
+  </center>
+  <p>From this menu, you can:</p>
+  <ol>
+  <li>enter <a href="#Training">Training Mode</a> (which can also be accomplished by middle-clicking the StrokesPlus icon)</li>
+  <li>change the Stroke button</li>
+  <li>enable or disable drawing of gestures on the screen</li>
+  <li>disable StrokesPlus (which can also be accomplished by left-clicking the StrokesPlus icon or pressing CTRL+SHIFT+WIN+Z)</li>
+  <li>Open the <a href="#IgnoredWindows">Ignore List</a> window</li>
+  <li>Open the <a href="#CreatingActions">Actions</a> window (which can also be accomplished by left double-clicking the StrokesPlus icon)</li>
+  <li>Open the <a href="#Preferences">Preferences</a> window (which can also be accomplished by middle double-clicking the StrokesPlus icon)</li>
+  <li>Set or change your password to encrypt StrokesPlus.xml and restrict access to the configuration window.</li>
+  <li>Reload StrokesPlus' configuration data from StrokesPlus.xml</li>
+  <li>Open this Help page</li>
+  <li>Exit StrokesPlus (which can also be accomplished by pressing CTRL+ALT+SHIFT+WIN+END)</li>
+  </ol>
+  <hr>
+  <a href="#Contents">[back to top]</a> &nbsp;&nbsp;
+  <a name="Preferences"><b>Preferences:</b></a> 
+  <hr> 
+  <p><b>Figure 5</b> represents the Preferences window in StrokesPlus.  From this window, you can change several of StrokesPlus' features to meet your preferences. </p>
+  <p><b>Stroke Button</b> - the mouse or keyboard button used to initiate firing action sequences</p>
+  <p><b>Ignore Key</b> - held down before pressing the Stroke button if you do not want StrokesPlus to attempt to recognize an action.  this is helpful when you want to perform some action in Windows or another application which requires using the Stroke Button.  If you use a Stroke key, make sure you don't have the same key selected as the ignore key or StrokesPlus won't work.<u>Note:</u> See Cancel Delay below for these situations as well.</p>
+  <p><b>Cancel Delay</b> - this is how long StrokesPlus waits for an action to timeout.  For example, if you decided to right-click and drag some files in Windows Explorer, StrokesPlus would begin to look for action sequences to fire when you let go of the Stroke button.  However, if you want StrokesPlus to stop capturing the sequence, simply keep the Stroke button held down and stop moving the mouse.  After the number of milliseconds specified for Cancel Delay, StrokesPlus will stop capturing mouse and keyboard events, then replay the mouse events that occurred.  In this instance, it would instantly move the mouse back to the starting position and send the right-click message, then move the mouse back to where you had it.  So in this example, you would see the files attached to the mouse cursor just as you would if you had right-clicked and dragged some files in Explorer without StrokesPlus running (or if you had held the Ignore Key before pressing the right mouse button).</p>
+  <p><b>Synaptics TouchPad</b> - If a Synaptics TouchPad and software is detected, allows you to specify whether 1 (tap &amp; hold), 2, or 3 fingers will be used to capture a gesture. <b>Cursor Movement Sensitivity</b> controls how fast or slow the mouse pointer moves while drawing on the TouchPad; this can be 5% and higher. <b>1 Finger Movement Threshold</b> specifies the number of ticks from the TouchPad above which the TouchPad activity is not considered a gesture (meaning you're just moving the pointer).  <b>1 Finger Hold Delay</b> is how long you have to hold your finger still for S+ to begin capturing a gesture. Check <b>Disable Integration</b> to prevent S+ from even loading the Synaptics interface internally.</p>
+  <p><b>Stroke Style</b> - These fields allow you to customize how StrokesPlus draws gestures on the screen.  <b>Red, Green</b>, and <b>Blue</b> indicate the color combination which represent the actual color of the line. <b>Width</b> specifies how thick the line is. <b>Min. Segment Length</b> specifies the distance between drawing segments; mainly, this lets you set a minimum draw distance before S+ considers you've started drawing a Stroke. <b>Length</b> indicates the maximum length (trail) that StrokesPlus will draw, 0 for infinite.  This doesn't affect the actual gesture being drawn, just how long the line is on the screen. <b>Opacity</b> affects the transparency of the line; 1 being nearly invisible and 255 being opaque (solid).  <b>Show</b> instructs StrokesPlus whether or not to even draw the line at all.</p>
+  <p><b>Advanced / Experimental Options</b> - these settings should used with caution as some of them could cause problems with StrokesPlus or other applications.</p>
+  <p><b>Match Precision</b> - how finely StrokesPlus interpolates gestures to use for comparison.  Default is 100 and there should be no need to change this setting.</p>
+  <p><b>Match Probability</b> - the match likelihood of the drawn gesture to saved gestures. Higher makes the gesture matching more strict.</p>
+  <p><b>Aggressively Manage Memory</b> - tells StrokesPlus to aggressively clean up memory at many points in the program's operation.  Leave checked to ensure StrokesPlus uses the least amount of RAM while running.  Uncheck if you want to let Windows manage the memory StrokesPlus uses; note that Windows is very liberal, only tidying up if other processes require memory used by other programs and available RAM has become limited.</p>
+  <p><b>Release/Reinitialize on Suspend/Resume</b> - If checked, StrokesPlus will destory the tray icon and unhook the mouse and keyboard when Windows enters a suspended mode (e.g. selecting Sleep from the shutdown menu).  When Windows resumes, StrokesPlus will recreate its icon and re-hook the mouse and keyboard (if S+ has not been disabled, of course).</p>
+  <p><b>Disable Multiple Instance Message</b> - prevents StrokesPlus from displaying the popup message when you open more than one instance of StrokesPlus.</p>
+  <p><b>Disable New Gesture Message</b> - prevents StrokesPlus from displaying the popup message when you click New to create a new gesture.</p>
+  <p><b>Reset Cancel Delay On Movement/Modifier</b> - If <u>unchecked</u>, tells StrokesPlus to cancel gestures when the Cancel Delay is reached, regardless of mouse or keyboard activity.</p>
+  <p><b>Keep Gesture Draw Window On Top</b> - always keep the transparent window to which StrokesPlus draws the gesture line on top.  This can be helpful for low-power systems and prevent flickering UI elements for Windows XP users. However, there may be issues with other programs if they react to StrokesPlus' gesture window being above them.  Therefore, this is an experimental feature.</p>  
+  <p><b>Don't Hide Gesture Draw Window</b> - when you're not drawing a gesture, the draw window is normally sent behind all other windows to increase performance and eliminate flickering and mouse lag when starting a new gesture. Uncheck this option to instruct StrokesPlus to hide the window completely. (This setting has no effect if <i>Keep Gesture Draw Window On Top</i> is checked.</p>      
+  <p><b>Enable Mouse Wheel Relay</b> - StrokesPlus will relay all mouse wheel scroll events directly to the control below the mouse cursor regardless of state.  This lets you scroll controls, lists, windows which aren't active or selected by only scrolling the mouse wheel over top of them.</p>
+  <p><b>Fire Recognition on Mouse Wheel Scroll</b> - StrokesPlus will attempt to recognize and fire actions when the mouse wheel is scrolled up or down (only when the Stroke button is being held down).  This allows you to have actions which fire for each tick, this is helpful for volume actions, switching tabs, etc.</p>
+  <p><b>Capture Modifiers on Stroke Button Down*</b> - In addition to capturing modifiers when they occur after the Stroke button is pressed, StrokesPlus will also get their state at the moment the Stroke button is pressed. So if you had the Control key held <u>prior</u> to pressing the Stroke button pressed (and held down at the time), the Control modifier would be recognized as part of the action definition.</p>
+  <p><b>Allow After Action Script*</b> - Enables the After Action script described <a href="#Variables">here</a>. To address script error issues for some folks, I separated the processing for the After Action functionality. So if you don't use it, leaving this unchecked will be slightly more efficient.</p>  
+  <p><b>Check Cursor Flags*</b> - Determines if S+ will check the cursor flags and decide whether to capture the mouse or not. If you have a program that's doing funky stuff with the mouse cursor and S+ won't capture gestures, try unchecking this option.</p>   
+  <p><b>Play Sound for No Match</b> - plays a sound if the gesture doesn't exist or doesn't match a defined action</p>
+  <p><b>Sound (file)</b> - The WAV file to play when no match.  If empty, the sound defined for Question within Windows is played.</p>
+   <center><h2>Figure 5</h2>
+  <img src="./images/Preferences.png" border="0" alt="" title="">
+  </center>
+  <hr>
+  <a href="#Contents">[back to top]</a> &nbsp;&nbsp;
+  <a name="Training"><b>Training Gestures:</b></a> 
+  <hr> 
+    <p>StrokesPlus comes with many gestures pre-trained, however, you can enter <b>Training Mode</b> if you want to create your own by selecting Training Mode from the StrokesPlus tray icon.  You can also train StrokesPlus about existing gestures.  For example, say that the way you draw the letter "R" on the screen is different than the way I do, StrokesPlus has learned the way I draw "R" and it may not recognize it when you draw "R".  By entering Training Mode and drawing "R", you will see the window in <b>Figure 6</b>.  If StrokesPlus recognizes the gesture, the text box will be pre-populated with the name of the gesture it believes was drawn.  If StrokesPlus was incorrect in recognizing the gesture you intended, enter the name of the correct gesture here and click <b>Save</b>.  This will add your drawing to the collection of point patterns associated with that gesture name.  The more point patterns a gesture has associated with it, the better StrokesPlus may be at recognizing it.</p>
+	<p>Of course, if your drawing of "R" is dramatically different than the way I draw "R", it would be best to delete the "R" gesture from the Actions window and recreate one using only your point patterns so StrokesPlus will learn your style of "R" much faster.  You will find that most gestures require only one point pattern (training capture), while others, like "R" and "B" will need several training sets for each letter since they're fairly similar, geometrically.</p>
+	<center><h2>Figure 6</h2>
+	<img src="./images/Gesture.png" border="0" alt="" title="">    
+	</center>
+  <hr>
+  <a href="#Contents">[back to top]</a> &nbsp;&nbsp;
+  <a name="CreatingActions"><b>Creating Actions:</b></a> 
+  <hr>
+  <p><b>Actions</b> are the lifeblood of StrokesPlus.  Here is where you tell StrokesPlus exactly what to do when you complete a gesture.</p>
+  <p>An action is recognized if all of the criteria are met. This includes the <b>Gesture</b>, <b>Mouse Modifiers</b>, and/or <b>Key Modifiers</b>.  Only one of these items must be selected to be recognized by StrokesPlus. For example, I have an action defined with only the <b>Left Button</b> mouse modifier; no Gesture or Key Modifier selected; so all I do is press the Stroke button (right, for me) and press the left mouse button and let go of the right button.  This is great for very repetitive tasks; I use it for opening links in a new browser tab. I also have an action defined with only <b>Scroll Up</b> which I use to increase the volume.</p>
+  <p>Though most gesture involve drawing something on the screen as it's very easy to have many gestures where there are only so many mouse buttons.  Note that modifiers do not have to be held for the duration of the sequence, only performed once after the Stroke button is pressed.  So if you pressed the Stroke button and started to draw, you could tap the Control key once before releasing the Stroke button and it would be recognized as the drawing+Control key and if you have an action defined with that drawing and the Control key, StrokesPlus would fire the Lua script for the action.</p>
+  <p>If you have <b>Capture Modifiers on Stroke Button Down*</b> checked in the Preferences tab, you can also qualify when modifiers are recognized for an action; either at the time the Stroke button is pressed, after it's pressed, or either time.  This allows you to have two actions with the same gesture/modifier settings, but are recognized depending on when the modifier(s) was pressed.  This is generally useful for creating rocker gestures, where you have an action that executes when you press the Right mouse button, then the left (together) and have another action fire when the Left mouse button is pressed and held first, followed by the Right mouse button.</p>
+  <p>The <b>Available Actions</b> dropdown displays a list of all actions exposed to Lua.  The <b>Info</b> button will pop up a message describing the action. Clicking <b>Insert</b> will paste a snippet of the action into the Lua text box at the location of the cursor.</p>
+  <p>The <b>Auto Save</b> check box tells StrokesPlus if you want it to automatically save changes when you switch to a different app or action, or close the Actions window.  If Auto Save is not checked, you must click Apply before changing actions or closing the window, or changes will be lost.</p>
+  <p><a href="#Variables">Variables</a> and <a href="#Actions">Actions</a> cover the variables and actions StrokesPlus exposes to Lua.  For general Lua syntax, simply search Google for "Lua Programming Reference".
+	<center><h2>Figure 7</h2>
+	<img src="./images/Actions.png" border="0" alt="" title="">  
+	</center>
+  <hr>
+  <a href="#Contents">[back to top]</a> &nbsp;&nbsp;
+  <a name="DefiningApplications"><b>Defining Applications:</b></a> 
+  <hr>
+  <p><b>Global Actions</b> are those which will fire regardless of what application is under the mouse (excluding Ignored windows, covered in the next section).  However, you may want to have an entire set of gestures which are specific to only only application; like a web browser.  To achieve this, click the <b>Add App</b> button, enter a name, and click OK.  You will see a whole bunch of fields available to qualify and application and a Find Window box with a crosshair that can be used to locate an application, or only part of an application.</p>
+  <p>Only one field is required and generally the <b>File Name</b> is sufficient and will ensure the entire program is always matched.  After using the Find Window crosshair, many of the fields will be populated with values.  While you can leave them all as-is, it can create a very narrow scope that defines the app; potentially only a certain area of the app or only if the application's title happens to be exactly what was captured after using the Find Window tool.  As I said, clear out all of the fields but File Name unless you're certain about the impact of how the qualifiers will affect your desired result.</p>
+  <p>The various <b>Pattern</b> fields are used to match based on regular expressions (uses BOOST regex library, FYI).  This can be helpful if you want to match a broad or perhaps very specific type of condition to define an application.</p>
+  <p>When a gesture is complete, StrokesPlus will attempt to match applications first. If no match is found, then it will check the Global Actions for a match, unless <b>Do not process Global Actions for this app, only app actions</b> is checked</p>
+	<center><h2>Figure 8</h2>
+	<img src="./images/Application.png" border="0" alt="" title="">  
+	</center>
+  <hr>
+  <a href="#Contents">[back to top]</a> &nbsp;&nbsp;
+  <a name="CreatingHotkeys"><b>Creating Hotkeys:</b></a> 
+  <hr>
+  <p><b>Hotkeys</b> may be assigned to fire Lua scripts. These are just like Actions except no mouse is involved. These scripts run exactly as is; there are no extra variables passed in like gsx, gsy, etc. and do not trigger the sp_before_action and sp_after_action functions.</p>
+	<center><h2>Figure 9</h2>
+	<img src="./images/Hotkey.png" border="0" alt="" title="">  
+	</center>	
+  <hr>
+  <a href="#Contents">[back to top]</a> &nbsp;&nbsp;
+  <a name="IgnoredWindows"><b>Ignored Windows:</b></a> 
+  <hr>
+	<p><b>Ignored windows</b> are those which will cause StrokesPlus to ignore the Stroke button when it's pressed on a window which is in the ignore list.  To add a window to the ignored list, click the <b>Add</b> button, enter a name, and click OK.  You will see a whole bunch of fields available to qualify and application and a Find Window box with a crosshair that can be used to locate an application, or only part of an application.</p>
+	  <p>Only one field is required and generally the <b>File Name</b> is sufficient and will ensure the entire program is always matched.  After using the Find Window crosshair, many of the fields will be populated with values.  While you can leave them all as-is, it can create a very narrow scope that defines the ignored window; potentially only a certain area of the app or only if the application's title happens to be exactly what was captured after using the Find Window tool.  As I said, clear out all of the fields but File Name unless you're certain about the impact of how the qualifiers will affect your desired result.</p>
+	  <p>The various <b>Pattern</b> fields are used to match based on regular expressions (uses BOOST regex library, FYI).  This can be helpful if you want to match a broad or perhaps very specific type of condition to define an application which is to be ignored.</p> 
+	  <p>The checkbox <b>Disable S+ if this application is activated</b> tells S+ to completely unhook the mouse and keyboard if the ignored application becomes the active (foreground) window. This is useful if you want to disable S+ when a full screen game opens. Since ignoring the game window still involves S+ checking if the window is ignored each time the Stroke button is pressed, this can cause a very brief delay before S+ forwards the mouse event to the game. For high-performance applications, having S+ disabled is definitely the way to go, especially when it comes to gaming.  Note that you will have to manually re-enable S+ once it disables itself due to this option being checked as there's no reliable way for S+ to know that you want it re-enabled.</p>
+	  <p>Don't forget to click <b>Apply</b> after making any changes in this window if you don't have Auto Save checked.</p>
+	<center><h2>Figure 10</h2>
+	<img src="./images/Ignored.png" border="0" alt="" title="">  
+	</center>  
+  <hr>
+  <a href="#Contents">[back to top]</a> &nbsp;&nbsp;
+  <a name="ActionReport"><b>Action Report:</b></a> 
+  <hr>
+	<p>This tab shows you a list of all defined and active actions.
+	<center><h2>Figure 11</h2>
+	<img src="./images/Report.png" border="0" alt="" title="">  
+	</center>  
+  <hr>	
+  <hr>
+  <a href="#Contents">[back to top]</a> &nbsp;&nbsp;
+  <a name="GlobalLua"><b>Global Lua:</b></a> 
+  <hr>
+	<p>This tab shows you the contents of your StrokesPlus.lua file. You can use this file to define your own functions or variables that may be used by all actions.
+	<center><h2>Figure 12</h2>
+	<img src="./images/Lua.png" border="0" alt="" title="">  
+	</center>  
+  <hr>	  
+  <hr>  
+  <a href="#Contents">[back to top]</a> &nbsp;&nbsp;
+  <a name="Variables"><b>Variables available to all Lua scripts:</b></a> 
+  <hr>
+  <p>The following variables are populated automatically when completing a gesture.  They are often used by many of the action functions (covered in the next section) to identify the window(s) to be affected by the action.</p>
+  <b>sp_gesture_name</b> (may also be referenced as <b>gnm</b>): string - The name of the
+  drawn gesture<br />
+  <br />
+  <b>sp_gesture_start_x</b> (may also be referenced as <b>gsx</b>): integer - The X
+  coordinate of where the gesture began<br />
+  <b>sp_gesture_start_y</b> (may also be referenced as <b>gsy</b>): integer - The Y
+  coordinate of where the gesture began<br /> 
+  <br />
+  <b>sp_gesture_end_x</b> (may also be referenced as <b>gex</b>): integer - The X
+  coordinate of where the gesture ended<br />
+  <b>sp_gesture_end_y</b> (may also be referenced as <b>gey</b>): integer - The Y
+  coordinate of where the gesture ended<br />
+  <br />
+  <b>sp_wheel_delta</b> (may also be referenced as <b>gwd</b>): integer - The mouse wheel
+  scroll delta [positive or negative number], standard mouse wheels are 120 per wheel
+  tick
+  <br /><br />
+  <b>sp_app_name</b> (may also be referenced as <b>gapp</b>): string - The name of the application that was matched, or &quot;Global Actions&quot; (or whatever is specified in Language.xml) 
+  <br />
+  <b>sp_action_name</b> (may also be referenced as <b>gact</b>): string - The name of the action that was matched
+  <br /><br />
+  <b>gbl</b>: integer - The bounding left coordinate (left-most X of the drawn gesture)<br /> 
+  <br />  
+  <b>gbt</b>: integer - The bounding top coordinate (top-most Y of the drawn gesture)<br /> 
+  <br />  
+  <b>gbr</b>: integer - The bounding right coordinate (right-most X of the drawn gesture)<br /> 
+  <br />  
+  <b>gbb</b>: integer - The bounding bottom coordinate (bottom-most Y of the drawn gesture)<br /> 
+  <br />  
+  <p>Additionally, <b>alien.core</b> and <b>alien.struct</b> are available to Lua scripts for making direct DLL calls.  You do not need to include:<br /><br />
+
+   <b>require "alien"</b><br /><br />
+
+..in your Lua script (as many sample scripts on the Internet do), you will receive an error, unless the alien DLLs are somewhere in the path, but I'm not so sure they would play well together...so that's at your own risk.</p>
+<p>Example Lua Script to directly call user32.dll to display a message box (not via the bound acMessageBox(), this is directly calling it):<br /><br />
+
+&nbsp;&nbsp;&nbsp;local alien = alien.core<br />
+&nbsp;&nbsp;&nbsp;local mb = alien.load("user32.dll")<br />
+&nbsp;&nbsp;&nbsp;local messagebox = mb.MessageBoxA<br />
+&nbsp;&nbsp;&nbsp;messagebox:types{ ret = 'long', abi = 'stdcall', 'long', 'pointer', 'string', 'long' }<br />
+&nbsp;&nbsp;&nbsp;test = "test"<br />
+&nbsp;&nbsp;&nbsp;messagebox(0, test, "test2", 0)  </p>
+<p>Note that making direct DLL calls can cause S+/the Lua engine to crash hard if you screw something up in the script or defining the call(s), so this is a use at your own risk feature.  I would recommend installing Lua for Windows and testing scripts in there if you're having problems or before adding to an action (removing <b>require &quot;alien&quot;</b> references).</p>
+
+<p>Also, you may include any variables or functions in the file <b>StrokesPlus.lua</b> in the same folder as StrokesPlus.exe.  When StrokesPlus loads (or you select Reload Config from the tray menu), any Lua in StrokesPlus.lua is executed and persisted.  For example, if you wanted to create your own Lua function that you wanted to be able to call from any action, you could store it in StrokesPlus.lua.  Or perhaps you want to create some global variables that are shared across actions, they could be declared/initialized there as well.</p>
+
+<p>Beginning with StrokesPlus version 1.9.7, the following action may be defined in StrokesPlus.lua (by you) if you'd like certain Lua code to fire before all of your action scripts. For example, some people may wish to have a call to acActivateWindow before all actions scripts.<br /><br />
+To utilize this functionality, you must define the function you wish S+ to fire using the template below:<br />
+<pre>function sp_before_action(gnm, gsx, gsy, gex, gey, gwd, gapp, gact)
+	--your code here
+end</pre> 
+
+Note that <b>sp_before_action</b> is called after the local variables are set (gnm, gsx, gsy, etc.) so your code can work with them as needed.
+</p>
+
+<p>
+Beginning with StrokesPlus version 1.9.8, the following action may be defined in StrokesPlus.lua (by you) if you'd like certain Lua code to fire after all of your action scripts. However, you must enable the <b>Allow After Action Script*</b> option in Preferences first. As the option indicates, this may cause script errors for some users. I am unable to reproduce, thus troubleshoot, the cause of the error so this feature is here for those who do not encounter the script errors.<br /><br />
+To utilize this functionality, you must define the function you wish S+ to fire using the template below:<br />
+<pre>function sp_after_action(gnm, gsx, gsy, gex, gey, gwd, gapp, gact)
+	--your code here
+end</pre>  
+</p>
+
+<p>Beginning with StrokesPlus version 2.4.7, the following action may be defined in StrokesPlus.lua (by you) if you'd like certain Lua code to fire when Lua state 1 is initialized. For example, some people may wish to have a call to acToggleTrayIcon(-1) [to hide the S+ tray icon) when S+ starts.<br /><br />
+To utilize this functionality, you must define the function you wish S+ to fire using the template below:<br />
+<pre>function sp_init()
+	--your code here
+end</pre> 
+
+Note that <b>sp_init</b> is only called by Lua state 1. As such, only stateless/non-persistent code should be used here.
+</p>
+
+<p>
+Beginning with StrokesPlus version 2.6.2, the following action may be defined in StrokesPlus.lua (by you) if you'd like certain Lua code to fire after you release the stroke button (where S+ captured the mouse). However, you must enable the <b>Allow After Release Script*</b> option in Preferences first.<br /><br />
+To utilize this functionality, you must define the function you wish S+ to fire using the template below:<br />
+<pre>function sp_after_release()
+	--your code here
+end</pre>  
+</p>
+
+  <hr>
+  <a href="#Contents">[back to top]</a> &nbsp;&nbsp;
+  <a name="Actions"><b>Action Functions:</b></a> <hr><br /> 
+  
+
+	<u><b>Locate Window Actions:</b></u><br />
+	<br />
+	<a href="#acFindWindow">acFindWindow</a><br />
+	<a href="#acFindWindowByTitleRegex">acFindWindowByTitleRegex</a><br />
+	<a href="#acGetAllWindows">acGetAllWindows</a><br />
+	<a href="#acGetOwnerWindowByPoint">acGetOwnerWindowByPoint</a><br />
+	<a href="#acGetParentWindowByPoint">acGetParentWindowByPoint</a><br />
+	<a href="#acGetWindowByPoint">acGetWindowByPoint</a><br />
+	<a href="#acGetForegroundWindow">acGetForegroundWindow</a><br />
+	<a href="#acGetDesktopWindow">acGetDesktopWindow</a><br />
+	<br />
+	<u><b>Window State Actions:</b></u><br />
+	<br />
+	<a href="#acActivateWindow">acActivateWindow</a><br />
+	<a href="#acPauseResumeThreadList">acPauseResumeThreadList</a><br />
+	<a href="#acSetProcessPriority">acSetProcessPriority</a><br />
+	<a href="#acTerminateProcess">acTerminateProcess</a><br />
+	<a href="#acCloseApplication">acCloseApplication</a><br />
+	<br />
+	<u><b>Window Placement Actions:</b></u><br />
+	<br />
+	<a href="#acMoveWindow">acMoveWindow</a><br />
+	<a href="#acMinimizeWindow">acMinimizeWindow</a><br />
+	<a href="#acRestoreWindow">acRestoreWindow</a><br />
+	<a href="#acMaximizeWindow">acMaximizeWindow</a><br />
+	<a href="#acMaximizeOrRestoreWindow">acMaximizeOrRestoreWindow</a><br />
+	<a href="#acTileWindows">acTileWindows</a><br />
+	<br />
+	<u><b>Window Size Actions:</b></u><br />
+	<br />
+	<a href="#acGetWindowLeft">acGetWindowLeft</a><br />
+	<a href="#acGetWindowTop">acGetWindowTop</a><br />
+	<a href="#acGetWindowRight">acGetWindowRight</a><br />
+	<a href="#acGetWindowBottom">acGetWindowBottom</a><br />
+	<a href="#acSetWindowSize">acSetWindowSize</a><br />
+	<br />
+	<u><b>Window Order Actions:</b></u><br />
+	<br />
+	<a href="#acSetTopmost">acSetTopmost</a><br />
+	<a href="#acClearTopmost">acClearTopmost</a><br />
+	<a href="#acToggleTopmost">acToggleTopmost</a><br />
+	<a href="#acSendWindowToBottom">acSendWindowToBottom</a><br />
+	<a href="#acPreviousApplication">acPreviousApplication</a><br />
+	<a href="#acNextApplication">acNextApplication</a><br />
+	<br />
+	<u><b>Window Transparency and Color Key Actions:</b></u><br />
+	<br />
+	<a href="#acGetWindowTransparency">acGetWindowTransparency</a><br />
+	<a href="#acGetWindowColorKeyR">acGetWindowColorKeyR</a><br />
+	<a href="#acGetWindowColorKeyG">acGetWindowColorKeyG</a><br />
+	<a href="#acGetWindowColorKeyB">acGetWindowColorKeyB</a><br />
+	<a href="#acSetWindowColorKey">acSetWindowColorKey</a><br />
+	<a href="#acSetWindowTransparencyAndColorKey">acSetWindowTransparencyAndColorKey</a><br />
+	<a href="#acSetWindowTransparency">acSetWindowTransparency</a><br />
+	<br />
+	<u><b>Miscellaneous Window Actions:</b></u><br />
+	<br />
+	<a href="#acGetWindowTitle">acGetWindowTitle</a><br />
+	<a href="#acGetClassName">acGetClassName</a><br />
+	<a href="#acGetControlID">acGetControlID</a><br />
+	<a href="#acGetExecutableName">acGetExecutableName</a><br />
+	<br />
+	<u><b>Multiple Monitor Actions:</b></u><br />
+	<br />
+	<a href="#acCenterWindowToScreen">acCenterWindowToScreen</a><br />
+	<a href="#acClipWindowToScreen">acClipWindowToScreen</a><br />
+	<a href="#acFitWindowToScreen">acFitWindowToScreen</a><br />
+	<a href="#acMaximizeToAllScreens">acMaximizeToAllScreens</a><br />
+	<a href="#acGetMonitorFromPoint">acGetMonitorFromPoint</a><br />
+	<a href="#acGetMonitorName">acGetMonitorName</a><br />
+	<a href="#acSendWindowToPreviousMonitor">acSendWindowToPreviousMonitor</a><br />
+	<a href="#acSendWindowToMonitorByName">acSendWindowToMonitorByName</a><br />
+	<a href="#acSendWindowToMonitorByHandle">acSendWindowToMonitorByHandle</a><br />
+	<a href="#acSendWindowToNextMonitor">acSendWindowToNextMonitor</a><br />
+	<a href="#acGetMonitorFromName">acGetMonitorFromName</a><br />
+	<a href="#acGetMonitorBottom">acGetMonitorBottom</a><br />
+	<a href="#acGetMonitorTop">acGetMonitorTop</a><br />
+	<a href="#acGetMonitorLeft">acGetMonitorLeft</a><br />
+	<a href="#acGetMonitorRight">acGetMonitorRight</a><br />
+	<br />
+	<u><b>Keyboard Actions:</b></u><br />
+	<br />
+	<a href="#acSendKeys">acSendKeys</a><br />
+	<a href="#acSendKeyDown">acSendKeyDown</a><br />
+	<a href="#acSendKeyUp">acSendKeyUp</a><br />
+	<a href="#acSendWinDown">acSendWinDown</a><br />
+	<a href="#acSendWinUp">acSendWinUp</a><br />
+	<a href="#acSendControlDown">acSendControlDown</a><br />
+	<a href="#acSendControlUp">acSendControlUp</a><br />
+	<a href="#acSendAltDown">acSendAltDown</a><br />
+	<a href="#acSendAltUp">acSendAltUp</a><br />
+	<a href="#acSendShiftDown">acSendShiftDown</a><br />
+	<a href="#acSendShiftUp">acSendShiftUp</a><br />
+	<br />
+	<u><b>Mouse Actions:</b></u><br />
+	<br />
+	<a href="#acGetMouseLocationX">acGetMouseLocationX</a><br />
+	<a href="#acGetMouseLocationY">acGetMouseLocationY</a><br />
+	<a href="#acMouseMove">acMouseMove</a><br />
+	<a href="#acMouseClick">acMouseClick</a><br />
+	<a href="#acGetMouseCursorType">acGetMouseCursorType</a><br />
+	<a href="#acAutoHideMouseCursor">acAutoHideMouseCursor</a><br />
+	<a href="#acHideMouseCursor">acHideMouseCursor</a><br />
+	<a href="#acShowMouseCursor">acShowMouseCursor</a><br />
+	<br />
+	<u><b>Clipboard Actions:</b></u><br />
+	<br />
+	<a href="#acGetClipboardText">acGetClipboardText</a><br />
+	<a href="#acSetClipboardText">acSetClipboardText</a><br />
+	<br />
+	<u><b>Audio Actions:</b></u><br />
+	<br />
+	<a href="#acSetVolume">acSetVolume</a><br />
+	<a href="#acGetVolume">acGetVolume</a><br />
+	<a href="#acToggleMute">acToggleMute</a><br />
+	<a href="#acGetMute">acGetMute</a><br />
+	<a href="#acSetMute">acSetMute</a><br />
+	<a href="#acPlaySound">acPlaySound</a><br />
+	<br />
+	<u><b>Utility Actions:</b></u><br />
+	<br />
+	<a href="#acConsumePhysicalInput">acConsumePhysicalInput</a><br />
+	<a href="#acDelay">acDelay</a><br />
+	<a href="#acGetSystemMetrics">acGetSystemMetrics</a><br />
+	<a href="#acGetPixelRByPoint">acGetPixelRByPoint</a><br />
+	<a href="#acGetPixelGByPoint">acGetPixelGByPoint</a><br />
+	<a href="#acGetPixelBByPoint">acGetPixelBByPoint</a><br />
+	<a href="#acMessageBox">acMessageBox</a><br />
+	<a href="#acDisplayBalloonTip">acDisplayBalloonTip</a><br />
+	<a href="#acDisplayText">acDisplayText</a><br />
+	<a href="#acKillDisplayText">acKillDisplayText</a><br />
+	<a href="#acGetProcessIDFromPattern">acGetProcessIDFromPattern</a><br />
+	<a href="#acGetWindowFromProcessID">acGetWindowFromProcessID</a><br />
+	<a href="#acIsImmersiveProcess">acIsImmersiveProcess</a><br />
+	<a href="#acGetFileVersion">acGetFileVersion</a><br />
+	<a href="#acGetFileProductVersion">acGetFileProductVersion</a><br />
+	<a href="#acInputBox">acInputBox</a><br />
+	<a href="#acRunProgram">acRunProgram</a><br />
+	<a href="#acShellExecute">acShellExecute</a><br />
+	<a href="#acLockWindows">acLockWindows</a><br />
+	
+	<br />
+	<u><b>Windows Registry Actions:</b></u><br />
+	<br />
+	
+	<a href="#acRegistryCreateKey">acRegistryCreateKey</a><br />
+	<a href="#acRegistryDeleteKey">acRegistryDeleteKey</a><br />
+	<a href="#acRegistryDeleteValue">acRegistryDeleteValue</a><br />
+	<a href="#acRegistryGetString">acRegistryGetString</a><br />
+	<a href="#acRegistrySetString">acRegistrySetString</a><br />
+	<a href="#acRegistryGetNumber">acRegistryGetNumber</a><br />
+	<a href="#acRegistrySetNumber">acRegistrySetNumber</a><br />
+	<br />
+	
+	<br />
+	<u><b>Windows Messages Actions:</b></u><br />
+	<br />
+	<a href="#acSendMessage">acSendMessage</a><br />
+	<a href="#acPostMessage">acPostMessage</a><br />
+	<br />
+	<u><b>StrokesPlus Control Actions:</b></u><br />
+	<br />
+	<a href="#acShowSettings">acShowSettings</a><br />
+	<a href="#acShowActions">acShowActions</a><br />
+	<a href="#acShowHotkeys">acShowHotkeys</a><br />
+	<a href="#acShowIgnoreList">acShowIgnoreList</a><br />
+	<a href="#acShowPrefs">acShowPrefs</a><br />
+	<a href="#acShowAbout">acShowAbout</a><br />
+	<a href="#acDisable">acDisable</a><br />
+	<a href="#acDisableNext">acDisableNext</a><br />
+	<a href="#acReloadConfig">acReloadConfig</a><br />
+	<a href="#acToggleTrayIcon">acToggleTrayIcon</a><br />
+	<a href="#acExit">acExit</a><br />  
+  <br />
+  <hr>
+  
+  <b><a name="acActivateWindow">acActivateWindow(hwndTarget, x, y, method)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the window to be activated; "nil"
+  will use the x and y to locate the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window to be activated<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window to be activated<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; method: The type of method used to activate the window; 0 for standard, 1 for thread input, 2 for temporary ALT keypress. Use 0 (default) first, only use the others if 0 isn't working for you.<br />  
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Activates the window at the specified coordinates<br />
+  <br />
+  
+  <b><a name="acAutoHideMouseCursor">acAutoHideMouseCursor(hidetimer, rehidetimer)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hidetimer: How long (in milliseconds) to wait without mouse movement before hiding the mouse cursor. Passing 0 (zero) disables auto-hiding.<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; rehidetimer: How often (in milliseconds) to rehide the mouse cursor if it should be hidden (in case another applications re-displays the cursor)<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Auto-hides all standard mouse cursors based on the specified timers.<br />
+  <br />  
+  
+  <hr><b><a name="acCenterWindowToScreen">acCenterWindowToScreen(hwndTarget, x, y, useworkarea)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the desired window (if "nil", x and
+  y will be used to get the window at those coordinates)<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: If no hwndTarget is specified, this is gets the handle of
+  the window at the x and y coordinates<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: See above<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; useworkarea: (0 for False, 1 for True) whether to use the work area of the
+  screen or not (work area excludes the space used by the taskbar)<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Centers on the window on the screen<br />
+  <br />
+  
+  <hr><b><a name="acClipWindowToScreen">acClipWindowToScreen(hwndTarget, x, y, useworkarea)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the desired window (if "nil", x and
+  y will be used to get the window at those coordinates)<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: If no hwndTarget is specified, this is gets the handle of
+  the window at the x and y coordinates<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: See above<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; useworkarea: (0 for False, 1 for True) whether to use the work area of the
+  screen or not (work area excludes the space used by the taskbar)<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Re-positions the window on the screen, does the best to ensure
+  the window is not outside the screen boundaries, but does not resize the window<br />
+  <br />
+    
+  <hr><b><a name="acClearTopmost">acClearTopmost(hwndTarget, x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the window; "nil" will use the x and
+  y to locate the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Clears the TOPMOST flag of the window<br />
+  <br />
+  
+  <hr><b><a name="acCloseApplication">acCloseApplication(hwndTarget, x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the window to be closed; "nil" will
+  use the x and y to locate the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window to be closed<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window to be closed<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Closes the window at the specified coordinates<br />
+  <br />  
+  
+  <hr><b><a name="acConsumePhysicalInput">acConsumePhysicalInput(value)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; value: (0 for False, 1 for True) whether S+ should consume ALL physical (mouse and keyboard) input.<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: This may be useful if you're about to call a mouse or keyboard action where you don't want any physical input to interfere with the action. But make sure you call again, passing 0, within the SAME Lua script to enable input or your computer may become unusable!
+  <br />
+  <br />  
+  
+  <hr><b><a name="acDelay">acDelay(duration)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; duration: (ms) Number of millisecond to pause<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Pauses the Lua script for the specified duration
+  (Sleep(n))<br />
+  <br />
+  
+  <hr><b><a name="acDisable">acDisable()</a></b><br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Disables StrokesPlus. Calling again will enable S+.<br />
+  <br />
+  
+  <hr><b><a name="acDisableNext">acDisableNext()</a></b><br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Disables the next gesture from being captured<br />
+  <br />  
+
+  <hr><b><a name="acDisplayBalloonTip">acDisplayBalloonTip(title, message, icon)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; title: The title to display<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; message: The message to display<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; icon: The icon to display in the balloon: 0 = None, 1 = Info, 2 = Warning, 3 = Error<br />  
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Displays a balloon tip near the S+ tray icon. Note that Windows limits the frequency at which balloon tips can be displayed and the timing in general, so if you try to call this again a few seconds after the tip was dismissed, nothing will happen. Seems to be different in WinXP vs. Win7.<br />
+  <br />      
+  
+  <hr><b><a name="acDisplayText">acDisplayText()</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; message: The text to display<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; font: The name of the font to use<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; size: The size of the text<br />  
+  &nbsp;&nbsp;&nbsp;&nbsp; red: The red portion of the color of the text color (RGB)<br />  
+  &nbsp;&nbsp;&nbsp;&nbsp; green: The green portion of the color of the text color (RGB)<br />  
+  &nbsp;&nbsp;&nbsp;&nbsp; blue: The blue portion of the color of the text color (RGB)<br />  
+  &nbsp;&nbsp;&nbsp;&nbsp; duration: How long to display the text, in milliseconds<br />  
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate to place the text<br />  
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate to place the text<br />  
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Displays the specified text on the screen. <br />
+  <br />    
+  
+  <hr><b><a name="acExit">acExit()</a></b><br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Exits StrokesPlus<br />
+  <br />
+  
+  <hr><b><a name="acFindWindow">acFindWindow(classname, title)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; classname: The class name of the window to be located<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; title: The title of the window to be located<br />
+  &nbsp;&nbsp; Returns: integer - Handle to the window, 0 if not found<br />
+  &nbsp;&nbsp; Comments: Finds a window by class and title, exact match. Pass [b]nil[/b] in place of either parameter to exclude it from the search. For example, acFindWindow("Winamp v1.x",nil) will find the Winamp class and ignore qualifying on title.<br /> 
+  <br />
+  
+  <hr><b><a name="acFindWindowByTitleRegex">acFindWindowByTitleRegex(titlepattern)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; titlepattern: The regular expression to use when searching for
+  a window title<br />
+  &nbsp;&nbsp; Returns: integer - Handle to the window, 0 if not found<br />
+  &nbsp;&nbsp; Comments: Finds the first window by matching the title to the regular
+  expression passed in<br />
+  <br />
+  
+  <hr><b><a name="acFitWindowToScreen">acFitWindowToScreen(hwndTarget, x, y, useworkarea)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the desired window (if "nil", x and
+  y will be used to get the window at those coordinates)<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: If no hwndTarget is specified, this is gets the handle of
+  the window at the x and y coordinates<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: See above<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; useworkarea: (0 for False, 1 for True) whether to use the work area of the
+  screen or not (work area excludes the space used by the taskbar)<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Fits the window to the screen it's mostly occupying, so it takes
+  up the whole screen.<br />
+  <br />
+  
+  <hr><b><a name="acGetAllWindows">acGetAllWindows(toplevel)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; toplevel: 0 to return ALL window handles (a lot), 1 to return only top-level windows (recommended)<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Fills global table sp_all_windows with the requested window handles. You do not need to define the sp_all_windows table.<br />
+  <br />    
+  
+  <hr><b><a name="acGetClassName">acGetClassName(hwndTarget, x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the window or control; "nil"
+  will use the x and y to locate the window or control<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window or control to be located<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window or control to be located<br />
+  &nbsp;&nbsp; Returns: string<br />
+  &nbsp;&nbsp; Comments: Gets the class name of the specified window or control.  Note that unlike other actions where X and Y return the OWNING window, this control returns the window at the point specified, so if the point of over a button, the button's class name will be returned.  You can call acGetOwnerWindowByPoint() or acGetParentWindowByPoint() if you'd like to walk up the container hierarchy.<br />
+  <br />  
+  
+  <hr><b><a name="acGetClipboardText">acGetClipboardText()</a></b><br />
+  &nbsp;&nbsp; Returns: string<br />
+  &nbsp;&nbsp; Comments: Returns the current text of the clipboard<br />
+  <br />
+  
+  <hr><b><a name="acGetControlID">acGetControlID(hwndTarget, x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the window or control; "nil"
+  will use the x and y to locate the window or control<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window or control to be located<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window or control to be located<br />
+  &nbsp;&nbsp; Returns: string<br />
+  &nbsp;&nbsp; Comments: Gets the control ID for the specified control handle.<br />
+  <br />    
+  
+  <hr><b><a name="acGetDesktopWindow">acGetDesktopWindow()</a></b><br />
+  &nbsp;&nbsp;Returns: integer<br />
+  &nbsp;&nbsp;Comments: Returns the handle of the Desktop window, this window which represents the Windows Desktop<br />
+  <br />
+  
+  <hr><b><a name="acGetExecutableName">acGetExecutableName(hwndTarget, x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the window; "nil"
+  will use the x and y to locate the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window to be located<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window to be located<br />
+  &nbsp;&nbsp; Returns: string<br />
+  &nbsp;&nbsp; Comments: Gets the name of the EXE which owns the window<br />
+  <br />  
+  
+  <hr><b><a name="acGetFileVersion">acGetFileVersion(file, hwndTarget, x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; file: The full path to the file; "" will use either the hwndTarget or x,y to report based on a window
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the window; "nil"
+  will use the x and y to locate the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window to be located<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window to be located<br />
+  &nbsp;&nbsp; Returns: string<br />
+  &nbsp;&nbsp; Comments: Gets the file version of the file specified in the file parameter, or which owns the window when file is empty<br />
+  <br />    
+  
+  <hr><b><a name="acGetFileProductVersion">acGetFileProductVersion(file, hwndTarget, x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; file: The full path to the file; "" will use either the hwndTarget or x,y to report based on a window
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the window; "nil"
+  will use the x and y to locate the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window to be located<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window to be located<br />
+  &nbsp;&nbsp; Returns: string<br />
+  &nbsp;&nbsp; Comments: Gets the file's product version of the file specified in the file parameter, or which owns the window when file is empty<br />
+  <br />      
+  
+  <hr><b><a name="acGetForegroundWindow">acGetForegroundWindow()</a></b><br />
+  &nbsp;&nbsp;Returns: integer<br />
+  &nbsp;&nbsp;Comments: Returns the handle of the foreground (top) window, the one which is currently active<br />
+  <br />
+  
+  <hr><b><a name="acGetMonitorBottom">acGetMonitorBottom(monitorhandle, useworkarea)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; monitorhandle: The handle to the monitor<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; useworkarea: Whether to consider only the work area, not full
+  monitor (excludes taskbar, docked windows)<br />
+  &nbsp;&nbsp; Returns: integer<br />
+  &nbsp;&nbsp; Comments: Gets the CY (bottom) coordinate of the specified monitor<br />
+  <br />
+  
+  <hr><b><a name="acGetMonitorFromName">acGetMonitorFromName(monitorname)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; monitorname: The name of the monitor (value must be in escaped
+  form, "\\" for "\", e.g. "\\.\DISPLAY1" would be written in Lua script as
+  "\\\\.\\DISPLAY1")<br />
+  &nbsp;&nbsp; Returns: integer - monitor handle<br />
+  &nbsp;&nbsp; Comments: Gets handle to the specified monitor<br />
+  <br />
+  
+  <hr><b><a name="acGetMonitorFromPoint">acGetMonitorFromPoint(x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: the x coordinate of the point used to locate the
+  monitor<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: See above<br />
+  &nbsp;&nbsp; Returns: integer<br />
+  &nbsp;&nbsp; Comments: Returns the handle to the monitor where the x,y is located<br />
+    
+  <hr><b><a name="acGetMonitorLeft">acGetMonitorLeft(monitorhandle, useworkarea)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; monitorhandle: The handle to the monitor<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; useworkarea: Whether to consider only the work area, not full
+  monitor (excludes taskbar, docked windows)<br />
+  &nbsp;&nbsp; Returns: integer<br />
+  &nbsp;&nbsp; Comments: Gets the X (left) coordinate of the specified monitor<br />
+  <br />
+  
+  <hr><b><a name="acGetMonitorName">acGetMonitorName(monitorhandle)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; monitorhandle: Handle to the monitor<br />
+  &nbsp;&nbsp; Returns: string<br />
+  &nbsp;&nbsp; Comments: Returns the name of the monitor<br />
+  <br />
+  
+  <hr><b><a name="acGetMonitorRight">acGetMonitorRight(monitorhandle, useworkarea)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; monitorhandle: The handle to the monitor<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; useworkarea: Whether to consider only the work area, not full
+  monitor (excludes taskbar, docked windows)<br />
+  &nbsp;&nbsp; Returns: integer<br />
+  &nbsp;&nbsp; Comments: Gets the CX (right) coordinate of the specified monitor<br />
+  <br />
+  
+  <hr><b><a name="acGetMonitorTop">acGetMonitorTop(monitorhandle, useworkarea)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; monitorhandle: The handle to the monitor<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; useworkarea: Whether to consider only the work area, not full
+  monitor (excludes taskbar, docked windows)<br />
+  &nbsp;&nbsp; Returns: integer<br />
+  &nbsp;&nbsp; Comments: Gets the Y (top) coordinate of the specified monitor<br />
+  <br />
+  
+  <hr><b><a name="acGetMouseCursorType">acGetMouseCursorType()</a></b><br />
+  &nbsp;&nbsp; Returns: string<br />
+  &nbsp;&nbsp; Comments: Returns the name of the mouse current mouse cursor:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;ARROW, IBEAM, WAIT, CROSS, UP, SIZENWSE, SIZENESW, SIZEWE, SIZENS, SIZEALL, NO, HAND, APPSTARTING, HELP, or Unknown
+  <br />  
+  
+  <hr><b><a name="acGetMouseLocationX">acGetMouseLocationX()</a></b><br />
+  &nbsp;&nbsp; Returns: integer<br />
+  &nbsp;&nbsp; Comments: Returns the X (left) coordinate of the current mouse
+  location<br />
+  <br />
+  
+  <hr><b><a name="acGetMouseLocationY">acGetMouseLocationY()</a></b><br />
+  &nbsp;&nbsp; Returns: integer<br />
+  &nbsp;&nbsp; Comments: Returns the Y (top) coordinate of the current mouse
+  location<br />
+  <br />
+  
+  <hr><b><a name="acGetMute">acGetMute()</a></b><br />
+  &nbsp;&nbsp; Returns: integer - 1 for muted, 0 for not muted<br />
+  &nbsp;&nbsp; Comments: Returns the state of the mute on the master channel<br />
+  <br />
+  
+  <hr><b><a name="acGetOwnerWindowByPoint">acGetOwnerWindowByPoint(x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window<br />
+  &nbsp;&nbsp; Returns: integer<br />
+  &nbsp;&nbsp; Comments: Returns the handle of the owner (ancestor) window to which the
+  target window belongs<br />
+  <br />
+  
+  <hr><b><a name="acGetParentWindowByPoint">acGetParentWindowByPoint(x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window<br />
+  &nbsp;&nbsp; Returns: integer<br />
+  &nbsp;&nbsp; Comments: Returns the handle of the parent window to which the target
+  window belongs<br />
+  <br />
+  
+  <hr><b><a name="acGetPixelBByPoint">acGetPixelBByPoint(x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the point<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the point<br />
+  &nbsp;&nbsp; Returns: integer 0-255<br />
+  &nbsp;&nbsp; Comments: Gets the blue (B) part of the color at the specified point<br />
+  
+  <hr><b><a name="acGetPixelGByPoint">acGetPixelGByPoint(x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the point<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the point<br />
+  &nbsp;&nbsp; Returns: integer 0-255<br />
+  &nbsp;&nbsp; Comments: Gets the green (G) part of the color at the specified
+  point<br />
+  <br />
+  
+  <hr><b><a name="acGetPixelRByPoint">acGetPixelRByPoint(x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the point<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the point<br />
+  &nbsp;&nbsp; Returns: integer 0-255<br />
+  &nbsp;&nbsp; Comments: Gets the red (R) part of the color at the specified point<br />
+  
+  <hr><b><a name="acGetProcessIDFromPattern">acGetProcessIDFromPattern(filepattern)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; filepattern: The name or regular expression pattern to search for.<br />
+  &nbsp;&nbsp; Returns: integer - the process ID  if a match is found, 0 if not<br />
+  &nbsp;&nbsp; Comments: Determines if there is a process running which matches the file pattern. File pattern can be the exact name of the executable, or a regular expression for wildcard searches.<br />
+  <br />      
+  
+  <hr><b><a name="acGetSystemMetrics">acGetSystemMetrics(value)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; value: The ID (number) (based on Win32 specs) which to
+  retreive<br />
+  &nbsp;&nbsp; Returns: integer - The value returned by Windows<br />
+  &nbsp;&nbsp; Comments: This directly calls GetsystemMetrics, which can be useful in
+  finding out various metrics of the Windows configuration. See: <a href=
+  "http://msdn.microsoft.com/en-us/library/windows/desktop/ms724385.aspx" target=
+  "_blank"></a><a href=
+  "http://msdn.microsoft.com/en-us/library/windows/desktop/ms724385.aspx" target=
+  "_blank">http://msdn.microsoft.com/en-us/library/windows/desktop/ms724385.aspx</a><br />
+  <br />
+  
+  <hr><b><a name="acGetVolume">acGetVolume()</a></b><br />
+  &nbsp;&nbsp; Returns: integer - Current volume level, 0-100<br />
+  &nbsp;&nbsp; Comments: Returns the current volume of the master channel<br />
+  <br />
+  
+  <hr><b><a name="acGetWindowBottom">acGetWindowBottom(hwndTarget, x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the desired window (if "nil", x and
+  y will be used to get the window at those coordinates)<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: If no hwndTarget is specified, this is gets the handle of
+  the window at the x and y coordinates<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: See above<br />
+  &nbsp;&nbsp; Returns: integer<br />
+  &nbsp;&nbsp; Comments: Gets the CY (bottom) of the specified window<br />
+  <br />  
+  
+  <hr><b><a name="acGetWindowByPoint">acGetWindowByPoint(x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window<br />
+  &nbsp;&nbsp; Returns: integer<br />
+  &nbsp;&nbsp; Comments: Returns the handle of the window at the specified
+  coordinates<br />
+  <br />
+  
+  <hr><b><a name="acGetWindowColorKeyB">acGetWindowColorKeyB(hwndTarget, x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the window; "nil" will use the x and
+  y to locate the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window<br />
+  &nbsp;&nbsp; Returns: integer 0-255<br />
+  &nbsp;&nbsp; Comments: Gets the blue (B) part of the color to which the window's color
+  key is<br />
+  <br />
+  
+  <hr><b><a name="acGetWindowColorKeyG">acGetWindowColorKeyG(hwndTarget, x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the window; "nil" will use the x and
+  y to locate the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window<br />
+  &nbsp;&nbsp; Returns: integer 0-255<br />
+  &nbsp;&nbsp; Comments: Gets the green (G) part of the color to which the window's color
+  key is<br />
+  <br />
+  
+  <hr><b><a name="acGetWindowColorKeyR">acGetWindowColorKeyR(hwndTarget, x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the window; "nil" will use the x and
+  y to locate the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window<br />
+  &nbsp;&nbsp; Returns: integer 0-255<br />
+  &nbsp;&nbsp; Comments: Gets the red (R) part of the color to which the window's color
+  key is<br />
+  <br />
+  
+  <hr><b><a name="acGetWindowFromProcessID">acGetWindowFromProcessID(processID)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; processID: The process ID to use when searching for a top-level window.<br />
+  &nbsp;&nbsp; Returns: integer - handle to the first top-level window of the process, or nil if no match was found.<br />
+  &nbsp;&nbsp; Comments: Searches for a top-level window that belongs to the process ID passed. If a match is found, the handle is returned, otherwise nil is returned.<br />
+  <br />     
+  
+  <hr><b><a name="acGetWindowLeft">acGetWindowLeft(hwndTarget, x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the desired window (if "nil", x and
+  y will be used to get the window at those coordinates)<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: If no hwndTarget is specified, this is gets the handle of
+  the window at the x and y coordinates<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: See above<br />
+  &nbsp;&nbsp; Returns: integer<br />
+  &nbsp;&nbsp; Comments: Gets the X (left) coordinate of the specified window<br />
+  <br />
+  
+  <hr><b><a name="acGetWindowRight">acGetWindowRight(hwndTarget, x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the desired window (if "nil", x and
+  y will be used to get the window at those coordinates)<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: If no hwndTarget is specified, this is gets the handle of
+  the window at the x and y coordinates<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: See above<br />
+  &nbsp;&nbsp; Returns: integer<br />
+  &nbsp;&nbsp; Comments: Gets the CX (right) of the specified window<br />
+  <br />
+  
+  <hr><b><a name="acGetWindowTitle">acGetWindowTitle(hwndTarget, x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the window; "nil" will use the x and
+  y to locate the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window<br />
+  &nbsp;&nbsp; Returns: string - Window title<br />
+  &nbsp;&nbsp; Comments: Returns the title of the window specified<br />
+  <br />
+  
+  <hr><b><a name="acGetWindowTop">acGetWindowTop(hwndTarget, x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the desired window (if "nil", x and
+  y will be used to get the window at those coordinates)<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: If no hwndTarget is specified, this is gets the handle of
+  the window at the x and y coordinates<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: See above<br />
+  &nbsp;&nbsp; Returns: integer<br />
+  &nbsp;&nbsp; Comments: Gets the Y (top) coordinate of the specified window<br />
+  <br />
+
+  <hr><b><a name="acGetWindowTransparency">acGetWindowTransparency(hwndTarget, x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the window; "nil" will use the x and
+  y to locate the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window<br />
+  &nbsp;&nbsp; Returns: integer 0-255<br />
+  &nbsp;&nbsp; Comments: Gets the level of transparency of a window, 0 being invisible,
+  255 being solid<br />
+  <br />  
+  
+  <hr><b><a name="acHideMouseCursor">acHideMouseCursor()</a></b><br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Hides all standard mouse cursors.<br />
+  <br />    
+  
+  <hr><b><a name="acInputBox">acInputBox(title, message, default, delim)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; title: The text to display in the title bar of the input box window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; message: The text to display on the form of the input box window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; default: The default value to populate the text box with<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; delim: If specified, the default parameter is split on this delimiter value and a dropdown list is generated<br />
+  &nbsp;&nbsp; Returns: string<br />
+  &nbsp;&nbsp; Comments: Displays a windows which accepts user input.<br />
+  <br />    
+ 
+  <hr><b><a name="acIsImmersiveProcess">acIsImmersiveProcess(hwndTarget, x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the window; "nil"
+  will use the x and y to locate the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window to be located<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window to be located<br />
+  &nbsp;&nbsp; Returns: integer - 0 if window is not immersive, 1 if it is<br />
+  &nbsp;&nbsp; Comments: Determines if the process owning the window is immersive (Windows 8 Metro/App Store program)<br />
+  <br />   
+ 
+  <hr><b><a name="acDisplayText">acKillDisplayText()</a></b><br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Force closes the acDisplayText window before duration timeout has been reached. <br />
+  <br />   
+ 
+  <hr><b><a name="acLockWindows">acLockWindows()</a></b><br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Locks Windows, equivalent of pressing WIN+L<br />
+  <br />  
+  
+  <hr><b><a name="acMaximizeWindow">acMaximizeWindow(hwndTarget, x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the window to be maximized; "nil"
+  will use the x and y to locate the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window to be maximized<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window to be maximized<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Maximizes the window at the specified coordinates<br />
+  <br />
+  
+  <hr><b><a name="acMaximizeOrRestoreWindow">acMaximizeOrRestoreWindow(hwndTarget, x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the window to be restored or
+  maximized; "nil" will use the x and y to locate the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window to be restored or
+  maximized<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window to be restored or
+  maximized<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Restores or maximizes the window, depending on its state at the
+  specified coordinates<br />
+  <br />
+  
+  <hr><b><a name="acMaximizeToAllScreens">acMaximizeToAllScreens(hwndTarget, x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the desired window (if "nil", x and
+  y will be used to get the window at those coordinates)<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: If no hwndTarget is specified, this is gets the handle of
+  the window at the x and y coordinates<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: See above<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Stretches the window so it takes up the whole desktop, across
+  all screens. Generally, this isn't very practical, but it's there for what it's
+  worth.<br />
+  <br />
+  
+  <hr><b><a name="acMessageBox">acMessageBox(message, title, style)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; message: The main message to be displayed<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; title: Title of the message box window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; style: The integer (based on Win32 specs) which represents the
+  style of the message box, which includes the icon, buttons, and default button. nil for
+  no style (Ok button only)<br />
+  &nbsp;&nbsp; Returns: integer - The value returned by the message box, if a style was
+  specified, which button was clicked will be returned (like a Yes/No box, the return
+  value indicates the button that was clicked)<br />
+  &nbsp;&nbsp; Comments: Displays a standard Windows message box. May pass in style to
+  customize the icon and buttons.<br />
+  <br />
+  
+  <hr><b><a name="acMinimizeWindow">acMinimizeWindow(hwndTarget, x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the window to be minimized; "nil"
+  will use the x and y to locate the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window to be minimized<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window to be minimized<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Minimizes the window at the specified coordinates<br />
+  <br />
+
+  <hr><b><a name="acMouseClick">acMouseClick(x, y, button, down, up)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of where the click should
+  occur<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of where the click should
+  occur<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; button: The mouse button which should be sent<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0: Secondary button (right by default, unless mouse buttons are swapped)<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1: Middle button<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2: Primary button (left by default, unless mouse buttons are swapped)<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3: X1 button<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4: X2 button<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; down: (0 for False, 1 for True) If the MOUSE_BUTTON_DOWN message should be
+  sent<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; up: (0 for False, 1 for True) If the MOUSE_BUTTON_UP message should be
+  sent<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Send a mouse down and/or up event at the specified
+  coordinates<br />
+  <br />
+  
+  <hr><b><a name="acMouseMove">acMouseMove(x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate to move the mouse cursor to<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate to move the mouse cursor to<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Moves the mouse cursor to the specified coordinates<br />
+  <br />
+  
+  <hr><b><a name="acMoveWindow">acMoveWindow(hwndTarget, x, y, left, top)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the window to be moved; "nil" will
+  use the x and y to locate the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window to be moved<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window to be moved<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; left: The new X (left) coordinate of the window's
+  location<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; top: The new Y (top) coordinate of the window's location<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Moves the window using the specified coordinates<br />
+  <br />    
+  
+  <hr><b><a name="acNextApplication">acNextApplication()</a></b><br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Switches to the next application in the window list, like
+  holding ALT and pressing tab (cycles through the open programs)<br />
+  <br />
+  
+  <hr><b><a name="acPauseResumeThreadList">acPauseResumeThreadList(hwndTarget, x, y, resume)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the window; "nil" will use the x and
+  y to locate the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; resume: (0 for False, 1 for True) 1 to resume threads, 0 to
+  suspend<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Suspends or resumes all threads of a window. This is VERY
+  dangerous and NOT recommended, by me or Microsoft, in fact.<br />
+  <br />
+  
+  <hr><b><a name="acPlaySound">acPlaySound(filename)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; filename: The full path (remembering about escaping Lua strings) to the WAV file<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Plays a sound.<br />
+  <br />  
+  
+  <hr><b><a name="acPostMessage">acPostMessage(hwndTarget, MessageID, wParam, lParam)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The destination handle of the window where the
+  message is to be sent<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; MessageID: (integer) The message ID to be sent.<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; wParam: (integer) The wParam to be sent<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; lParam: (integer) The lParam to be sent<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: This is a very simple form, not allowing for complex data
+  structures in wParam and lParam.<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; I intend to try and support any type of parameter in the
+  future.<br />
+  <br />
+  
+  <hr><b><a name="acPreviousApplication">acPreviousApplication()</a></b><br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Switches to the previous window, like pressing ALT+TAB<br />
+  <br />
+  
+  <hr><b><a name="acRegistryCreateKey">acRegistryCreateKey(rootkey, path)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; rootkey: (integer) The root registry key: <br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 = HKEY_CLASSES_ROOT<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 = HKEY_LOCAL_MACHINE<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 = HKEY_CURRENT_USER<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 = HKEY_USERS<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; path: (string) The path of the key to be created (\ must be escaped as \\)<br />
+  &nbsp;&nbsp; Returns: integer, 0 = failed, 1 = success<br />
+  &nbsp;&nbsp; Comments: Creates a new key at the specified path.<br />
+  <br />   
+  
+  <hr><b><a name="acRegistryDeleteKey">acRegistryDeleteKey(rootkey, path)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; rootkey: (integer) The root registry key: <br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 = HKEY_CLASSES_ROOT<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 = HKEY_LOCAL_MACHINE<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 = HKEY_CURRENT_USER<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 = HKEY_USERS<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; path: (string) The path of the key to be deleted (\ must be escaped as \\)<br />
+  &nbsp;&nbsp; Returns: integer, 0 = failed, 1 = success<br />
+  &nbsp;&nbsp; Comments: Deletes the key at the specified path. (will not delete if subkeys exist; subkeys must be deleted first)<br />
+  <br />    
+  
+  <hr><b><a name="acRegistryDeleteValue">acRegistryDeleteValue(rootkey, path, name)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; rootkey: (integer) The root registry key: <br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 = HKEY_CLASSES_ROOT<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 = HKEY_LOCAL_MACHINE<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 = HKEY_CURRENT_USER<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 = HKEY_USERS<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; path: (string) The path of the key to be deleted (\ must be escaped as \\)<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; name: (string) The name of the value to be deleted<br />
+  &nbsp;&nbsp; Returns: integer, 0 = failed, 1 = success<br />
+  &nbsp;&nbsp; Comments: Deletes the value at the specified key/path.<br />
+  <br />     
+  
+  <hr><b><a name="acRegistryGetNumber">acRegistryGetNumber(rootkey, path, name, default)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; rootkey: (integer) The root registry key: <br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 = HKEY_CLASSES_ROOT<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 = HKEY_LOCAL_MACHINE<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 = HKEY_CURRENT_USER<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 = HKEY_USERS<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; path: (string) The path to the desired key (\ must be escaped as \\)<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; name: (string) The name of the value<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; default: (integer) The number to return if the key wasn't found<br />  
+  &nbsp;&nbsp; Returns: (integer) Value or default if not found<br />
+  &nbsp;&nbsp; Comments: Gets a number value from the specified key/path.<br />
+  <br />  
+  
+  <hr><b><a name="acRegistryGetString">acRegistryGetString(rootkey, path, name, default)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; rootkey: (integer) The root registry key: <br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 = HKEY_CLASSES_ROOT<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 = HKEY_LOCAL_MACHINE<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 = HKEY_CURRENT_USER<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 = HKEY_USERS<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; path: (string) The path to the desired key (\ must be escaped as \\)<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; name: (string) The name of the value<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; default: (string) The string to return if the key wasn't found<br />  
+  &nbsp;&nbsp; Returns: (string) Value or default if not found<br />
+  &nbsp;&nbsp; Comments: Gets a string value from the specified key/path. Keys of the type REG_EXPAND_SZ will have their environment variables expanded as available.<br />
+  <br />  
+  
+  <hr><b><a name="acRegistrySetNumber">acRegistrySetNumber(rootkey, path, name, value)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; rootkey: (integer) The root registry key: <br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 = HKEY_CLASSES_ROOT<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 = HKEY_LOCAL_MACHINE<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 = HKEY_CURRENT_USER<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 = HKEY_USERS<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; path: (string) The path to the desired key (\ must be escaped as \\)<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; name: (string) The name of the value<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; value: (integer) The value to be stored<br />  
+  &nbsp;&nbsp; Returns: integer, 0 = failed, 1 = success<br />
+  &nbsp;&nbsp; Comments: Sets a number value in the specified key/path.<br />
+  <br />  
+  
+  <hr><b><a name="acRegistrySetString">acRegistrySetString(rootkey, path, name, value, type)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; rootkey: (integer) The root registry key: <br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 = HKEY_CLASSES_ROOT<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 = HKEY_LOCAL_MACHINE<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 = HKEY_CURRENT_USER<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 = HKEY_USERS<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; path: (string) The path to the desired key (\ must be escaped as \\)<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; name: (string) The name of the value<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; value: (string) The value to be stored<br />  
+  &nbsp;&nbsp;&nbsp;&nbsp; type: (integer) The registry key type: <br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 = REG_SZ (default)<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 = REG_EXPAND_SZ<br />  
+  &nbsp;&nbsp; Returns: integer, 0 = failed, 1 = success<br />
+  &nbsp;&nbsp; Comments: Sets a string value in the specified key/path.<br />
+  <br />   
+  
+  <hr><b><a name="acReloadConfig">acReloadConfig()</a></b><br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Instructs StrokesPlus to reload the data from the configuration
+  file (StrokesPlus.xml)<br />
+  <br />
+  
+  <hr><b><a name="acRestoreWindow">acRestoreWindow(hwndTarget, x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the window; "nil" will use the x and
+  y to locate the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Restores the specified window<br />
+  <br />
+  
+  <hr><b><a name="acRunProgram">acRunProgram(fullpath, parameters, seconds, style)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; fullpath: Full path to EXE; requires escaped backslashes
+  (C:\windows\notepad.exe needs to be written like C:\\windows\\notepad.exe).<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; parameters: The command line parameters to pass to the
+  program<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; seconds: The seconds to wait for the program to exit (to get
+  an exit code); if the duration has passed and the program is still running, 0 is
+  returned.<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; style: The window style for the program, using one of the
+  nCmdShow value described here: <a href=
+  "http://msdn.microsoft.com/en-us/library/windows/desktop/ms633548.aspx" target=
+  "_blank"></a><a href=
+  "http://msdn.microsoft.com/en-us/library/windows/desktop/ms633548.aspx" target=
+  "_blank">http://msdn.microsoft.com/en-us/library/windows/desktop/ms633548.aspx</a>
+  <br />
+  &nbsp;&nbsp; Returns: integer - 0 or return code from program (if it exits before the
+  seconds duration is reached)<br />
+  &nbsp;&nbsp; Comments: Runs a program<br />
+  <br />
+  
+  <hr><b><a name="acSendAltDown">acSendAltDown()</a></b><br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Sends the Alt key down event<br />
+  <br />
+  
+  <hr><b><a name="acSendAltUp">acSendAltUp()</a></b><br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Sends the Alt key up event<br />
+  <br />
+  
+  <hr><b><a name="acSendControlDown">acSendControlDown()</a></b><br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Sends the Control key down event<br />
+  <br />
+  
+  <hr><b><a name="acSendControlUp">acSendControlUp()</a></b><br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Sends the Control key up event<br />
+  <br />
+  
+  <hr><b><a name="acSendKeyDown">acSendKeyDown(VKey)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; VKey: The virtual keycode to send<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Sends the key down event to the active window.<br />
+  <br />  
+  
+  <hr><b><a name="acSendKeys">acSendKeys(keystring)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; keystring: The string of send keys commands (covered
+  <a href="#acSendKeysUsage">here</a>)<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Sends keystrokes to the active window.<br />
+  <br />
+  
+  <hr><b><a name="acSendKeyUp">acSendKeyUp(VKey)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; VKey: The virtual keycode to send<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Sends the key up event to the active window.<br />
+  <br />    
+  
+  <hr><b><a name="acSendMessage">acSendMessage(hwndTarget, MessageID, wParam, lParam)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The destination handle of the window where the
+  message is to be sent<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; MessageID: (integer) The message ID to be sent.<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; wParam: (integer) The wParam to be sent<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; lParam: (integer) The lParam to be sent<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: This is a very simple form, not allowing for complex data
+  structures in wParam and lParam.<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; I intend to try and support any type of parameter in the
+  future.<br />
+  <br />
+  
+  <hr><b><a name="acSendShiftDown">acSendShiftDown()</a></b><br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Sends the Shift key down event<br />
+  <br />
+  
+  <hr><b><a name="acSendShiftUp">acSendShiftUp()</a></b><br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Sends the Shift key up event<br />
+  <br />
+  
+  <hr><b><a name="acSendWinDown">acSendWinDown()</a></b><br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Sends the Win key down event<br />
+  <br />
+  
+  <hr><b><a name="acSendWinUp">acSendWinUp()</a></b><br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Sends the Win key up event<br />
+  <br />
+
+  <hr><b><a name="acSendWindowToBottom">acSendWindowToBottom(hwndTarget, x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the window; "nil" will use the x and
+  y to locate the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Sends the specified window to the bottom of the window stack
+  (imagine turning laying your screen flat and looking down at it)<br />
+  <br />
+  
+  <hr><b><a name="acSendWindowToMonitorByHandle">acSendWindowToMonitorByHandle(monitorhandle)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; monitorhandle: The handle to the desired monitor<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Sends the window to the specified monitor (positions based on
+  LEFT and TOP, does not resize)<br />
+  <br />
+  
+  <hr><b><a name="acSendWindowToMonitorByName">acSendWindowToMonitorByName(monitorname)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; monitorname: The name of the desired monitor (must be an
+  escaped string! \\ for \, e.g. "\\.\DISPLAY1" would be written in Lua script as
+  "\\\\.\\DISPLAY1")<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Sends the window to the specified monitor (positions based on
+  LEFT and TOP, does not resize)<br />
+  <br />
+  
+  <hr><b><a name="acSendWindowToNextMonitor">acSendWindowToNextMonitor(hwndTarget, x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the desired window (if "nil", x and
+  y will be used to get the window at those coordinates)<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: If no hwndTarget is specified, this is gets the handle of
+  the window at the x and y coordinates<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: See above<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Sends the window to the next monitor (positions based on LEFT
+  and TOP, does not resize)<br />
+  <br />
+  
+  <hr><b><a name="acSendWindowToPreviousMonitor">acSendWindowToPreviousMonitor(hwndTarget, x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the desired window (if "nil", x and
+  y will be used to get the window at those coordinates)<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: If no hwndTarget is specified, this is gets the handle of
+  the window at the x and y coordinates<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: See above<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Sends the window to the previous monitor (positions based on
+  LEFT and TOP, does not resize)<br />
+  <br />
+  
+  <hr><b><a name="acSetClipboardText">acSetClipboardText(value)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; value: The text to save to the clipboard<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Sets the clipboard text to "value"<br />
+  <br />
+  
+  <hr><b><a name="acSetMute">acSetMute(value)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; value: 1 to mute, 0 to unmute<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Sets the mute state based on the value passed in<br />
+  <br />
+  
+  <hr><b><a name="acSetProcessPriority">acSetProcessPriority(hwndTarget, x, y, priority)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the window; "nil" will use the x and
+  y to locate the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; priority: (integer) The value of the new priority (based on
+  the dwPriorityClass value here: <a href=
+  "http://msdn.microsoft.com/en-us/library/windows/desktop/ms686219.aspx" target=
+  "_blank"></a><a href=
+  "http://msdn.microsoft.com/en-us/library/windows/desktop/ms686219.aspx" target=
+  "_blank">http://msdn.microsoft.com/en-us/library/windows/desktop/ms686219.aspx</a>)<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Sets the process priority of the window<br />
+  <br />
+  
+  <hr><b><a name="acSetTopmost">acSetTopmost(hwndTarget, x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the window; "nil" will use the x and
+  y to locate the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Sets the TOPMOST flag of the window to ON<br />
+  <br />
+  
+  <hr><b><a name="acSetVolume">acSetVolume(value, increment)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; value: (integer 0-100) Value to set the volume to<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; increment: (0 for False, 1 for True) - true tells SP to use the Value
+  parameter as an adjustment to the current volme, false sets the volume to the Value
+  explicitly<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Sets the master volume level<br />
+  <br />
+  
+  <hr><b><a name="acSetWindowColorKey">acSetWindowColorKey(hwndTarget, x, y, remove, red, green, blue)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the window; "nil" will use the x and
+  y to locate the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; remove: (boolean) true to remove the color key<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; red: The red value of the color to make the color key<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; green: The green value of the color to make the color
+  key<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; blue: The blue value of the color to make the color key<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Sets the color key for a window, which makes all parts of a
+  window which match the color (R,G,B) transparent. Can have odd results depending on the
+  window!<br />
+  <br />
+  
+  <hr><b><a name="acSetWindowSize">acSetWindowSize(hwndTarget, x, y, left, top, width, height)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the window to be moved/sized; "nil"
+  will use the x and y to locate the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window to be
+  moved/sized<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window to be
+  moved/sized<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; width: The new width of the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; height: The new height of the window<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Moves and sizes the window using the specified coordinates and
+  width/height<br />
+  <br />
+  
+  <hr><b><a name="acSetWindowTransparency">acSetWindowTransparency(hwndTarget, x, y, opacity)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the window; "nil" will use the x and
+  y to locate the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; opacity: The value to set the level of opacity to, 0-255 (255
+  is opaque)<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Sets the level of transparency of a window, 0 being invisible,
+  255 being solid<br />
+  <br />
+  
+  <hr><b><a name="acSetWindowTransparencyAndColorKey">acSetWindowTransparencyAndColorKey(hwndTarget, x, y, opacity, </a>red, green,
+  blue)</b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the window; "nil" will use the x and
+  y to locate the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; opacity: The value to set the level of opacity to, 0-255 (255
+  is opaque)<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; red: The red value of the color to make the color key<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; green: The green value of the color to make the color
+  key<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; blue: The blue value of the color to make the color key<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Sets the transparency and color key for a window<br />
+  <br />
+  
+  <hr><b><a name="acShellExecute">acShellExecute(verb, file, parameters, directory, style)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; verb: edit, explore, find, open, print. Search for ShellExecute MSDN on the Internet for more details.<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; file: The file or program to open (or perform other actions against). If specifying the full path in this parameter, escaped backslashes are requires
+  (C:\windows\notepad.exe needs to be written like C:\\windows\\notepad.exe)<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; parameters: (optional) The command line parameters to pass to the
+  program<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; directory: (optional) Specifies the working directory<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; style: The window style for the program (hidden, normal, maximizes, etc.), using one of the
+  nCmdShow value described here: <a href=
+  "http://msdn.microsoft.com/en-us/library/windows/desktop/ms633548.aspx" target=
+  "_blank"></a><a href=
+  "http://msdn.microsoft.com/en-us/library/windows/desktop/ms633548.aspx" target=
+  "_blank">http://msdn.microsoft.com/en-us/library/windows/desktop/ms633548.aspx</a>
+  <br />
+  &nbsp;&nbsp; Returns: integer - (always 1)<br />
+  &nbsp;&nbsp; Comments: Executes the specified verb on the file or object specified. For example, specify a MS Word document with "open" and it will open it in MS Word. Or an EXE can be opened, similar to acRunProgram().<br />
+  <br />  
+  
+  <hr><b><a name="acShowAbout">acShowAbout()</a></b><br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Shows the About window<br />
+  <br />  
+  
+  <hr><b><a name="acShowMouseCursor">acShowMouseCursor()</a></b><br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Reloads all standard mouse cursors<br />
+  <br />    
+  
+  <hr><b><a name="acShowSettings">acShowSettings()</a></b><br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Shows the Settings window<br />
+  <br />    
+  
+  <hr><b><a name="acShowActions">acShowActions()</a></b><br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Shows the Actions window<br />
+  
+  <hr><b><a name="acShowHotkeys">acShowHotkeys()</a></b><br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Shows the Hotkeys window<br />  
+  
+  <hr><b><a name="acShowIgnoreList">acShowIgnoreList()</a></b><br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Shows the Ignore List window<br />
+  <br />
+    
+  <hr><b><a name="acShowPrefs">acShowPrefs()</a></b><br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Shows the Preferences window<br />
+  <br />
+  
+  <hr><b><a name="acTerminateProcess">acTerminateProcess(hwndTarget, x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the window; "nil" will use the x and
+  y to locate the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Kills the main process of the window specified. This does not
+  send a friendly close message which prompts to save files, etc.<br />
+  <br />
+  
+  <hr><b><a name="acTileWindows">acTileWindows(mode, area, method)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; mode: 1 to tile vertically, 2 to tile horizontally<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; area: 0 to tile only on the screen where the window under the gesture start resides, 1 to tile across the entire virtual desktop<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; method: 0 to have StrokesPlus handle the tiling, 1 to have Window handle the tiling<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Tiles all open windows vertically or horizontally across either the screen or all screens.  Note that some windows may not position properly due to non-standard window creation.  I will continue to refine thiese actions accordingly, but try changing the method as well to see what works best for you.<br />
+  <br />
+  
+  <hr><b><a name="acToggleMute">acToggleMute()</a></b><br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Toggles the mute on the master channel<br />
+  <br />
+  
+  <hr><b><a name="acToggleTopmost">acToggleTopmost(hwndTarget, x, y)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; hwndTarget: The handle to the window; "nil" will use the x and
+  y to locate the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; x: The X (left) coordinate of the window<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; y: The Y (top) coordinate of the window<br />
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Toggles the TOPMOST flag of the window on or off<br />
+  <br />
+  
+  <hr><b><a name="acToggleTrayIcon">acToggleTrayIcon(state)</a></b><br />
+  &nbsp;&nbsp; Parameters:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; state: -1 only hides the tray icon, 0 toggles the tray icon to the opposite of its current state, 1 only shows the tray icon
+  &nbsp;&nbsp; Returns: integer (always 1)<br />
+  &nbsp;&nbsp; Comments: Toggles or specifies whether the StrokesPlus tray icon is hidden or visible. Can also be accomplished by pressing CTRL+SHIFT+WIN+S<br />
+  <br />   
+  
+  <hr />
+  <a href="#Contents">[back to top]</a> &nbsp;&nbsp;
+  <b><a name="acSendKeysUsage">acSendKeys Usage</a></b>: 
+  <hr>
+  <br />
+  Based on the following project:<br />
+  <a href="http://www.codeproject.com/KB/cpp/sendkeys_cpp_Article.aspx" target=
+  "_blank"></a><a href="http://www.codeproject.com/KB/cpp/sendkeys_cpp_Article.aspx"
+  target="_blank">http://www.codeproject.com/KB/cpp/sendkeys_cpp_Article.aspx</a><br />
+  <br />
+  ----<br />
+  <br />
+  <b>Key Modifiers</b> (indicate the button should be pressed along with the following
+  character, useful for sending ALT+H, which would read "%h"):<br />
+  <br />
+  @ = WINKEY<br />
+  + = SHIFT<br />
+  ^ = CTRL<br />
+  % = ALT<br />
+  <br />
+  <b>Other Functions:</b><br />
+  <br />
+  {VKEY X} - Sends the VKEY specified. Useful if there's a VKEY I don't have defined. For
+  example, {VKEY 13} is equivalent to VK_RETURN.<br />
+  See: <a href="http://msdn.microsoft.com/en-us/library/dd375731%28v=VS.85%29.aspx"
+  target="_blank"></a><a href=
+  "http://msdn.microsoft.com/en-us/library/dd375731%28v=VS.85%29.aspx" target=
+  "_blank">http://msdn.microsoft.com/en-us/library/dd375731%28v=VS.85%29.aspx</a><br />
+  <br />
+  {BEEP X Y} - Beeps with a frequency of X and a duration of Y ms.<br />
+  <br />
+  {DELAY X} - Delays sending the next key of X milliseconds.<br />
+  After the delaying the following key, the subsequent keys will not be further delayed
+  unless there is a default delay value (see DELAY=X).<br />
+  Example: {DELAY 1000} &lt;-- delays subsequent key stroke for 1 second.<br />
+  <br />
+  {DELAY=X} - Sets the default delay value to X milliseconds. This will cause every key
+  to be delayed X ms.<br />
+  If a value is already set and you specify {DELAY Y} you will have your following key
+  delay Y ms but the subsequent keys will be delayed X ms.<br />
+  Example: {DELAY=1000} &lt;-- all subsequent keys will be delayed for 1 second.<br />
+  <br />
+  <b>Full SendKeys listing:</b><br />
+  <br />
+  {ADD} = VK_ADD<br />
+  {APPS} = VK_APPS<br />
+  {AT} = @<br />
+  {BACKSPACE} = VK_BACK<br />
+  {BKSP} = VK_BACK<br />
+  {BREAK} = VK_CANCEL<br />
+  {BROWSERBACK} = VK_BROWSER_BACK<br />
+  {BROWSERFAVORITES} = VK_BROWSER_FAVORITES<br />
+  {BROWSERFORWARD} = VK_BROWSER_FORWARD<br />
+  {BROWSERHOME} = VK_BROWSER_HOME<br />
+  {BROWSERREFRESH} = VK_BROWSER_REFRESH<br />
+  {BROWSERSEARCH} = VK_BROWSER_SEARCH<br />
+  {BROWSERSTOP} = VK_BROWSER_STOP<br />
+  {BS} = VK_BACK<br />
+  {CAPSLOCK} = VK_CAPITAL<br />
+  {CARET} = ^<br />
+  {CLEAR} = VK_CLEAR<br />
+  {DECIMAL} = VK_DECIMAL<br />
+  {DEL} = VK_DELETE<br />
+  {DELETE} = VK_DELETE<br />
+  {DIVIDE} = VK_DIVIDE<br />
+  {DOWN} = VK_DOWN<br />
+  {END} = VK_END<br />
+  {ENTER} = VK_RETURN<br />
+  {ESC} = VK_ESCAPE<br />
+  {ESCAPE} = VK_ESCAPE<br />
+  {F10} = VK_F10<br />
+  {F11} = VK_F11<br />
+  {F12} = VK_F12<br />
+  {F13} = VK_F13<br />
+  {F14} = VK_F14<br />
+  {F15} = VK_F15<br />
+  {F16} = VK_F16<br />
+  {F_1} = VK_F1<br />
+  {F_2} = VK_F2<br />
+  {F_3} = VK_F3<br />
+  {F_4} = VK_F4<br />
+  {F_5} = VK_F5<br />
+  {F_6} = VK_F6<br />
+  {F_7} = VK_F7<br />
+  {F_8} = VK_F8<br />
+  {F_9} = VK_F9<br />
+  {HELP} = VK_HELP<br /> 
+  {HOME} = VK_HOME<br />
+  {INS} = VK_INSERT<br />
+  {LBRACE} = {<br />
+  {LEFT} = VK_LEFT<br />
+  {LPAREN} = (<br />
+  {LWIN} = VK_LWIN<br />
+  {MEDIANEXTTRACK} = VK_MEDIA_NEXT_TRACK<br />
+  {MEDIAPLAYPAUSE} = VK_MEDIA_PLAY_PAUSE<br />
+  {MEDIAPREVTRACK} = VK_MEDIA_PREV_TRACK<br />
+  {MEDIASTOP} = VK_MEDIA_STOP<br />
+  {MULTIPLY} = VK_MULTIPLY<br />
+  {NUMLOCK} = VK_NUMLOCK<br />
+  {NUMPAD0} = VK_NUMPAD0<br />
+  {NUMPAD1} = VK_NUMPAD1<br />
+  {NUMPAD2} = VK_NUMPAD2<br />
+  {NUMPAD3} = VK_NUMPAD3<br />
+  {NUMPAD4} = VK_NUMPAD4<br />
+  {NUMPAD5} = VK_NUMPAD5<br />
+  {NUMPAD6} = VK_NUMPAD6<br />
+  {NUMPAD7} = VK_NUMPAD7<br />
+  {NUMPAD8} = VK_NUMPAD8<br />
+  {NUMPAD9} = VK_NUMPAD9<br />
+  {PERCENT} = %<br />
+  {PGDN} = VK_NEXT<br />
+  {PGUP} = VK_PRIOR<br />
+  {PLUS} = +<br />
+  {PRTSC} = VK_PRINT<br />
+  {RBRACE} = }<br />
+  {RIGHT} = VK_RIGHT<br />
+  {RPAREN} = )<br />
+  {RWIN} = VK_RWIN<br />
+  {SCROLL} = VK_SCROLL<br />
+  {SEPARATOR} - VK_SEPARATOR<br />
+  {SLEEP} - VK_SLEEP<br />
+  {SNAPSHOT} = VK_SNAPSHOT<br />
+  {SUBTRACT} - VK_SUBTRACT<br />
+  {TAB} = VK_TAB<br />
+  {TILDE} = ~<br />
+  {UP} = VK_UP<br />
+  {VOLDOWN} = VK_VOLUME_DOWN<br />
+  {VOLMUTE} = VK_VOLUME_MUTE<br />
+  {VOLUP} = VK_VOLUME_UP<br />
+  {WIN} = VK_LWIN
+
+</div>  
+</body>
+</html>

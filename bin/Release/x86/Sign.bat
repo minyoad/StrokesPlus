@@ -1,0 +1,1 @@
+"C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\signtool.exe" sign /v /s StrokesPlusCertStore /n StrokesPlusCert /t http://timestamp.verisign.com/scripts/timestamp.dll "C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus_2\bin\Release\x86\StrokesPlus.exe"

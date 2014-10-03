@@ -1,0 +1,600 @@
+<language name="(name of language)" author="(author's name)" url="(author's website)" contact="(author's contact info)" version="(version of StrokesPlus this was made for)">
+	<Base>
+		<Messages>
+			<AlreadyRunning>StrokesPlus is already running.
+			
+Click Yes if you really intend to run another instance of StrokesPlus.</AlreadyRunning>
+			<AlreadyRunningTitle>Crafty or just senile?</AlreadyRunningTitle>
+			<OtherGestureAppRunning>At least one of the following programs are running:
+			
+	StrokeIt
+	High Sign
+	Sensiva
+	Mouse Wrangler
+	gMote
+	MaZZicK
+	Just Gestures
+	
+Be sure only one of us is active or you will not have a good time.
+
+To disable this message, set CheckForOtherGesturePrograms to 0 in StrokesPlus.xml.</OtherGestureAppRunning>
+			<OtherGestureAppRunningTitle>Captain Hook</OtherGestureAppRunningTitle>
+			<RequiresAdmin>StrokesPlus must be run with administrative privileges.  Sorry for the inconvenience.
+			
+Seriously, though, if you don't have admin access, you probably shouldn't be using this program.  :-)</RequiresAdmin>
+			<RequiresAdminTitle>Doh!</RequiresAdminTitle>
+			<ForegroundLockTimeout>Foreground Lock Timeout > 0
+			
+Translation: I may not successfully bring windows to the foreground.
+
+Would you like me to update this setting?</ForegroundLockTimeout>
+			<ForegroundLockTimeoutTitle>Front and Center!</ForegroundLockTimeoutTitle>
+			<ForegroundLockTimeoutFail>I failed to update the setting.
+			
+Perhaps try reinstalling if you experience issues.</ForegroundLockTimeoutFail>
+			<ForegroundLockTimeoutFailTitle>/wrist</ForegroundLockTimeoutFailTitle>
+			<SaveConfigFail>Failed to write StrokesPlus.xml. If this perists, your config file may be corrupt or you may not have permissions to update the file; deleting StrokesPlus.xml will create a new config file, but will have no gestures or actions defined.</SaveConfigFail>
+			<SaveConfigFailTitle>No Save For You!</SaveConfigFailTitle>
+			<LoadConfigFail>Failed to load/parse StrokesPlus.xml. If this perists, your config file may be corrupt; deleting StrokesPlus.xml will create a new config file, but will have no gestures or actions defined.
+			
+Exiting StrokesPlus.</LoadConfigFail>
+			<LoadConfigFailTitle>Shit, this isn't good...</LoadConfigFailTitle>
+			<LoadActionsFail>Failed to load/parse ActionHelp.xml. Try replacing the file with a copy from the portable StrokesPlus ZIP download.
+			
+This isn't a fatal error, but there will be no actions in the Available Actions drop down.</LoadActionsFail>
+			<LoadActionsFailTitle>Action Help</LoadActionsFailTitle>
+			<LuaScriptError>Lua Script Error!</LuaScriptError>
+			<GestureTooShortTitle>Gesture Too Short</GestureTooShortTitle>
+			<GestureTooShortMessage>Please draw a longer gesture.</GestureTooShortMessage>
+			<AdminModeTitle>Admin</AdminModeTitle>
+			<AdminModeMessage>Beginning with version 2.2.1, StrokesPlus no longer requires Administrator privileges to run.\n\nFor most uses, this is acceptable. However, there are some unexpected behaviors that you may run into.\n\nFor example, S+ will not be able to control other programs running with elevated privileges, and there may be a couple actions which will not work due the underlying calls to Windows requiring Administrator privileges.\n\nIf you prefer to run S+ with elevated privileges, you may right-click the StrokesPlus.exe file and select Properties -> Compatibility -> Run this program as an administrator.\n\nHowever, S+ cannot be started automatically with Windows if it opens with Administrator privileges.
+			
+If you run the signed version of S+ from a protected folder (Program Files) in Windows 8, these issues can be avoided.</AdminModeMessage>
+			<Win8LauncherTitle>Windows 8 Interoperability</Win8LauncherTitle>
+			<Win8LauncherMessage>Due to changes in Windows 8, S+ may not interact with certain Windows 8 screens unless you have UAC disabled or use the signed version of S+.
+			
+See this post for more details:
+
+http://www.strokesplus.com/windows8</Win8LauncherMessage>	
+			<TouchPadNotSupportedTitle>TouchPad Not Supported</TouchPadNotSupportedTitle>
+			<TouchPadNotSupportedMessage>TouchPad not supported.
+
+Either it's not being reported as a TouchPad, is not multi-finger capable, or an error was encountered while initializing the device.
+
+Synaptics TouchPad support will be disabled; you may enable support again in the Preferences tab.</TouchPadNotSupportedMessage>
+			<ReloadSettingsOpenTitle>I'm sorry Dave, I'm afraid I can't do that.</ReloadSettingsOpenTitle>
+			<ReloadSettingsOpenMessage>Please close all StrokesPlus windows before calling acReload().</ReloadSettingsOpenMessage>		
+		</Messages>
+	</Base>
+	<Settings>
+		<Title>StrokesPlus</Title>
+	</Settings>	
+	<Gestures>
+		<Title>Gestures</Title>
+		<SavedImmediately>Note: Gesture changes are saved immediately.</SavedImmediately>
+	</Gestures>	
+	<Preferences>
+		<Title>Preferences</Title>
+		<StrokeButtonFrame>
+			<Title>Stroke Button</Title>
+			<Buttons>
+				<Right>Right</Right>
+				<Middle>Middle</Middle>
+				<Left>Left</Left>
+				<X1>X1</X1>
+				<X2>X2</X2>
+				<Control>Control</Control>
+				<Alt>Alt</Alt>	
+				<Shift>Shift</Shift>
+				<ScrollUp>Scroll Up</ScrollUp>
+				<ScrollDown>Scroll Down</ScrollDown>				
+			</Buttons>
+			<IgnoreKey>
+				<Title>Ignore Key:</Title>
+				<DropDown>
+					<Control>Control</Control>
+					<Alt>Alt</Alt>
+					<Shift>Shift</Shift>
+					<None>None</None>
+				</DropDown>
+			</IgnoreKey>
+			<CancelDelay>
+				<Title>Cancel Delay:</Title>
+				<Suffix>ms</Suffix>
+			</CancelDelay>
+		</StrokeButtonFrame>
+		<SynapticsFrame>
+			<Disable>Disable Integration</Disable>
+			<Title>Synaptics TouchPad</Title>
+			<Fingers>
+				<One>1 Finger (tap & hold)</One>
+				<Two>2 Fingers</Two>
+				<Three>3 Fingers</Three>
+			</Fingers>
+			<Sensitivity>Cursor Movement Sensitivity:</Sensitivity>
+			<Percent>%</Percent>
+			<HoldDeltaText>1 Finger Movement Threshold:</HoldDeltaText>
+			<HoldDeltaSuffix>units</HoldDeltaSuffix>
+			<HoldDelayText>1 Finger Hold Delay:</HoldDelayText>
+			<HoldDelaySuffix>ms</HoldDelaySuffix>	
+			<StrokeSequence>Stroke Sequence:</StrokeSequence>
+		</SynapticsFrame>		
+		<StrokeStyleFrame>
+			<Title>Stroke Style</Title>
+			<PickColor>Pick Color...</PickColor>
+			<Width>
+				<Title>Width:</Title>
+				<Suffix>px</Suffix>			
+			</Width>
+			<SegmentLength>
+				<Title>Min. Segment Length:</Title>
+				<Suffix>px</Suffix>			
+			</SegmentLength>			
+			<Length>
+				<Title>Length:</Title>
+				<Suffix>points</Suffix>			
+			</Length>
+			<Opacity>
+				<Title>Opacity:</Title>
+				<Suffix>1-255</Suffix>			
+			</Opacity>
+			<Show>
+				<Title>Show:</Title>
+				<Yes>Yes</Yes>
+				<No>No</No>
+			</Show>
+		</StrokeStyleFrame>
+		<AdvancedOptionsFrame>
+			<Title>Advanced / Experimental* Options</Title>
+			<MatchPrecision>
+				<Title>Match Precision:</Title>
+				<Suffix>points</Suffix>						
+			</MatchPrecision>
+			<MatchProbability>
+				<Title>Match Probability:</Title>
+				<Suffix>%</Suffix>						
+			</MatchProbability>
+			<ManageMemory>Aggressively Manage Memory</ManageMemory>
+			<Suspend>Release/Reinitialize on Suspend/Resume*</Suspend>
+			<MultipleInstanceMessage>Disable Multiple Instance Message</MultipleInstanceMessage>
+			<NewGestureMessage>Disable New Gesture Message</NewGestureMessage>
+			<GestureWindowOnTop>Keep Gesture Draw Window On Top*</GestureWindowOnTop>
+			<GestureWindowToBottom>Don't Hide Gesture Draw Window*</GestureWindowToBottom>
+			<ResetCancelDelay>Reset Cancel Delay On Movement/Modifier*</ResetCancelDelay>
+			<MouseWheelRelay>Enable Mouse Wheel Relay*</MouseWheelRelay>
+			<RecognizeOnMouseWheel>Fire Recognition on Mouse Wheel Scroll*</RecognizeOnMouseWheel>
+			<CaptureModifiersOnMouseDown>Capture Modifiers on Stroke Button Down*</CaptureModifiersOnMouseDown>
+			<AllowMouseWheelTick>Allow Mouse Wheel Tick Script*</AllowMouseWheelTick>
+			<AllowAfterActionScript>Allow After Action Script*</AllowAfterActionScript>
+			<AllowMiddleClickScript>Allow Middle Click Script*</AllowMiddleClickScript>
+			<OnlyDefinedApps>Only Capture On Defined Applications (no Global Actions)</OnlyDefinedApps>
+			<AllowAfterReleaseScript>Allow After Release Script*</AllowAfterReleaseScript>
+			<CheckCursorFlags>Check Cursor Flags*</CheckCursorFlags>
+			<AllowLeftClickScript>Allow Left Click Script*</AllowLeftClickScript>
+			<AllowRightClickScript>Allow Right Click Script*</AllowRightClickScript>
+			<AllowX1ClickScript>Allow X1 Click Script*</AllowX1ClickScript>
+			<AllowX2ClickScript>Allow X2 Click Script*</AllowX2ClickScript>
+			<AllowHorzMouseWheelTick>Allow Horizontal Mouse Wheel Tick Script*</AllowHorzMouseWheelTick>			
+			<RelayGestureOnNoMatch>Relay Gesture on No Match*</RelayGestureOnNoMatch>
+			<NoMatchSound>Play Sound for No Match</NoMatchSound>
+			<NoMatchSoundFile>
+				<Title>Sound:</Title>
+				<Test>Test</Test>
+				<Browse>Browse...</Browse>
+			</NoMatchSoundFile>			
+		</AdvancedOptionsFrame>
+		<Help>Help</Help>
+		<Save>Apply</Save>
+		<OK>OK</OK>
+		<Cancel>Cancel</Cancel>
+	</Preferences>
+	<Actions>
+		<Title>Configure Actions</Title>
+		<AddAppPopupTitle>Add Application</AddAppPopupTitle>
+		<AddActionPopupTitle>Add Action</AddActionPopupTitle>
+		<RenameAppPopupTitle>Rename Application</RenameAppPopupTitle>		
+		<RenameActionPopupTitle>Rename Action</RenameActionPopupTitle>			
+		<RenameGesturePopupTitle>Rename Gesture</RenameGesturePopupTitle>
+		<GlobalActions>Global Actions</GlobalActions>
+		<GestureFrame>
+			<Title>Gesture</Title>
+			<New>New</New>
+			<Rename>Rename</Rename>
+			<Delete>Delete</Delete>
+		</GestureFrame>
+		<MouseKeyModifierFrame>
+			<Title>Mouse / Key Modifiers</Title>
+			<Right>Right Button</Right>
+			<Middle>Middle Button</Middle>
+			<Left>Left Button</Left>
+			<X1>X1 Button</X1>
+			<X2>X2 Button</X2>
+			<Control>Control</Control>
+			<Alt>Alt</Alt>	
+			<Shift>Shift</Shift>
+			<ScrollUp>Scroll Up</ScrollUp>
+			<ScrollDown>Scroll Down</ScrollDown>
+		</MouseKeyModifierFrame>
+		<ModifierPress>
+			<Title>Modifier Check</Title>
+			<Before>On Stroke Button Down</Before>
+			<After>After Stroke Button Down</After>
+			<Either>Either</Either>
+		</ModifierPress>		
+		<AvailableActionsFrame>
+			<Title>Available Actions</Title>
+			<Info>Info</Info>
+			<Insert>Insert</Insert>
+			<Messages>
+				<Info>
+					<Description>Description:</Description>
+					<Usage>Usage:</Usage>
+					<Returns>Returns:</Returns>
+					<Parameters>Parameters:</Parameters>
+				</Info>
+			</Messages>
+		</AvailableActionsFrame>
+		<Application>
+			<OwnerTitle>Owner Title:</OwnerTitle>
+			<OwnerTitlePattern>Owner Title Pattern:</OwnerTitlePattern>
+			<OwnerClassName>Owner Class Name:</OwnerClassName>
+			<OwnerClassNamePattern>Owner Class Name Pattern:</OwnerClassNamePattern>
+			<ParentTitle>Parent Title:</ParentTitle>
+			<ParentTitlePattern>Parent Title Pattern:</ParentTitlePattern>
+			<ParentClassName>Parent Class Name:</ParentClassName>
+			<ParentClassNamePattern>Parent Class Name Pattern:</ParentClassNamePattern>
+			<ControlTitle>Control Title:</ControlTitle>
+			<ControlTitlePattern>Control Title Pattern:</ControlTitlePattern>
+			<ControlClassName>Control Class Name:</ControlClassName>
+			<ControlClassNamePattern>Control Class Name Pattern:</ControlClassNamePattern>
+			<ControlID>Control ID:</ControlID>
+			<FilePathPattern>File Path Pattern:</FilePathPattern>
+			<FileName>File Name:</FileName>
+			<FileNamePattern>File Name Pattern:</FileNamePattern>
+			<DoNotProcess>Do not process Global Actions for this app, only app actions</DoNotProcess>
+			<FindWindowFrame>Find Window</FindWindowFrame>
+			<Qualifiers>All qualifiers in this list will determine if the app is a match when the stroke button is pressed. The pattern fields are for regular expression matches.
+			
+Only one field is required; often times, clearing all but the File Name is sufficient.</Qualifiers>
+			<Active>Application Active </Active>
+		</Application>
+		<FormText>
+			<NoGestureRequired>Check Capture Modifiers on Stroke Button Down in Preferences to enable the Modifier Check options.
+
+You don't have to select a gesture, modifier(s) alone can define an action.</NoGestureRequired>
+			<LuaScriptTitle>Lua Script:</LuaScriptTitle>
+		</FormText>
+		<FormButtons>
+			<AddApp>Add App</AddApp>
+			<AddAction>Add Action</AddAction>
+			<Rename>Rename</Rename>
+			<Delete>Delete</Delete>
+			<Save>Save</Save>
+			<Autosave>Autosave</Autosave>
+			<Report>Report</Report>
+			<Help>Help</Help>
+			<Close>Close</Close>
+		</FormButtons>
+		<Messages>
+			<CloseNameWindow>Please close the name window first.</CloseNameWindow>
+			<CloseNameWindowTitle>To Be Better Later</CloseNameWindowTitle>
+			<DeleteTreeItem>Are you sure?</DeleteTreeItem>
+			<DeleteTreeItemTitle>Delete</DeleteTreeItemTitle>
+			<NewGesture>Click OK, then draw the new gesture. Nothing will be lost in this window, it's just hidden.</NewGesture>
+			<NewGestureTitle>New Gesture</NewGestureTitle>
+			<DeleteGesture>Are you sure?</DeleteGesture>
+			<DeleteGestureTitle>Delete</DeleteGestureTitle>
+			<ActionConflict>The following action already has the same gesture/modifiers defined:</ActionConflict>
+			<ActionConflictSave>Save anyway?</ActionConflictSave>
+			<ActionConflictTitle>Action Conflict</ActionConflictTitle>
+		</Messages>
+		<Active>Action Active </Active>
+	</Actions>
+	<Report>
+		<Title>Action Report</Title>
+		<TopText>This is a list of all defined actions.  Click the column headings to sort the report as desired.</TopText>
+		<Columns>
+			<Gesture>Gesture</Gesture>
+			<GestureName>Gesture Name</GestureName>
+			<Modifiers>Modifiers</Modifiers>
+			<AppName>App Name</AppName>
+			<ActionName>Action Name</ActionName>
+			<LuaScript>Lua Script</LuaScript>
+		</Columns>
+		<Refresh>Refresh</Refresh>
+		<Close>Close</Close>
+	</Report>
+	<Ignored>
+		<Title>Ignored List</Title>
+		<AddPopupTitle>Add Ignored Window</AddPopupTitle>
+		<RenamePopupTitle>Rename Ignored Window</RenamePopupTitle>		
+		<OwnerTitle>Owner Title:</OwnerTitle>
+		<OwnerTitlePattern>Owner Title Pattern:</OwnerTitlePattern>
+		<OwnerClassName>Owner Class Name:</OwnerClassName>
+		<OwnerClassNamePattern>Owner Class Name Pattern:</OwnerClassNamePattern>
+		<ParentTitle>Parent Title:</ParentTitle>
+		<ParentTitlePattern>Parent Title Pattern:</ParentTitlePattern>
+		<ParentClassName>Parent Class Name:</ParentClassName>
+		<ParentClassNamePattern>Parent Class Name Pattern:</ParentClassNamePattern>
+		<ControlTitle>Control Title:</ControlTitle>
+		<ControlTitlePattern>Control Title Pattern:</ControlTitlePattern>
+		<ControlClassName>Control Class Name:</ControlClassName>
+		<ControlClassNamePattern>Control Class Name Pattern:</ControlClassNamePattern>
+		<ControlID>Control ID:</ControlID>
+		<FilePathPattern>File Path Pattern:</FilePathPattern>
+		<FileName>File Name:</FileName>
+		<FileNamePattern>File Name Pattern:</FileNamePattern>
+		<FindWindowFrame>Find Window</FindWindowFrame>	
+		<DisableOnActivate>Disable S+ if this application is activated</DisableOnActivate>
+		<Qualifiers>Anything which matches all of the qualifiers in this list will be ignored when the stroke button is pressed. The pattern fields are for regular expression matches. Only one field is required.</Qualifiers>
+		<Active>Rule Active </Active>
+		<Help>Help</Help>
+		<Close>Close</Close>
+		<Add>Add</Add>
+		<Rename>Rename</Rename>
+		<Delete>Delete</Delete>
+		<Save>Save</Save>
+		<Messages>
+			<CloseNameWindow>Please close the name window first.</CloseNameWindow>
+			<CloseNameWindowTitle>To Be Better Later</CloseNameWindowTitle>
+			<DeleteItem>Are you sure?</DeleteItem>
+			<DeleteItemTitle>Delete</DeleteItemTitle>
+		</Messages>		
+	</Ignored>
+	<Name>
+		<Title>Name</Title>
+		<Name>Name:</Name>
+		<Messages>
+			<IgnoredExists>An ignored entry with the same name already exists. 
+Please enter a different name.</IgnoredExists>
+			<IgnoredExistsTitle>Name already exists</IgnoredExistsTitle>
+			<AppExists>An application with the same name already exists. 
+Please enter a different name.</AppExists>
+			<AppExistsTitle>Name already exists</AppExistsTitle>
+			<ActionExists>An action with the same name already exists. 
+Please enter a different name.</ActionExists>
+			<ActionExistsTitle>Name already exists</ActionExistsTitle>
+			<GestureExists>A gesture with the same name already exists. 
+Please enter a different name.</GestureExists>
+			<GestureExistsTitle>Name already exists</GestureExistsTitle>
+			<HotkeyExists>A hotkey with the same name already exists. \nPlease enter a different name.</HotkeyExists>
+			<HotkeyExistsTitle>Name already exists</HotkeyExistsTitle>				
+		</Messages>		
+		<OK>OK</OK>
+		<Cancel>Cancel</Cancel>
+	</Name>
+	<SaveGesture>
+		<Title>Save Gesture</Title>
+		<NameGesture>What would you like to name this gesture?</NameGesture>
+		<Info>Entering the same name as an existing gesture will add this pattern to the existing gesture. 
+Having multiple samples will improve recognition.</Info>
+		<Save>Save</Save>
+		<Cancel>Cancel</Cancel>
+	</SaveGesture>
+	<Menu>
+		<CloseMenu>Close Menu</CloseMenu>
+		<TrainingMode>Training Mode</TrainingMode>
+		<Right>Use Right Button</Right>
+		<Middle>Use Middle Button</Middle>
+		<Left>Use Left Button</Left>
+		<X1>Use X1 Button</X1>
+		<X2>Use X2 Button</X2>
+		<Control>Use Control Button</Control>
+		<Alt>Use Alt Button</Alt>	
+		<Shift>Use Shift Button</Shift>	
+		<Spacebar>Use Spacebar</Spacebar>
+		<DrawGestures>Draw Gestures</DrawGestures>
+		<Disable>Disable StrokesPlus</Disable>
+		<Ignored>Ignored List...</Ignored>
+		<Hotkeys>Hotkeys...</Hotkeys>
+		<Actions>Actions...</Actions>
+		<Preferences>Preferences...</Preferences>
+		<Reload>Reload Config and Lua Engine</Reload>
+		<Password>Password...</Password>
+		<About>About</About>
+		<Help>Help</Help>
+		<Exit>Exit</Exit>
+		<Cut>Cut</Cut>
+		<Copy>Copy</Copy>
+		<Paste>Paste</Paste>
+	</Menu>
+	<Icon>
+		<NormalCaption>StrokesPlus</NormalCaption>
+		<TrainingCaption>StrokesPlus - Training Mode</TrainingCaption>
+		<DisabledCaption>StrokesPlus - Disabled</DisabledCaption>
+		<IgnoringGestures>StrokesPlus - Ignoring Gestures</IgnoringGestures>
+	</Icon>
+	<About>
+		<Title>About</Title>
+		<Close>Close</Close>
+		<StrokesPlus>StrokesPlus</StrokesPlus>
+		<Version>Version:</Version>
+		<ReleaseDate>Release Date:</ReleaseDate>
+	</About>
+	<LuaTab>
+		<Title>Global Lua</Title>
+		<Text>The Lua code below is your StrokesPlus.lua file. You can utilize this file to store your own functions or variables which are accessible to all action scripts.
+Changes made are saved and loaded into the Lua engine immediately when you click Apply or OK.</Text>
+	</LuaTab>	
+	<Password>
+		<Title>Enter Password</Title>
+		<ChangeTitle>Change Password</ChangeTitle>
+		<SetText>Enter the password which will be used to encrypt your config file and restrict access to the configuration window.</SetText>
+		<EnterText>You must enter your password to start StrokesPlus or access the configuration window.</EnterText>
+		<ChangeText>Enter the current password and a new one. If the New Password field is left blank, password protection will be removed.</ChangeText>
+		<Password>Password:</Password>
+		<CurrentPassword>Current Password:</CurrentPassword>
+		<NewPassword>New Password:</NewPassword>
+		<OK>OK</OK>
+		<Cancel>Cancel</Cancel>
+		<MatchFailMessage>Incorrect password.</MatchFailMessage>
+		<MatchFailTitle>Oops!</MatchFailTitle>
+	</Password>
+	<Hotkeys>
+		<Title>Configure Hotkeys</Title>
+		<HotkeysFrame>
+			<Title>Hotkey</Title>
+			<Modifiers>
+				<None>None</None>
+				<Control>Control</Control>
+				<Alt>Alt</Alt>
+				<Shift>Shift</Shift>
+				<Win>Win</Win>
+			</Modifiers>
+			<Modifier1>Modifier 1:</Modifier1>
+			<Modifier2>Modifier 2:</Modifier2>
+			<Modifier3>Modifier 3:</Modifier3>
+			<Modifier4>Modifier 4:</Modifier4>
+			<Key></Key>
+			<Keys>
+				<None>None</None>
+				<0>0</0>
+				<1>1</1>
+				<2>2</2>
+				<3>3</3>
+				<4>4</4>
+				<5>5</5>
+				<6>6</6>
+				<7>7</7>
+				<8>8</8>
+				<9>9</9>
+				<NUMPAD0>NUMPAD 0</NUMPAD0>
+				<NUMPAD1>NUMPAD 1</NUMPAD1>
+				<NUMPAD2>NUMPAD 2</NUMPAD2>
+				<NUMPAD3>NUMPAD 3</NUMPAD3>
+				<NUMPAD4>NUMPAD 4</NUMPAD4>
+				<NUMPAD5>NUMPAD 5</NUMPAD5>
+				<NUMPAD6>NUMPAD 6</NUMPAD6>
+				<NUMPAD7>NUMPAD 7</NUMPAD7>
+				<NUMPAD8>NUMPAD 8</NUMPAD8>
+				<NUMPAD9>NUMPAD 9</NUMPAD9>
+				<Multiply>Multiply</Multiply>
+				<Add>Add</Add>
+				<Subtract>Subtract</Subtract>
+				<Decimal>Decimal</Decimal>
+				<Divide>Divide</Divide>
+				<A>A</A>
+				<B>B</B>
+				<C>C</C>
+				<D>D</D>
+				<E>E</E>
+				<F>F</F>
+				<G>G</G>
+				<H>H</H>
+				<I>I</I>
+				<J>J</J>
+				<K>K</K>
+				<L>L</L>
+				<M>M</M>
+				<N>N</N>
+				<O>O</O>
+				<P>P</P>
+				<Q>Q</Q>
+				<R>R</R>
+				<S>S</S>
+				<T>T</T>
+				<U>U</U>
+				<V>V</V>
+				<W>W</W>
+				<X>X</X>
+				<Y>Y</Y>
+				<Z>Z</Z>
+				<F1>F1</F1>
+				<F2>F2</F2>
+				<F3>F3</F3>
+				<F4>F4</F4>
+				<F5>F5</F5>
+				<F6>F6</F6>
+				<F7>F7</F7>
+				<F8>F8</F8>
+				<F9>F9</F9>
+				<F10>F10</F10>
+				<F11>F11</F11>
+				<F12>F12</F12>
+				<BACKSLASH>BACKSLASH</BACKSLASH>
+				<BACKSPACE>BACKSPACE</BACKSPACE>
+				<CAPSLOCK>CAPS LOCK</CAPSLOCK>
+				<COMMA>COMMA</COMMA>
+				<DASH>DASH</DASH>
+				<DELETE>DELETE</DELETE>
+				<DOWNARROW>DOWN ARROW</DOWNARROW>
+				<END>END</END>
+				<ENTER>ENTER</ENTER>
+				<ESCAPE>ESCAPE</ESCAPE>
+				<GRAVE>GRAVE/TILDE</GRAVE>
+				<HOME>HOME</HOME>
+				<INSERT>INSERT</INSERT>
+				<LEFTARROW>LEFT ARROW</LEFTARROW>
+				<LBRACE>LEFT BRACE</LBRACE>
+				<NUMLOCK>NUM LOCK</NUMLOCK>
+				<PAGEDOWN>PAGE DOWN</PAGEDOWN>
+				<PAGEUP>PAGE UP</PAGEUP>
+				<PAUSE>PAUSE</PAUSE>
+				<PERIOD>PERIOD</PERIOD>
+				<PRINTSCREEN>PRINT SCREEN</PRINTSCREEN>
+				<QUOTE>QUOTE</QUOTE>
+				<RIGHTARROW>RIGHT ARROW</RIGHTARROW>
+				<RBRACE>RIGHT BRACE</RBRACE>
+				<SCROLLLOCK>SCROLL LOCK</SCROLLLOCK>
+				<SLASH>SLASH</SLASH>
+				<SPACEBAR>SPACEBAR</SPACEBAR>
+				<TAB>TAB</TAB>
+				<UPARROW>UP ARROW</UPARROW>
+				<BROWSER_BACK>BROWSER BACK</BROWSER_BACK>
+				<BROWSER_FORWARD>BROWSER FORWARD</BROWSER_FORWARD>
+				<BROWSER_REFRESH>BROWSER REFRESH</BROWSER_REFRESH>
+				<BROWSER_STOP>BROWSER STOP</BROWSER_STOP>
+				<BROWSER_SEARCH>BROWSER SEARCH</BROWSER_SEARCH>
+				<BROWSER_FAVORITES>BROWSER FAVORITES</BROWSER_FAVORITES>
+				<BROWSER_HOME>BROWSER HOME</BROWSER_HOME>
+				<VOLUME_MUTE>VOLUME MUTE</VOLUME_MUTE>
+				<VOLUME_DOWN>VOLUME DOWN</VOLUME_DOWN>
+				<VOLUME_UP>VOLUME UP</VOLUME_UP>
+				<MEDIA_NEXT_TRACK>MEDIA NEXT TRACK</MEDIA_NEXT_TRACK>
+				<MEDIA_PREV_TRACK>MEDIA PREV TRACK</MEDIA_PREV_TRACK>
+				<MEDIA_STOP>MEDIA STOP</MEDIA_STOP>
+				<MEDIA_PLAY_PAUSE>MEDIA PLAY/PAUSE</MEDIA_PLAY_PAUSE>
+				<LAUNCH_MAIL>LAUNCH MAIL</LAUNCH_MAIL>
+				<LAUNCH_MEDIA_SELECT>LAUNCH MEDIA SELECT</LAUNCH_MEDIA_SELECT>
+				<LAUNCH_APP1>LAUNCH APP1</LAUNCH_APP1>
+				<LAUNCH_APP2>LAUNCH APP2</LAUNCH_APP2>				
+			</Keys>
+		</HotkeysFrame>
+		<FormText>
+			<LuaScriptTitle>Lua Script:</LuaScriptTitle>
+			<InfoText>Hotkeys are global actions that will fire whenever you press the corresponding key combination. 
+
+Note that mouse-related variables are not passed into hotkey Lua scripts; such as gsx, gwd, etc.</InfoText>
+		</FormText>
+		<FormButtons>
+			<AddHotkey>Add Hotkey</AddHotkey>
+			<Rename>Rename</Rename>
+			<Delete>Delete</Delete>
+		</FormButtons>
+		<AvailableActionsFrame>
+			<Title>Available Actions</Title>
+			<Info>Info</Info>
+			<Insert>Insert</Insert>
+			<Messages>
+				<InfoPopup>
+					<Description>Description</Description>
+					<Usage>Usage</Usage>
+					<Returns>Returns</Returns>
+					<Parameters>Parameters</Parameters>
+				</InfoPopup>
+			</Messages>
+		</AvailableActionsFrame>	
+		<AddHotkeyPopupTitle>Add Hotkey</AddHotkeyPopupTitle>
+		<RenameHotkeyPopupTitle>Rename Hotkey</RenameHotkeyPopupTitle>
+		<Active>Hotkey Active</Active>
+		<Messages>
+			<HotkeyFailure>Failed to register hotkey:</HotkeyFailure>
+			<HotkeyFailureTitle>Register Hotkey Error</HotkeyFailureTitle>
+			<HotkeyConflict>The following hotkey already has the same key/modifiers defined:</HotkeyConflict>
+			<HotkeyConflictSave>Save anyway?</HotkeyConflictSave>
+			<HotkeyConflictTitle>Hotkey Conflict</HotkeyConflictTitle>
+			<DeleteTreeItem>Are you sure?</DeleteTreeItem>
+			<DeleteTreeItemTitle>Delete</DeleteTreeItemTitle>
+		</Messages>			
+	</Hotkeys>	
+</language>

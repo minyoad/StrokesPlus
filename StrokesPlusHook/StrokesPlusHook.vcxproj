@@ -1,0 +1,468 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release (Unsigned)|Win32">
+      <Configuration>Release (Unsigned)</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release (Unsigned)|x64">
+      <Configuration>Release (Unsigned)</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{4FD34C97-D415-43B1-9AF8-6CB895860E44}</ProjectGuid>
+    <RootNamespace>StrokesPlusHook</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release (Unsigned)|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release (Unsigned)|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release (Unsigned)|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release (Unsigned)|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)\bin\$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)\bin\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)bin\$(Configuration)\x86\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release (Unsigned)|Win32'">$(SolutionDir)bin\$(Configuration)\x86\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)bin\$(Configuration)\x64\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release (Unsigned)|x64'">$(SolutionDir)bin\$(Configuration)\x64\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release (Unsigned)|Win32'">$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Configuration)\x64\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release (Unsigned)|x64'">$(Configuration)\x64\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release (Unsigned)|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release (Unsigned)|x64'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release (Unsigned)|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release (Unsigned)|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release (Unsigned)|Win32'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release (Unsigned)|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release (Unsigned)|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release (Unsigned)|x64'" />
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;$(SolutionDir)\boost_1_50_0;$(SolutionDir)\lua-5.2.1\src;$(SolutionDir)\alien-0.5.1\libffi\win32\;$(SolutionDir)\alien-0.5.1\src\alien\;$(SolutionDir)\scintilla_320\win32\;$(SolutionDir)\scintilla_320\src\;$(SolutionDir)\scintilla_320\include\;$(SolutionDir)\scintilla_320\lexlib\;$(SolutionDir)\scintilla_320\lexers\;</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release (Unsigned)|Win32'">$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;$(SolutionDir)\boost_1_50_0;$(SolutionDir)\lua-5.2.1\src;$(SolutionDir)\alien-0.5.1\libffi\win32\;$(SolutionDir)\alien-0.5.1\src\alien\;$(SolutionDir)\scintilla_320\win32\;$(SolutionDir)\scintilla_320\src\;$(SolutionDir)\scintilla_320\include\;$(SolutionDir)\scintilla_320\lexlib\;$(SolutionDir)\scintilla_320\lexers\;</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;$(SolutionDir)\boost_1_50_0;$(SolutionDir)\lua-5.2.1\src;$(SolutionDir)\alien-0.5.1\libffi\win32\;$(SolutionDir)\alien-0.5.1\src\alien\;$(SolutionDir)\scintilla_320\win32\;$(SolutionDir)\scintilla_320\src\;$(SolutionDir)\scintilla_320\include\;$(SolutionDir)\scintilla_320\lexlib\;$(SolutionDir)\scintilla_320\lexers\;</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release (Unsigned)|x64'">$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;$(SolutionDir)\boost_1_50_0;$(SolutionDir)\lua-5.2.1\src;$(SolutionDir)\alien-0.5.1\libffi\win32\;$(SolutionDir)\alien-0.5.1\src\alien\;$(SolutionDir)\scintilla_320\win32\;$(SolutionDir)\scintilla_320\src\;$(SolutionDir)\scintilla_320\include\;$(SolutionDir)\scintilla_320\lexlib\;$(SolutionDir)\scintilla_320\lexers\;</IncludePath>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">StrokesPlus</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release (Unsigned)|Win32'">StrokesPlus</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">StrokesPlus</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release (Unsigned)|x64'">StrokesPlus</TargetName>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;$(SolutionDir)\boost_1_50_0;$(SolutionDir)\lua-5.2.1\src;$(SolutionDir)\alien-0.5.1\libffi\win32\;$(SolutionDir)\alien-0.5.1\src\alien\;$(SolutionDir)\scintilla_320\win32\;$(SolutionDir)\scintilla_320\src\;$(SolutionDir)\scintilla_320\include\;$(SolutionDir)\scintilla_320\lexlib\;$(SolutionDir)\scintilla_320\lexers\;</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;C:\Users\Rob\Documents\Development\Dev Code\boost_1_48_0;C:\Users\Rob\Documents\Development\Dev Code\Lua\lua-5.1.4\src;</IncludePath>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">StrokesPlus</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">StrokesPlus</TargetName>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release (Unsigned)|Win32'">true</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release (Unsigned)|x64'">true</GenerateManifest>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</PostBuildEventUseInBuild>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release (Unsigned)|x64'">true</PostBuildEventUseInBuild>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;STROKESPLUSHOOK_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+      <OutputFile>$(OutDir)StrokesPlus.dll</OutputFile>
+      <ImportLibrary>StrokesPlusHook.lib</ImportLibrary>
+      <AdditionalDependencies>winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;STROKESPLUSHOOK_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)StrokesPlus.dll</OutputFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;STROKESPLUSHOOK_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <FloatingPointExceptions>true</FloatingPointExceptions>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+      <StringPooling>true</StringPooling>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)StrokesPlus.dll</OutputFile>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>version.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>StrokesPlusHook.lib</ImportLibrary>
+      <UACUIAccess>true</UACUIAccess>
+      <AdditionalManifestDependencies>"type='Win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='X86' publicKeyToken='6595b64144ccf1df' language='*'"</AdditionalManifestDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release (Unsigned)|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;STROKESPLUSHOOK_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <FloatingPointExceptions>true</FloatingPointExceptions>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+      <StringPooling>true</StringPooling>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)StrokesPlus.dll</OutputFile>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>version.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>StrokesPlusHook.lib</ImportLibrary>
+      <UACUIAccess>true</UACUIAccess>
+      <AdditionalManifestDependencies>"type='Win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='X86' publicKeyToken='6595b64144ccf1df' language='*'"</AdditionalManifestDependencies>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;STROKESPLUSHOOK_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <FloatingPointExceptions>true</FloatingPointExceptions>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+      <StringPooling>true</StringPooling>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)StrokesPlus.dll</OutputFile>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>version.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>StrokesPlusHook.lib</ImportLibrary>
+      <UACUIAccess>true</UACUIAccess>
+      <AdditionalManifestDependencies>"type='Win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='amd64' publicKeyToken='6595b64144ccf1df' language='*'";%(AdditionalManifestDependencies)</AdditionalManifestDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release (Unsigned)|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;STROKESPLUSHOOK_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <FloatingPointExceptions>true</FloatingPointExceptions>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+      <StringPooling>true</StringPooling>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)StrokesPlus.dll</OutputFile>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>version.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>StrokesPlusHook.lib</ImportLibrary>
+      <UACUIAccess>true</UACUIAccess>
+      <AdditionalManifestDependencies>"type='Win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='amd64' publicKeyToken='6595b64144ccf1df' language='*'";%(AdditionalManifestDependencies)</AdditionalManifestDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\alien-0.5.1\libffi\win32\ffi.c" />
+    <ClCompile Include="..\alien-0.5.1\libffi\win32\prep_cif.c" />
+    <ClCompile Include="..\alien-0.5.1\libffi\win32\types.c" />
+    <ClCompile Include="..\alien-0.5.1\libffi\win32\win32.c" />
+    <ClCompile Include="..\alien-0.5.1\src\alien\core.c" />
+    <ClCompile Include="..\alien-0.5.1\src\alien\struct.c" />
+    <ClCompile Include="..\lua-5.2.1\src\lapi.c" />
+    <ClCompile Include="..\lua-5.2.1\src\lauxlib.c" />
+    <ClCompile Include="..\lua-5.2.1\src\lbaselib.c" />
+    <ClCompile Include="..\lua-5.2.1\src\lbitlib.c" />
+    <ClCompile Include="..\lua-5.2.1\src\lcode.c" />
+    <ClCompile Include="..\lua-5.2.1\src\lcorolib.c" />
+    <ClCompile Include="..\lua-5.2.1\src\lctype.c" />
+    <ClCompile Include="..\lua-5.2.1\src\ldblib.c" />
+    <ClCompile Include="..\lua-5.2.1\src\ldebug.c" />
+    <ClCompile Include="..\lua-5.2.1\src\ldo.c" />
+    <ClCompile Include="..\lua-5.2.1\src\ldump.c" />
+    <ClCompile Include="..\lua-5.2.1\src\lfunc.c" />
+    <ClCompile Include="..\lua-5.2.1\src\lgc.c" />
+    <ClCompile Include="..\lua-5.2.1\src\linit.c" />
+    <ClCompile Include="..\lua-5.2.1\src\liolib.c" />
+    <ClCompile Include="..\lua-5.2.1\src\llex.c" />
+    <ClCompile Include="..\lua-5.2.1\src\lmathlib.c" />
+    <ClCompile Include="..\lua-5.2.1\src\lmem.c" />
+    <ClCompile Include="..\lua-5.2.1\src\loadlib.c" />
+    <ClCompile Include="..\lua-5.2.1\src\lobject.c" />
+    <ClCompile Include="..\lua-5.2.1\src\lopcodes.c" />
+    <ClCompile Include="..\lua-5.2.1\src\loslib.c" />
+    <ClCompile Include="..\lua-5.2.1\src\lparser.c" />
+    <ClCompile Include="..\lua-5.2.1\src\lstate.c" />
+    <ClCompile Include="..\lua-5.2.1\src\lstring.c" />
+    <ClCompile Include="..\lua-5.2.1\src\lstrlib.c" />
+    <ClCompile Include="..\lua-5.2.1\src\ltable.c" />
+    <ClCompile Include="..\lua-5.2.1\src\ltablib.c" />
+    <ClCompile Include="..\lua-5.2.1\src\ltm.c" />
+    <ClCompile Include="..\lua-5.2.1\src\lua.c" />
+    <ClCompile Include="..\lua-5.2.1\src\lundump.c" />
+    <ClCompile Include="..\lua-5.2.1\src\lvm.c" />
+    <ClCompile Include="..\lua-5.2.1\src\lzio.c" />
+    <ClCompile Include="..\scintilla_320\lexers\LexLua.cxx" />
+    <ClCompile Include="..\scintilla_320\lexlib\Accessor.cxx" />
+    <ClCompile Include="..\scintilla_320\lexlib\CharacterSet.cxx" />
+    <ClCompile Include="..\scintilla_320\lexlib\LexerBase.cxx" />
+    <ClCompile Include="..\scintilla_320\lexlib\LexerModule.cxx" />
+    <ClCompile Include="..\scintilla_320\lexlib\LexerNoExceptions.cxx" />
+    <ClCompile Include="..\scintilla_320\lexlib\LexerSimple.cxx" />
+    <ClCompile Include="..\scintilla_320\lexlib\PropSetSimple.cxx" />
+    <ClCompile Include="..\scintilla_320\lexlib\StyleContext.cxx" />
+    <ClCompile Include="..\scintilla_320\lexlib\WordList.cxx" />
+    <ClCompile Include="..\scintilla_320\src\AutoComplete.cxx" />
+    <ClCompile Include="..\scintilla_320\src\CallTip.cxx" />
+    <ClCompile Include="..\scintilla_320\src\Catalogue.cxx" />
+    <ClCompile Include="..\scintilla_320\src\CellBuffer.cxx" />
+    <ClCompile Include="..\scintilla_320\src\CharClassify.cxx" />
+    <ClCompile Include="..\scintilla_320\src\ContractionState.cxx" />
+    <ClCompile Include="..\scintilla_320\src\Decoration.cxx" />
+    <ClCompile Include="..\scintilla_320\src\Document.cxx" />
+    <ClCompile Include="..\scintilla_320\src\Editor.cxx" />
+    <ClCompile Include="..\scintilla_320\src\ExternalLexer.cxx" />
+    <ClCompile Include="..\scintilla_320\src\Indicator.cxx" />
+    <ClCompile Include="..\scintilla_320\src\KeyMap.cxx" />
+    <ClCompile Include="..\scintilla_320\src\LineMarker.cxx" />
+    <ClCompile Include="..\scintilla_320\src\PerLine.cxx" />
+    <ClCompile Include="..\scintilla_320\src\PositionCache.cxx" />
+    <ClCompile Include="..\scintilla_320\src\RESearch.cxx" />
+    <ClCompile Include="..\scintilla_320\src\RunStyles.cxx" />
+    <ClCompile Include="..\scintilla_320\src\ScintillaBase.cxx" />
+    <ClCompile Include="..\scintilla_320\src\Selection.cxx" />
+    <ClCompile Include="..\scintilla_320\src\Style.cxx" />
+    <ClCompile Include="..\scintilla_320\src\UniConversion.cxx" />
+    <ClCompile Include="..\scintilla_320\src\ViewStyle.cxx" />
+    <ClCompile Include="..\scintilla_320\src\XPM.cxx" />
+    <ClCompile Include="..\scintilla_320\win32\PlatWin.cxx" />
+    <ClCompile Include="..\scintilla_320\win32\ScintillaWin.cxx" />
+    <ClCompile Include="Registry.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release (Unsigned)|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release (Unsigned)|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="StrokesPlusHook.cpp" />
+    <ClCompile Include="..\boost_1_50_0\libs\regex\src\cpp_regex_traits.cpp" />
+    <ClCompile Include="..\boost_1_50_0\libs\regex\src\c_regex_traits.cpp" />
+    <ClCompile Include="..\boost_1_50_0\libs\regex\src\cregex.cpp" />
+    <ClCompile Include="..\boost_1_50_0\libs\regex\src\fileiter.cpp" />
+    <ClCompile Include="..\boost_1_50_0\libs\regex\src\icu.cpp" />
+    <ClCompile Include="..\boost_1_50_0\libs\regex\src\instances.cpp" />
+    <ClCompile Include="..\boost_1_50_0\libs\regex\src\posix_api.cpp" />
+    <ClCompile Include="..\boost_1_50_0\libs\regex\src\regex.cpp" />
+    <ClCompile Include="..\boost_1_50_0\libs\regex\src\regex_debug.cpp" />
+    <ClCompile Include="..\boost_1_50_0\libs\regex\src\regex_raw_buffer.cpp" />
+    <ClCompile Include="..\boost_1_50_0\libs\regex\src\regex_traits_defaults.cpp" />
+    <ClCompile Include="..\boost_1_50_0\libs\regex\src\static_mutex.cpp" />
+    <ClCompile Include="..\boost_1_50_0\libs\regex\src\usinstances.cpp" />
+    <ClCompile Include="..\boost_1_50_0\libs\regex\src\w32_regex_traits.cpp" />
+    <ClCompile Include="..\boost_1_50_0\libs\regex\src\wc_regex_traits.cpp" />
+    <ClCompile Include="..\boost_1_50_0\libs\regex\src\wide_posix_api.cpp" />
+    <ClCompile Include="..\boost_1_50_0\libs\regex\src\winstances.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\alien-0.5.1\libffi\win32\ffi.h" />
+    <ClInclude Include="..\lua-5.2.1\src\luaconf.h" />
+    <ClInclude Include="..\scintilla_320\src\ScintillaBase.h" />
+    <ClInclude Include="..\scintilla_320\win32\PlatWin.h" />
+    <ClInclude Include="options.h" />
+    <ClInclude Include="Registry.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StrokesPlusHook.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="StrokesPlusHook.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\StrokesPlus\findere.bmp" />
+    <None Include="..\StrokesPlus\finderf.bmp" />
+    <None Include="..\StrokesPlus\searchw.cur" />
+    <None Include="findere.bmp" />
+    <None Include="finderf.bmp" />
+    <None Include="searchw.cur" />
+    <None Include="StrokesPlus.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="..\alien-0.5.1\libffi\win32\win64.asm">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release (Unsigned)|Win32'">true</ExcludedFromBuild>
+    </MASM>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="StrokesPlusHook.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

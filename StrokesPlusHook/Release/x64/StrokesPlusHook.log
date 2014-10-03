@@ -1,0 +1,1136 @@
+﻿Build started 8/19/2014 5:41:49 PM.
+     1>Project "C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\StrokesPlusHook\StrokesPlusHook.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Release\x64\StrokesPlusHook.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       _MASM:
+         Assembling [Inputs]...
+         cmd.exe /C "C:\Users\Rob\AppData\Local\Temp\tmp77612c57423a4d0c8623a6e62202f7a9.cmd"
+         ml64.exe /c /nologo /Zi /Fo"Release\x64\win64.obj" /W3 /errorReport:prompt  /Ta"..\alien-0.5.1\libffi\win32\win64.asm"
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /MP /O2 /Oi /Ot /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D STROKESPLUSHOOK_EXPORTS /D _WINDLL /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /fp:except /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Release\x64\StrokesPlus.pch" /Fo"Release\x64\\" /Fd"Release\x64\vc100.pdb" /Gd /TP /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /MP /O2 /Oi /Ot /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D STROKESPLUSHOOK_EXPORTS /D _WINDLL /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /fp:except /Zc:wchar_t /Zc:forScope /Fo"Release\x64\\" /Fd"Release\x64\vc100.pdb" /Gd /TC /errorReport:prompt "..\alien-0.5.1\libffi\win32\ffi.c" "..\alien-0.5.1\libffi\win32\prep_cif.c" "..\alien-0.5.1\libffi\win32\types.c" "..\alien-0.5.1\libffi\win32\win32.c" "..\alien-0.5.1\src\alien\core.c" "..\alien-0.5.1\src\alien\struct.c" "..\lua-5.2.1\src\lapi.c" "..\lua-5.2.1\src\lauxlib.c" "..\lua-5.2.1\src\lbaselib.c" "..\lua-5.2.1\src\lbitlib.c" "..\lua-5.2.1\src\lcode.c" "..\lua-5.2.1\src\lcorolib.c" "..\lua-5.2.1\src\lctype.c" "..\lua-5.2.1\src\ldblib.c" "..\lua-5.2.1\src\ldebug.c" "..\lua-5.2.1\src\ldo.c" "..\lua-5.2.1\src\ldump.c" "..\lua-5.2.1\src\lfunc.c" "..\lua-5.2.1\src\lgc.c" "..\lua-5.2.1\src\linit.c" "..\lua-5.2.1\src\liolib.c" "..\lua-5.2.1\src\llex.c" "..\lua-5.2.1\src\lmathlib.c" "..\lua-5.2.1\src\lmem.c" "..\lua-5.2.1\src\loadlib.c" "..\lua-5.2.1\src\lobject.c" "..\lua-5.2.1\src\lopcodes.c" "..\lua-5.2.1\src\loslib.c" "..\lua-5.2.1\src\lparser.c" "..\lua-5.2.1\src\lstate.c" "..\lua-5.2.1\src\lstring.c" "..\lua-5.2.1\src\lstrlib.c" "..\lua-5.2.1\src\ltable.c" "..\lua-5.2.1\src\ltablib.c" "..\lua-5.2.1\src\ltm.c" "..\lua-5.2.1\src\lua.c" "..\lua-5.2.1\src\lundump.c" "..\lua-5.2.1\src\lvm.c" "..\lua-5.2.1\src\lzio.c"
+         ffi.c
+         prep_cif.c
+         types.c
+         win32.c
+         core.c
+     1>..\alien-0.5.1\libffi\win32\prep_cif.c(166): warning C4267: '+=' : conversion from 'size_t' to 'unsigned int', possible loss of data
+         struct.c
+         lapi.c
+         lauxlib.c
+     1>..\alien-0.5.1\src\alien\struct.c(104): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>..\alien-0.5.1\src\alien\struct.c(121): warning C4267: 'return' : conversion from 'size_t' to 'int', possible loss of data
+     1>..\alien-0.5.1\src\alien\struct.c(131): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>..\lua-5.2.1\src\lauxlib.c(215): warning C4996: 'strerror': This function or variable may be unsafe. Consider using strerror_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(157) : see declaration of 'strerror'
+     1>..\lua-5.2.1\src\lauxlib.c(217): warning C4996: 'strerror': This function or variable may be unsafe. Consider using strerror_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(157) : see declaration of 'strerror'
+     1>..\alien-0.5.1\src\alien\struct.c(193): warning C4267: 'function' : conversion from 'size_t' to 'int', possible loss of data
+     1>..\alien-0.5.1\src\alien\struct.c(202): warning C4267: 'function' : conversion from 'size_t' to 'int', possible loss of data
+     1>..\alien-0.5.1\src\alien\struct.c(208): warning C4267: 'function' : conversion from 'size_t' to 'int', possible loss of data
+     1>..\alien-0.5.1\src\alien\struct.c(275): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>..\alien-0.5.1\src\alien\struct.c(290): warning C4244: 'function' : conversion from 'size_t' to 'lua_Number', possible loss of data
+     1>..\alien-0.5.1\src\alien\struct.c(308): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>..\alien-0.5.1\src\alien\struct.c(324): warning C4244: 'function' : conversion from 'size_t' to 'lua_Number', possible loss of data
+     1>..\alien-0.5.1\src\alien\struct.c(353): warning C4267: 'function' : conversion from 'size_t' to 'int', possible loss of data
+     1>..\alien-0.5.1\src\alien\struct.c(378): warning C4244: '=' : conversion from 'lua_Number' to 'size_t', possible loss of data
+     1>..\lua-5.2.1\src\lauxlib.c(587): warning C4996: 'strerror': This function or variable may be unsafe. Consider using strerror_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(157) : see declaration of 'strerror'
+     1>..\lua-5.2.1\src\lauxlib.c(641): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(234) : see declaration of 'fopen'
+     1>..\lua-5.2.1\src\lauxlib.c(647): warning C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(249) : see declaration of 'freopen'
+         lbaselib.c
+         lbitlib.c
+         lcode.c
+         lcorolib.c
+         lctype.c
+         ldblib.c
+         ldebug.c
+         ldo.c
+         ldump.c
+         lfunc.c
+         lgc.c
+         linit.c
+         liolib.c
+     1>..\alien-0.5.1\src\alien\core.c(487): warning C4101: 'fn' : unreferenced local variable
+     1>..\lua-5.2.1\src\lgc.c(462): warning C4334: '<<' : result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)
+     1>..\alien-0.5.1\src\alien\core.c(571): warning C4101: 'fn_ref' : unreferenced local variable
+     1>..\alien-0.5.1\src\alien\core.c(580): warning C4101: 'j' : unreferenced local variable
+     1>..\alien-0.5.1\src\alien\core.c(686): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>..\alien-0.5.1\src\alien\core.c(935): warning C4244: '=' : conversion from 'lua_Integer' to 'int', possible loss of data
+     1>..\alien-0.5.1\src\alien\core.c(945): warning C4101: 'i' : unreferenced local variable
+     1>..\alien-0.5.1\src\alien\core.c(945): warning C4101: 'size' : unreferenced local variable
+     1>..\alien-0.5.1\src\alien\core.c(978): warning C4244: '=' : conversion from 'lua_Integer' to 'int', possible loss of data
+     1>..\alien-0.5.1\src\alien\core.c(962): warning C4101: 'size' : unreferenced local variable
+     1>..\alien-0.5.1\src\alien\core.c(1009): warning C4244: 'function' : conversion from 'size_t' to 'lua_Number', possible loss of data
+     1>..\alien-0.5.1\src\alien\core.c(1026): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>..\alien-0.5.1\src\alien\core.c(1029): warning C4244: '=' : conversion from 'lua_Integer' to 'int', possible loss of data
+     1>..\alien-0.5.1\src\alien\core.c(1076): warning C4244: 'initializing' : conversion from 'lua_Integer' to 'int', possible loss of data
+     1>..\lua-5.2.1\src\lgc.c(988): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>..\alien-0.5.1\src\alien\core.c(1118): warning C4244: 'initializing' : conversion from 'lua_Integer' to 'int', possible loss of data
+     1>..\alien-0.5.1\src\alien\core.c(1250): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>..\alien-0.5.1\src\alien\core.c(1252): warning C4244: '=' : conversion from 'lua_Integer' to 'int', possible loss of data
+     1>..\alien-0.5.1\src\alien\core.c(1268): warning C4244: '=' : conversion from 'lua_Integer' to 'int', possible loss of data
+     1>..\alien-0.5.1\src\alien\core.c(1286): warning C4244: '=' : conversion from 'lua_Integer' to 'int', possible loss of data
+     1>..\alien-0.5.1\src\alien\core.c(1305): warning C4244: '=' : conversion from 'lua_Integer' to 'int', possible loss of data
+     1>..\alien-0.5.1\src\alien\core.c(1324): warning C4244: '=' : conversion from 'lua_Integer' to 'int', possible loss of data
+     1>..\alien-0.5.1\src\alien\core.c(1342): warning C4244: '=' : conversion from 'lua_Integer' to 'int', possible loss of data
+     1>..\alien-0.5.1\src\alien\core.c(1360): warning C4244: '=' : conversion from 'lua_Integer' to 'int', possible loss of data
+     1>..\alien-0.5.1\src\alien\core.c(1378): warning C4244: '=' : conversion from 'lua_Integer' to 'int', possible loss of data
+     1>..\alien-0.5.1\src\alien\core.c(1396): warning C4244: '=' : conversion from 'lua_Integer' to 'int', possible loss of data
+     1>..\alien-0.5.1\src\alien\core.c(1414): warning C4244: '=' : conversion from 'lua_Integer' to 'int', possible loss of data
+     1>..\alien-0.5.1\src\alien\core.c(1465): warning C4244: '=' : conversion from 'lua_Integer' to 'int', possible loss of data
+     1>..\lua-5.2.1\src\liolib.c(205): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(234) : see declaration of 'fopen'
+     1>..\lua-5.2.1\src\liolib.c(207): warning C4996: 'strerror': This function or variable may be unsafe. Consider using strerror_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(157) : see declaration of 'strerror'
+     1>..\lua-5.2.1\src\liolib.c(223): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(234) : see declaration of 'fopen'
+     1>..\lua-5.2.1\src\liolib.c(249): warning C4996: 'tmpfile': This function or variable may be unsafe. Consider using tmpfile_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(338) : see declaration of 'tmpfile'
+         llex.c
+     1>..\lua-5.2.1\src\liolib.c(343): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(253) : see declaration of 'fscanf'
+         lmathlib.c
+         lmem.c
+         loadlib.c
+         lobject.c
+         lopcodes.c
+         loslib.c
+         lparser.c
+     1>..\lua-5.2.1\src\lobject.c(212): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : see declaration of 'sprintf'
+     1>..\lua-5.2.1\src\loslib.c(108): warning C4996: 'tmpnam': This function or variable may be unsafe. Consider using tmpnam_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(344) : see declaration of 'tmpnam'
+     1>..\lua-5.2.1\src\loslib.c(117): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdlib.h(433) : see declaration of 'getenv'
+     1>..\lua-5.2.1\src\loslib.c(200): warning C4996: 'gmtime': This function or variable may be unsafe. Consider using gmtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\time.inl(99) : see declaration of 'gmtime'
+     1>..\lua-5.2.1\src\loslib.c(204): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\time.inl(112) : see declaration of 'localtime'
+         lstate.c
+         lstring.c
+         lstrlib.c
+     1>..\lua-5.2.1\src\lstring.c(52): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>..\lua-5.2.1\src\lstate.c(91): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+         ltable.c
+         ltablib.c
+     1>..\lua-5.2.1\src\lstrlib.c(798): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : see declaration of 'sprintf'
+     1>..\lua-5.2.1\src\lstrlib.c(800): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : see declaration of 'sprintf'
+     1>..\lua-5.2.1\src\lstrlib.c(839): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>..\lua-5.2.1\src\lstrlib.c(867): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : see declaration of 'sprintf'
+     1>..\lua-5.2.1\src\lstrlib.c(877): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : see declaration of 'sprintf'
+     1>..\lua-5.2.1\src\lstrlib.c(887): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : see declaration of 'sprintf'
+     1>..\lua-5.2.1\src\lstrlib.c(896): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : see declaration of 'sprintf'
+     1>..\lua-5.2.1\src\lstrlib.c(913): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : see declaration of 'sprintf'
+         ltm.c
+         lua.c
+         lundump.c
+         lvm.c
+     1>..\lua-5.2.1\src\lua.c(424): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdlib.h(433) : see declaration of 'getenv'
+     1>..\lua-5.2.1\src\lua.c(427): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdlib.h(433) : see declaration of 'getenv'
+     1>..\lua-5.2.1\src\loadlib.c(331): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(234) : see declaration of 'fopen'
+     1>..\lua-5.2.1\src\loadlib.c(639): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdlib.h(433) : see declaration of 'getenv'
+     1>..\lua-5.2.1\src\loadlib.c(641): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdlib.h(433) : see declaration of 'getenv'
+         lzio.c
+     1>..\lua-5.2.1\src\lvm.c(53): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : see declaration of 'sprintf'
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /MP /O2 /Oi /Ot /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D STROKESPLUSHOOK_EXPORTS /D _WINDLL /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /fp:except /Zc:wchar_t /Zc:forScope /Fo"Release\x64\\" /Fd"Release\x64\vc100.pdb" /Gd /TP /errorReport:prompt ..\scintilla_320\lexers\LexLua.cxx ..\scintilla_320\lexlib\Accessor.cxx ..\scintilla_320\lexlib\CharacterSet.cxx ..\scintilla_320\lexlib\LexerBase.cxx ..\scintilla_320\lexlib\LexerModule.cxx ..\scintilla_320\lexlib\LexerNoExceptions.cxx ..\scintilla_320\lexlib\LexerSimple.cxx ..\scintilla_320\lexlib\PropSetSimple.cxx ..\scintilla_320\lexlib\StyleContext.cxx ..\scintilla_320\lexlib\WordList.cxx ..\scintilla_320\src\AutoComplete.cxx ..\scintilla_320\src\CallTip.cxx ..\scintilla_320\src\Catalogue.cxx ..\scintilla_320\src\CellBuffer.cxx ..\scintilla_320\src\CharClassify.cxx ..\scintilla_320\src\ContractionState.cxx ..\scintilla_320\src\Decoration.cxx ..\scintilla_320\src\Document.cxx ..\scintilla_320\src\Editor.cxx ..\scintilla_320\src\ExternalLexer.cxx ..\scintilla_320\src\Indicator.cxx ..\scintilla_320\src\KeyMap.cxx ..\scintilla_320\src\LineMarker.cxx ..\scintilla_320\src\PerLine.cxx ..\scintilla_320\src\PositionCache.cxx ..\scintilla_320\src\RESearch.cxx ..\scintilla_320\src\RunStyles.cxx ..\scintilla_320\src\ScintillaBase.cxx ..\scintilla_320\src\Selection.cxx ..\scintilla_320\src\Style.cxx ..\scintilla_320\src\UniConversion.cxx ..\scintilla_320\src\ViewStyle.cxx ..\scintilla_320\src\XPM.cxx ..\scintilla_320\win32\PlatWin.cxx ..\scintilla_320\win32\ScintillaWin.cxx Registry.cpp StrokesPlusHook.cpp ..\boost_1_50_0\libs\regex\src\cpp_regex_traits.cpp ..\boost_1_50_0\libs\regex\src\c_regex_traits.cpp ..\boost_1_50_0\libs\regex\src\cregex.cpp ..\boost_1_50_0\libs\regex\src\fileiter.cpp ..\boost_1_50_0\libs\regex\src\icu.cpp ..\boost_1_50_0\libs\regex\src\instances.cpp ..\boost_1_50_0\libs\regex\src\posix_api.cpp ..\boost_1_50_0\libs\regex\src\regex.cpp ..\boost_1_50_0\libs\regex\src\regex_debug.cpp ..\boost_1_50_0\libs\regex\src\regex_raw_buffer.cpp ..\boost_1_50_0\libs\regex\src\regex_traits_defaults.cpp ..\boost_1_50_0\libs\regex\src\static_mutex.cpp ..\boost_1_50_0\libs\regex\src\usinstances.cpp ..\boost_1_50_0\libs\regex\src\w32_regex_traits.cpp ..\boost_1_50_0\libs\regex\src\wc_regex_traits.cpp ..\boost_1_50_0\libs\regex\src\wide_posix_api.cpp ..\boost_1_50_0\libs\regex\src\winstances.cpp
+         LexLua.cxx
+         Accessor.cxx
+         CharacterSet.cxx
+         LexerBase.cxx
+         LexerModule.cxx
+         LexerNoExceptions.cxx
+         LexerSimple.cxx
+         PropSetSimple.cxx
+         StyleContext.cxx
+         WordList.cxx
+         AutoComplete.cxx
+     1>..\scintilla_320\lexlib\WordList.cxx(112): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>..\scintilla_320\lexlib\PropSetSimple.cxx(148): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>..\scintilla_320\lexlib\PropSetSimple.cxx(156): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+         CallTip.cxx
+     1>..\scintilla_320\src\AutoComplete.cxx(67): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(188) : see declaration of 'strncpy'
+     1>..\scintilla_320\src\AutoComplete.cxx(76): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(188) : see declaration of 'strncpy'
+         Catalogue.cxx
+         CellBuffer.cxx
+     1>..\scintilla_320\src\CallTip.cxx(257): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+         CharClassify.cxx
+         ContractionState.cxx
+         Decoration.cxx
+         Document.cxx
+         Editor.cxx
+         ExternalLexer.cxx
+         Indicator.cxx
+     1>c:\users\rob\documents\development\visual studio 2008\projects\strokesplus\scintilla_320\src\ExternalLexer.h(36): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(188) : see declaration of 'strncpy'
+     1>..\scintilla_320\src\ExternalLexer.cxx(71): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+         KeyMap.cxx
+     1>..\scintilla_320\src\Editor.cxx(1945): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : see declaration of 'sprintf'
+     1>..\scintilla_320\src\Editor.cxx(1953): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : see declaration of 'sprintf'
+     1>..\scintilla_320\src\Editor.cxx(2213): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : see declaration of 'sprintf'
+     1>..\scintilla_320\src\Editor.cxx(3027): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : see declaration of 'sprintf'
+     1>..\scintilla_320\src\Editor.cxx(3825): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : see declaration of 'sprintf'
+         LineMarker.cxx
+         PerLine.cxx
+         PositionCache.cxx
+     1>..\scintilla_320\src\Editor.cxx(5862): warning C4996: 'strncat': This function or variable may be unsafe. Consider using strncat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(175) : see declaration of 'strncat'
+     1>..\scintilla_320\src\Editor.cxx(5864): warning C4996: 'strncat': This function or variable may be unsafe. Consider using strncat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(175) : see declaration of 'strncat'
+     1>..\scintilla_320\src\Editor.cxx(5866): warning C4996: 'strncat': This function or variable may be unsafe. Consider using strncat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(175) : see declaration of 'strncat'
+     1>..\scintilla_320\src\Editor.cxx(7083): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>..\scintilla_320\src\Editor.cxx(7105): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>..\scintilla_320\src\Editor.cxx(8964): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>..\scintilla_320\src\Editor.cxx(8988): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>..\scintilla_320\src\Editor.cxx(9007): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>..\scintilla_320\src\Editor.cxx(9031): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+         RESearch.cxx
+         RunStyles.cxx
+         ScintillaBase.cxx
+         Selection.cxx
+         Style.cxx
+         UniConversion.cxx
+         ViewStyle.cxx
+         XPM.cxx
+         PlatWin.cxx
+     1>..\scintilla_320\src\ScintillaBase.cxx(393): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>..\scintilla_320\src\ViewStyle.cxx(73): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+         ScintillaWin.cxx
+         Registry.cpp
+         StrokesPlusHook.cpp
+     1>Registry.cpp(636): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>Registry.cpp(648): warning C4267: 'argument' : conversion from 'size_t' to 'DWORD', possible loss of data
+         cpp_regex_traits.cpp
+     1>..\scintilla_320\win32\PlatWin.cxx(269): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(188) : see declaration of 'strncpy'
+     1>..\scintilla_320\win32\PlatWin.cxx(2090): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(188) : see declaration of 'strncpy'
+     1>..\scintilla_320\win32\PlatWin.cxx(2359): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(188) : see declaration of 'strncpy'
+     1>..\scintilla_320\win32\PlatWin.cxx(3173): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : see declaration of 'sprintf'
+     1>..\scintilla_320\win32\PlatWin.cxx(3185): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(110) : see declaration of 'strcat'
+         c_regex_traits.cpp
+     1>C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\scintilla_320\src\ExternalLexer.h(36): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(188) : see declaration of 'strncpy'
+     1>..\scintilla_320\win32\ScintillaWin.cxx(2202): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+         cregex.cpp
+         fileiter.cpp
+         icu.cpp
+         instances.cpp
+         posix_api.cpp
+         regex.cpp
+     1>C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\boost_1_50_0\boost/lexical_cast.hpp(1320): warning C4995: 'sprintf': name was marked as #pragma deprecated
+     1>C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\boost_1_50_0\boost/lexical_cast.hpp(1328): warning C4995: 'sprintf': name was marked as #pragma deprecated
+     1>C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\boost_1_50_0\boost/lexical_cast.hpp(1337): warning C4995: 'sprintf': name was marked as #pragma deprecated
+     1>C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\boost_1_50_0\boost/lexical_cast.hpp(1352): warning C4995: 'swprintf': name was marked as #pragma deprecated
+     1>C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\boost_1_50_0\boost/lexical_cast.hpp(1362): warning C4995: 'swprintf': name was marked as #pragma deprecated
+     1>C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\boost_1_50_0\boost/lexical_cast.hpp(1370): warning C4995: 'swprintf': name was marked as #pragma deprecated
+         regex_debug.cpp
+     1>StrokesPlusHook.cpp(50): warning C4005: '_WIN32_IE' : macro redefinition
+                 C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\include\sdkddkver.h(230) : see previous definition of '_WIN32_IE'
+         regex_raw_buffer.cpp
+         regex_traits_defaults.cpp
+         static_mutex.cpp
+         usinstances.cpp
+     1>StrokesPlusHook.cpp(1041): warning C4996: '_splitpath': This function or variable may be unsafe. Consider using _splitpath_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdlib.h(791) : see declaration of '_splitpath'
+     1>StrokesPlusHook.cpp(1043): warning C4995: '_tcscat': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(1043): warning C4995: 'strcat': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(1043): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(110) : see declaration of 'strcat'
+     1>StrokesPlusHook.cpp(1044): warning C4995: '_tcscat': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(1044): warning C4995: 'strcat': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(1044): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(110) : see declaration of 'strcat'
+     1>StrokesPlusHook.cpp(1047): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(1047): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(1047): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(1049): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(1049): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(1049): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(1058): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(1058): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(1058): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(1088): warning C4002: too many actual parameters for macro 'LOGMESSAGE'
+     1>StrokesPlusHook.cpp(1095): warning C4002: too many actual parameters for macro 'LOGMESSAGE'
+     1>StrokesPlusHook.cpp(1169): warning C4244: '=' : conversion from 'LONG' to 'float', possible loss of data
+     1>StrokesPlusHook.cpp(1170): warning C4244: '=' : conversion from 'LONG' to 'float', possible loss of data
+     1>StrokesPlusHook.cpp(1171): warning C4244: '=' : conversion from 'LONG' to 'float', possible loss of data
+     1>StrokesPlusHook.cpp(1172): warning C4244: '=' : conversion from 'LONG' to 'float', possible loss of data
+     1>StrokesPlusHook.cpp(1175): warning C4244: '=' : conversion from 'LONG' to 'float', possible loss of data
+     1>StrokesPlusHook.cpp(1177): warning C4244: '=' : conversion from 'LONG' to 'float', possible loss of data
+     1>StrokesPlusHook.cpp(1179): warning C4244: '=' : conversion from 'LONG' to 'float', possible loss of data
+     1>StrokesPlusHook.cpp(1181): warning C4244: '=' : conversion from 'LONG' to 'float', possible loss of data
+         w32_regex_traits.cpp
+     1>StrokesPlusHook.cpp(1379): warning C4800: 'BOOL' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(1384): warning C4800: 'BOOL' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(1394): warning C4800: 'BOOL' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(1430): warning C4800: 'BOOL' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(1467): warning C4800: 'BOOL' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(1472): warning C4800: 'BOOL' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(1608): warning C4267: 'argument' : conversion from 'size_t' to 'INT', possible loss of data
+     1>StrokesPlusHook.cpp(1877): warning C4995: 'wsprintf': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(1877): warning C4995: 'wsprintfA': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(2139): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(2149): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(2155): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(2161): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(2162): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(2189): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(2190): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(2191): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(2201): warning C4800: 'BOOL' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(2214): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(2261): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(2262): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(2263): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(2264): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(2271): warning C4267: '=' : conversion from 'size_t' to 'DWORD', possible loss of data
+     1>StrokesPlusHook.cpp(2296): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(2297): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(2298): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(2338): warning C4995: 'wsprintf': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(2338): warning C4995: 'wsprintfA': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(2362): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(2363): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(2364): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(2404): warning C4995: 'wsprintf': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(2404): warning C4995: 'wsprintfA': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(2421): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(2439): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(2481): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(2530): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(2580): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(2628): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(2632): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(2682): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(2686): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(2751): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(2755): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(2857): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(2858): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(2992): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3013): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3028): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3029): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(3030): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(3044): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3113): warning C4244: '=' : conversion from 'lua_Number' to 'BOOL', possible loss of data
+     1>StrokesPlusHook.cpp(3114): warning C4800: 'BOOL' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(3131): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3132): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3133): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3134): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3135): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3136): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3137): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3138): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3139): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3140): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3173): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3174): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(3175): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(3218): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3219): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(3220): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(3236): warning C4996: '_splitpath': This function or variable may be unsafe. Consider using _splitpath_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdlib.h(791) : see declaration of '_splitpath'
+     1>StrokesPlusHook.cpp(3238): warning C4995: '_tcscat': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(3238): warning C4995: 'strcat': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(3238): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(110) : see declaration of 'strcat'
+     1>StrokesPlusHook.cpp(3239): warning C4995: '_tcscat': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(3239): warning C4995: 'strcat': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(3239): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(110) : see declaration of 'strcat'
+     1>StrokesPlusHook.cpp(3424): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(3424): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(3424): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(3484): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(3485): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(3501): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(3502): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(3503): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3504): warning C4244: '=' : conversion from 'lua_Number' to 'BOOL', possible loss of data
+     1>StrokesPlusHook.cpp(3505): warning C4244: '=' : conversion from 'lua_Number' to 'BOOL', possible loss of data
+     1>StrokesPlusHook.cpp(3554): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3555): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(3556): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(3573): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3574): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(3575): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(3592): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3593): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(3594): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(3611): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3612): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(3613): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(3692): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3750): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3782): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3783): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(3784): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(3806): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3807): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(3808): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(3834): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3835): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(3836): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(3865): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3879): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3880): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(3881): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(3882): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3883): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3903): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3904): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(3905): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(3928): warning C4800: 'lua_Number' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(3937): warning C4800: 'BOOL' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(3954): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3955): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(3998): warning C4244: '=' : conversion from 'LONG' to 'WORD', possible loss of data
+         wc_regex_traits.cpp
+     1>StrokesPlusHook.cpp(4035): warning C4800: 'lua_Number' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(4036): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>StrokesPlusHook.cpp(4061): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(4236): warning C4244: '=' : conversion from 'lua_Number' to 'BOOL', possible loss of data
+     1>StrokesPlusHook.cpp(4248): warning C4800: 'BOOL' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(4316): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(4317): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4318): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4364): warning C4244: '=' : conversion from 'lua_Number' to 'UINT', possible loss of data
+     1>StrokesPlusHook.cpp(4385): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(4386): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4387): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4388): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(4389): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(4412): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(4413): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4414): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4435): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(4436): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4437): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4438): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(4468): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(4469): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4470): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4490): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4491): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4503): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4504): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4516): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4517): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4531): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(4532): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4533): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4534): warning C4244: '=' : conversion from 'lua_Number' to 'DWORD', possible loss of data
+     1>StrokesPlusHook.cpp(4565): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(4566): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4567): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4595): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(4596): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4597): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4617): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(4618): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4619): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4636): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(4637): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4638): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4654): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(4668): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(4669): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4670): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4671): warning C4800: 'lua_Number' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(4748): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(4749): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4750): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4751): warning C4800: 'lua_Number' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(4752): warning C4244: '=' : conversion from 'lua_Number' to 'BYTE', possible loss of data
+     1>StrokesPlusHook.cpp(4753): warning C4244: '=' : conversion from 'lua_Number' to 'BYTE', possible loss of data
+     1>StrokesPlusHook.cpp(4754): warning C4244: '=' : conversion from 'lua_Number' to 'BYTE', possible loss of data
+     1>StrokesPlusHook.cpp(4785): warning C4244: 'argument' : conversion from 'double' to 'BYTE', possible loss of data
+     1>StrokesPlusHook.cpp(4795): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(4796): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4797): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4798): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(4831): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(4832): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4833): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4834): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(4835): warning C4244: '=' : conversion from 'lua_Number' to 'BYTE', possible loss of data
+     1>StrokesPlusHook.cpp(4836): warning C4244: '=' : conversion from 'lua_Number' to 'BYTE', possible loss of data
+     1>StrokesPlusHook.cpp(4837): warning C4244: '=' : conversion from 'lua_Number' to 'BYTE', possible loss of data
+     1>StrokesPlusHook.cpp(4876): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(4877): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4878): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4897): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(4898): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4899): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4918): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(4919): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4920): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4939): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(4940): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4941): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4959): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4960): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4989): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(4990): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5019): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5020): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5118): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(5119): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5120): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5121): warning C4244: '=' : conversion from 'lua_Number' to 'BOOL', possible loss of data
+     1>StrokesPlusHook.cpp(5137): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(5138): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5139): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5140): warning C4244: '=' : conversion from 'lua_Number' to 'BOOL', possible loss of data
+     1>StrokesPlusHook.cpp(5156): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(5157): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5158): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5159): warning C4244: '=' : conversion from 'lua_Number' to 'BOOL', possible loss of data
+     1>StrokesPlusHook.cpp(5174): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(5175): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5176): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5190): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5191): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5225): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(5226): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(5227): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(5271): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5272): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5273): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5274): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(5344): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5345): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5346): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5347): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5407): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5443): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5444): warning C4244: '=' : conversion from 'lua_Number' to 'BOOL', possible loss of data
+     1>StrokesPlusHook.cpp(5462): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5463): warning C4244: '=' : conversion from 'lua_Number' to 'BOOL', possible loss of data
+     1>StrokesPlusHook.cpp(5481): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5482): warning C4244: '=' : conversion from 'lua_Number' to 'BOOL', possible loss of data
+     1>StrokesPlusHook.cpp(5500): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5501): warning C4244: '=' : conversion from 'lua_Number' to 'BOOL', possible loss of data
+     1>StrokesPlusHook.cpp(5519): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(5520): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5521): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5535): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(5536): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5537): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5552): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(5553): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5554): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5555): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5569): warning C4244: '=' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(5570): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5571): warning C4244: '=' : conversion from 'lua_Number' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(5857): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(5871): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(5994): warning C4244: '=' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(5995): warning C4244: '=' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(5996): warning C4244: '=' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(5997): warning C4244: '=' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(6010): warning C4244: '=' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(6012): warning C4244: '=' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(6014): warning C4244: '=' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(6016): warning C4244: '=' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(6117): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(6264): warning C4996: '_splitpath': This function or variable may be unsafe. Consider using _splitpath_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdlib.h(791) : see declaration of '_splitpath'
+     1>StrokesPlusHook.cpp(6265): warning C4995: '_tcscat': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(6265): warning C4995: 'strcat': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(6265): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(110) : see declaration of 'strcat'
+     1>StrokesPlusHook.cpp(6266): warning C4995: '_tcscat': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(6266): warning C4995: 'strcat': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(6266): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(110) : see declaration of 'strcat'
+     1>StrokesPlusHook.cpp(6268): warning C4995: '_tcscat': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(6268): warning C4995: 'strcat': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(6268): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(110) : see declaration of 'strcat'
+     1>StrokesPlusHook.cpp(6269): warning C4995: '_tcscat': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(6269): warning C4995: 'strcat': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(6269): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(110) : see declaration of 'strcat'
+     1>StrokesPlusHook.cpp(6699): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(6763): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(6838): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(6890): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(6993): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(6994): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(7084): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(7125): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(7178): warning C4244: 'initializing' : conversion from 'lua_Number' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(7213): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(7216): warning C4244: 'argument' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(7216): warning C4244: 'argument' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(7217): warning C4244: 'argument' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(7217): warning C4244: 'argument' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(7402): warning C4800: 'BOOL' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(8062): warning C4244: 'argument' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(8062): warning C4244: 'argument' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(8063): warning C4244: 'argument' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(8063): warning C4244: 'argument' : conversion from 'FLOAT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(8507): warning C4244: 'argument' : conversion from 'LPARAM' to 'const long', possible loss of data
+     1>StrokesPlusHook.cpp(9048): warning C4996: '_tcsncpy': This function or variable may be unsafe. Consider using _tcsncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\tchar.h(1516) : see declaration of '_tcsncpy'
+     1>StrokesPlusHook.cpp(9389): warning C4995: 'wsprintf': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(9389): warning C4995: 'wsprintfA': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(9420): warning C4995: 'wsprintf': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(9420): warning C4995: 'wsprintfA': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(9445): warning C4995: 'wsprintf': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(9445): warning C4995: 'wsprintfA': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(9512): warning C4995: 'wsprintf': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(9512): warning C4995: 'wsprintfA': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(9640): warning C4995: 'wsprintf': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(9640): warning C4995: 'wsprintfA': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(9647): warning C4244: '=' : conversion from 'float' to 'long', possible loss of data
+     1>StrokesPlusHook.cpp(9648): warning C4244: '=' : conversion from 'float' to 'long', possible loss of data
+     1>StrokesPlusHook.cpp(9970): warning C4101: 'e' : unreferenced local variable
+     1>StrokesPlusHook.cpp(10107): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(10109): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(10113): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(10116): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(10117): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(10118): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(10123): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(10124): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(10125): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(10126): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(10127): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(10128): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(10129): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(10130): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(10134): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(10135): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(10136): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(10138): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(10139): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(10140): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(10142): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(10145): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(10146): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(10147): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(10148): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(10149): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(10182): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(10183): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(10259): warning C4800: 'long' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(10022): warning C4101: 'e' : unreferenced local variable
+     1>StrokesPlusHook.cpp(10079): warning C4101: 'e' : unreferenced local variable
+     1>StrokesPlusHook.cpp(10202): warning C4101: 'e' : unreferenced local variable
+     1>StrokesPlusHook.cpp(10589): warning C4996: '_splitpath': This function or variable may be unsafe. Consider using _splitpath_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdlib.h(791) : see declaration of '_splitpath'
+     1>StrokesPlusHook.cpp(10591): warning C4995: '_tcscat': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(10591): warning C4995: 'strcat': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(10591): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(110) : see declaration of 'strcat'
+     1>StrokesPlusHook.cpp(10592): warning C4995: '_tcscat': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(10592): warning C4995: 'strcat': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(10592): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(110) : see declaration of 'strcat'
+     1>StrokesPlusHook.cpp(10824): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(10824): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(10824): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(10858): warning C4995: 'wsprintf': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(10858): warning C4995: 'wsprintfA': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(10873): warning C4244: 'argument' : conversion from 'int' to 'Gdiplus::REAL', possible loss of data
+     1>StrokesPlusHook.cpp(10986): warning C4244: 'argument' : conversion from 'int' to 'Gdiplus::REAL', possible loss of data
+     1>StrokesPlusHook.cpp(10991): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(10991): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(10996): warning C4244: '=' : conversion from 'double' to 'Gdiplus::REAL', possible loss of data
+     1>StrokesPlusHook.cpp(10997): warning C4244: '=' : conversion from 'double' to 'Gdiplus::REAL', possible loss of data
+     1>StrokesPlusHook.cpp(10999): warning C4267: 'argument' : conversion from 'size_t' to 'INT', possible loss of data
+     1>StrokesPlusHook.cpp(11226): warning C4244: 'argument' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(11229): warning C4244: '=' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(11318): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(11318): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(11318): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(11337): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(11337): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(11337): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(11365): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(11365): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(11365): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(11381): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(11381): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(11381): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(11596): warning C4002: too many actual parameters for macro 'TreeView_GetNextVisible'
+     1>StrokesPlusHook.cpp(11678): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(11679): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(11694): warning C4244: 'initializing' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(11696): warning C4244: 'initializing' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(11708): warning C4244: '=' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(11777): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(11778): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(11794): warning C4244: 'initializing' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(11796): warning C4244: 'initializing' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(11808): warning C4244: '=' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(11970): warning C4244: 'initializing' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(12097): warning C4244: 'initializing' : conversion from 'LRESULT' to 'UINT', possible loss of data
+     1>StrokesPlusHook.cpp(12146): warning C4244: 'initializing' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(12148): warning C4244: 'initializing' : conversion from 'LRESULT' to 'UINT', possible loss of data
+     1>StrokesPlusHook.cpp(12515): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(12515): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(12515): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(12670): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(12670): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(12670): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(12949): warning C4244: 'initializing' : conversion from 'LRESULT' to 'BOOL', possible loss of data
+     1>StrokesPlusHook.cpp(12997): warning C4244: 'initializing' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(13045): warning C4244: 'initializing' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(13046): warning C4244: 'initializing' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(13047): warning C4244: 'initializing' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(13048): warning C4244: 'initializing' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(13049): warning C4244: 'initializing' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(13090): warning C4244: 'initializing' : conversion from 'LRESULT' to 'UINT', possible loss of data
+     1>StrokesPlusHook.cpp(13178): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(13178): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(13178): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(13346): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(13346): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(13346): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(13368): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(13368): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(13368): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(13398): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(13398): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(13398): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(13403): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(13403): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(13403): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(13411): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(13411): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(13411): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(13422): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(13422): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(13422): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(13440): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(13440): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(13440): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(13469): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(13469): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(13469): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(13474): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(13474): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(13474): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(13482): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(13482): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(13482): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(13497): warning C4244: 'initializing' : conversion from '__int64' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(13545): warning C4244: 'initializing' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(13574): warning C4244: '=' : conversion from 'std::streamoff' to 'long', possible loss of data
+     1>StrokesPlusHook.cpp(13583): warning C4244: '=' : conversion from 'std::streamsize' to 'long', possible loss of data
+     1>StrokesPlusHook.cpp(13892): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(14168): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14168): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14168): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(14173): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14173): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14173): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(14178): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14178): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14178): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(14183): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14183): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14183): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(14188): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14188): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14188): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(14193): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14193): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14193): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(14198): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14198): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14198): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(14326): warning C4244: '=' : conversion from 'LRESULT' to 'BOOL', possible loss of data
+     1>StrokesPlusHook.cpp(14359): warning C4800: 'BOOL' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(14520): warning C4244: 'initializing' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(14579): warning C4244: 'initializing' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(14649): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14649): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14649): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(14682): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14682): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14682): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(14717): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14717): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14717): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(14754): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14754): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14754): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(14807): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14807): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14807): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(14852): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14852): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14852): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(14911): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14911): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14911): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(14979): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14979): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(14979): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(15056): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(15056): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(15056): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(15079): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(15079): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(15079): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(15099): warning C4244: 'initializing' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15127): warning C4244: 'initializing' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15129): warning C4244: 'initializing' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15141): warning C4244: '=' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(14472): warning C4101: 'hSelectedParent' : unreferenced local variable
+     1>StrokesPlusHook.cpp(14563): warning C4101: 'hSelectedParent' : unreferenced local variable
+     1>StrokesPlusHook.cpp(15249): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(15250): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(15251): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(15252): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(15255): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15255): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15312): warning C4244: 'argument' : conversion from 'int' to 'Gdiplus::REAL', possible loss of data
+     1>StrokesPlusHook.cpp(15317): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15317): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15322): warning C4244: '=' : conversion from 'double' to 'Gdiplus::REAL', possible loss of data
+     1>StrokesPlusHook.cpp(15323): warning C4244: '=' : conversion from 'double' to 'Gdiplus::REAL', possible loss of data
+     1>StrokesPlusHook.cpp(15325): warning C4267: 'argument' : conversion from 'size_t' to 'INT', possible loss of data
+     1>StrokesPlusHook.cpp(15352): warning C4244: 'initializing' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15354): warning C4244: 'initializing' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15366): warning C4244: '=' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15376): warning C4244: 'initializing' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15378): warning C4244: 'initializing' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15390): warning C4244: '=' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15494): warning C4805: '==' : unsafe mix of type 'BOOL' and type 'bool' in operation
+     1>StrokesPlusHook.cpp(15512): warning C4805: '==' : unsafe mix of type 'BOOL' and type 'bool' in operation
+     1>StrokesPlusHook.cpp(15514): warning C4805: '==' : unsafe mix of type 'BOOL' and type 'bool' in operation
+     1>StrokesPlusHook.cpp(15518): warning C4805: '==' : unsafe mix of type 'BOOL' and type 'bool' in operation
+     1>StrokesPlusHook.cpp(15522): warning C4805: '==' : unsafe mix of type 'BOOL' and type 'bool' in operation
+     1>StrokesPlusHook.cpp(15527): warning C4805: '==' : unsafe mix of type 'BOOL' and type 'bool' in operation
+     1>StrokesPlusHook.cpp(15530): warning C4805: '==' : unsafe mix of type 'BOOL' and type 'bool' in operation
+     1>StrokesPlusHook.cpp(15533): warning C4805: '==' : unsafe mix of type 'BOOL' and type 'bool' in operation
+     1>StrokesPlusHook.cpp(15536): warning C4805: '==' : unsafe mix of type 'BOOL' and type 'bool' in operation
+     1>StrokesPlusHook.cpp(15539): warning C4805: '==' : unsafe mix of type 'BOOL' and type 'bool' in operation
+     1>StrokesPlusHook.cpp(15542): warning C4805: '==' : unsafe mix of type 'BOOL' and type 'bool' in operation
+     1>StrokesPlusHook.cpp(15647): warning C4800: 'LRESULT' : forcing value to bool 'true' or 'false' (performance warning)
+     1>StrokesPlusHook.cpp(15662): warning C4244: 'initializing' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15848): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15851): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15854): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15857): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15860): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15863): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15866): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15869): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15872): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15875): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15878): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15881): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15884): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15887): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15890): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15893): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15896): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15899): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15902): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15905): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15908): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15911): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15914): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15917): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15920): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15923): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15926): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15929): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15932): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15935): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15938): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15941): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15944): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15947): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15947): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15950): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15950): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15953): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15971): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15988): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(15988): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(16080): warning C4244: 'initializing' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(16102): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(16103): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+     1>StrokesPlusHook.cpp(16366): warning C4244: 'initializing' : conversion from 'LRESULT' to 'int', possible loss of data
+     1>StrokesPlusHook.cpp(16385): warning C4244: 'argument' : conversion from 'int' to 'Gdiplus::REAL', possible loss of data
+     1>StrokesPlusHook.cpp(16982): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(16982): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(16982): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(16988): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(16988): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(16988): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(16993): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(16993): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(16993): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(16998): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(16998): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(16998): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(17003): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(17003): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(17003): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(17008): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(17008): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(17008): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(17132): warning C4995: 'wsprintf': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(17132): warning C4995: 'wsprintfA': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(17134): warning C4995: '_tcscpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(17134): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(17134): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : see declaration of 'strcpy'
+     1>StrokesPlusHook.cpp(17141): warning C4995: 'wsprintf': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(17141): warning C4995: 'wsprintfA': name was marked as #pragma deprecated
+     1>StrokesPlusHook.cpp(17119): warning C4101: 'pFmt' : unreferenced local variable
+         wide_posix_api.cpp
+         winstances.cpp
+     1>C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\boost_1_50_0\boost/lexical_cast.hpp(1320): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : see declaration of 'sprintf'
+                 C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\boost_1_50_0\boost/lexical_cast.hpp(1316) : while compiling class template member function 'bool boost::detail::lexical_stream_limited_src<CharT,Traits,RequiresStringbuffer>::shl_real_type(float,char *,char *&)'
+                 with
+                 [
+                     CharT=char_type,
+                     Traits=traits,
+                     RequiresStringbuffer=false
+                 ]
+                 C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\boost_1_50_0\boost/lexical_cast.hpp(1970) : see reference to class template instantiation 'boost::detail::lexical_stream_limited_src<CharT,Traits,RequiresStringbuffer>' being compiled
+                 with
+                 [
+                     CharT=char_type,
+                     Traits=traits,
+                     RequiresStringbuffer=false
+                 ]
+                 C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\boost_1_50_0\boost/lexical_cast.hpp(1921) : while compiling class template member function 'std::basic_string<_Elem,_Traits,_Ax> boost::detail::lexical_cast_do_cast<Target,Source>::lexical_cast_impl(const Source &)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>,
+                     _Ax=std::allocator<char>,
+                     Target=std::basic_string<char,std::char_traits<char>,std::allocator<char>>,
+                     Source=src
+                 ]
+                 C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\boost_1_50_0\boost/lexical_cast.hpp(2133) : see reference to class template instantiation 'boost::detail::lexical_cast_do_cast<Target,Source>' being compiled
+                 with
+                 [
+                     Target=std::basic_string<char,std::char_traits<char>,std::allocator<char>>,
+                     Source=src
+                 ]
+                 StrokesPlusHook.cpp(6078) : see reference to function template instantiation 'Target boost::lexical_cast<std::basic_string<_Elem,_Traits,_Ax>,int>(const Source &)' being compiled
+                 with
+                 [
+                     Target=std::basic_string<char,std::char_traits<char>,std::allocator<char>>,
+                     _Elem=char,
+                     _Traits=std::char_traits<char>,
+                     _Ax=std::allocator<char>,
+                     Source=int
+                 ]
+       ResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /l"0x0409" /nologo /fo"Release\x64\StrokesPlusHook.res" StrokesPlusHook.rc 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\bin\Release\x64\StrokesPlus.dll" /INCREMENTAL:NO /NOLOGO version.lib winmm.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\x64\StrokesPlus.dll.intermediate.manifest" /MANIFESTDEPENDENCY:"type='Win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='amd64' publicKeyToken='6595b64144ccf1df' language='*'" /MANIFESTUAC:"level='asInvoker' uiAccess='true'" /PDB:"C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\bin\Release\x64\StrokesPlus.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"StrokesPlusHook.lib" /MACHINE:X64 /DLL Release\x64\StrokesPlusHook.res
+         Release\x64\ffi.obj
+         Release\x64\prep_cif.obj
+         Release\x64\types.obj
+         Release\x64\win32.obj
+         Release\x64\core.obj
+         Release\x64\struct.obj
+         Release\x64\lapi.obj
+         Release\x64\lauxlib.obj
+         Release\x64\lbaselib.obj
+         Release\x64\lbitlib.obj
+         Release\x64\lcode.obj
+         Release\x64\lcorolib.obj
+         Release\x64\lctype.obj
+         Release\x64\ldblib.obj
+         Release\x64\ldebug.obj
+         Release\x64\ldo.obj
+         Release\x64\ldump.obj
+         Release\x64\lfunc.obj
+         Release\x64\lgc.obj
+         Release\x64\linit.obj
+         Release\x64\liolib.obj
+         Release\x64\llex.obj
+         Release\x64\lmathlib.obj
+         Release\x64\lmem.obj
+         Release\x64\loadlib.obj
+         Release\x64\lobject.obj
+         Release\x64\lopcodes.obj
+         Release\x64\loslib.obj
+         Release\x64\lparser.obj
+         Release\x64\lstate.obj
+         Release\x64\lstring.obj
+         Release\x64\lstrlib.obj
+         Release\x64\ltable.obj
+         Release\x64\ltablib.obj
+         Release\x64\ltm.obj
+         Release\x64\lua.obj
+         Release\x64\lundump.obj
+         Release\x64\lvm.obj
+         Release\x64\lzio.obj
+         Release\x64\LexLua.obj
+         Release\x64\Accessor.obj
+         Release\x64\CharacterSet.obj
+         Release\x64\LexerBase.obj
+         Release\x64\LexerModule.obj
+         Release\x64\LexerNoExceptions.obj
+         Release\x64\LexerSimple.obj
+         Release\x64\PropSetSimple.obj
+         Release\x64\StyleContext.obj
+         Release\x64\WordList.obj
+         Release\x64\AutoComplete.obj
+         Release\x64\CallTip.obj
+         Release\x64\Catalogue.obj
+         Release\x64\CellBuffer.obj
+         Release\x64\CharClassify.obj
+         Release\x64\ContractionState.obj
+         Release\x64\Decoration.obj
+         Release\x64\Document.obj
+         Release\x64\Editor.obj
+         Release\x64\ExternalLexer.obj
+         Release\x64\Indicator.obj
+         Release\x64\KeyMap.obj
+         Release\x64\LineMarker.obj
+         Release\x64\PerLine.obj
+         Release\x64\PositionCache.obj
+         Release\x64\RESearch.obj
+         Release\x64\RunStyles.obj
+         Release\x64\ScintillaBase.obj
+         Release\x64\Selection.obj
+         Release\x64\Style.obj
+         Release\x64\UniConversion.obj
+         Release\x64\ViewStyle.obj
+         Release\x64\XPM.obj
+         Release\x64\PlatWin.obj
+         Release\x64\ScintillaWin.obj
+         Release\x64\Registry.obj
+         Release\x64\stdafx.obj
+         Release\x64\StrokesPlusHook.obj
+         Release\x64\cpp_regex_traits.obj
+         Release\x64\c_regex_traits.obj
+         Release\x64\cregex.obj
+         Release\x64\fileiter.obj
+         Release\x64\icu.obj
+         Release\x64\instances.obj
+         Release\x64\posix_api.obj
+         Release\x64\regex.obj
+         Release\x64\regex_debug.obj
+         Release\x64\regex_raw_buffer.obj
+         Release\x64\regex_traits_defaults.obj
+         Release\x64\static_mutex.obj
+         Release\x64\usinstances.obj
+         Release\x64\w32_regex_traits.obj
+         Release\x64\wc_regex_traits.obj
+         Release\x64\wide_posix_api.obj
+         Release\x64\winstances.obj
+         Release\x64\win64.obj
+            Creating library StrokesPlusHook.lib and object StrokesPlusHook.exp
+         Generating code
+         Finished generating code
+         StrokesPlusHook.vcxproj -> C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\bin\Release\x64\StrokesPlus.dll
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\bin\Release\x64\StrokesPlus.dll;#2" /manifest Release\x64\StrokesPlus.dll.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Release\x64\StrokesPlusHook.unsuccessfulbuild".
+         Touching "Release\x64\StrokesPlusHook.lastbuildstate".
+     1>Done Building Project "C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus\StrokesPlusHook\StrokesPlusHook.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:58.31

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="luasocket">
+</Property><Property Name="Solution File" Value="C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus_2\luasocket-2.0.2\luasocket.sln">
+</Property><Property Name="User Options File" Value="C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus_2\luasocket-2.0.2\luasocket.suo">
+</Property><Property Name="Date" Value="Tuesday, July 17, 2012">
+</Property><Property Name="Time" Value="7:44 AM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="luasocket.sln" Description="File successfully backed up as C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus_2\luasocket-2.0.2\luasocket.sln.old">
+</Event><Event ErrorLevel="0" Project="" Source="luasocket.suo" Description="File successfully backed up as C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus_2\luasocket-2.0.2\luasocket.suo.old">
+</Event><Event ErrorLevel="3" Project="socket" Source="socket.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="mime" Source="mime.vcxproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="libluasocket" Source="libluasocket.vcproj" Description="Converting project file 'C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus_2\luasocket-2.0.2\libluasocket.vcproj'.">
+</Event><Event ErrorLevel="2" Project="libluasocket" Source="libluasocket.vcproj" Description="File 'C:\Users\Rob\Documents\Development\Visual Studio 2008\Projects\StrokesPlus_2\luasocket-2.0.2\libluasocket.vcproj' was not found.">
+</Event><Event ErrorLevel="2" Project="libluasocket" Source="libluasocket.vcproj" Description="Project upgrade failed.">
+</Event><Event ErrorLevel="3" Project="libluasocket" Source="libluasocket.vcproj" Description="Not Converted">
+</Event><Event ErrorLevel="0" Project="" Source="luasocket.sln" Description="The solution file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="" Source="luasocket.sln" Description="No Conversion Required">
+</Event></UpgradeLog>

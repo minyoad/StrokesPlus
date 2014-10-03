@@ -1,0 +1,1758 @@
+<actionshelp>
+	<groups>
+		<group name="---- Variables Available to Scripts ----">
+			<actions>
+				<action name="sp_app_name">
+					<parameters>
+					</parameters>				
+					<return type="string"></return>
+					<signature>sp_app_name</signature>
+					<description>The name of the matched application</description>
+					<example>local strApp = sp_app_name</example>
+					<snippet>sp_app_name</snippet>
+				</action>	
+				<action name="sp_action_name">
+					<parameters>
+					</parameters>				
+					<return type="string"></return>
+					<signature>sp_action_name</signature>
+					<description>The name of the matched action</description>
+					<example>local strAction = sp_action_name</example>
+					<snippet>sp_action_name</snippet>
+				</action>							
+				<action name="sp_gesture_name">
+					<parameters>
+					</parameters>				
+					<return type="string"></return>
+					<signature>sp_gesture_name</signature>
+					<description>The name of the drawn gesture</description>
+					<example>local strGesture = sp_gesture_name</example>
+					<snippet>sp_gesture_name</snippet>
+				</action>
+				<action name="sp_gesture_start_x">
+					<parameters>
+					</parameters>				
+					<return type="number"></return>
+					<signature>sp_gesture_start_x</signature>
+					<description>The X coordinate of where the gesture began</description>
+					<example>local iGestureStartX = sp_gesture_start_x</example>
+					<snippet>sp_gesture_start_x</snippet>
+				</action>	
+				<action name="sp_gesture_start_y">
+					<parameters>
+					</parameters>				
+					<return type="number"></return>
+					<signature>sp_gesture_start_y</signature>
+					<description>The Y coordinate of where the gesture began</description>
+					<example>local iGestureStartY = sp_gesture_start_y</example>
+					<snippet>sp_gesture_start_y</snippet>
+				</action>
+				<action name="sp_gesture_end_x">
+					<parameters>
+					</parameters>				
+					<return type="number"></return>
+					<signature>sp_gesture_end_x</signature>
+					<description>The X coordinate of where the gesture ended</description>
+					<example>local iGestureEndX = sp_gesture_end_x</example>
+					<snippet>sp_gesture_end_x</snippet>
+				</action>	
+				<action name="sp_gesture_end_y">
+					<parameters>
+					</parameters>				
+					<return type="number"></return>
+					<signature>sp_gesture_end_y</signature>
+					<description>The Y coordinate of where the gesture ended</description>
+					<example>local iGestureEndY = sp_gesture_end_y</example>
+					<snippet>sp_gesture_end_y</snippet>
+				</action>	
+				<action name="sp_wheel_delta">
+					<parameters>
+					</parameters>				
+					<return type="number"></return>
+					<signature>sp_wheel_delta</signature>
+					<description>The mouse wheel scroll delta [positive or negative number], standard mouse wheels are 120 per wheel tick</description>
+					<example>local iGestureWheelDelta = sp_wheel_delta</example>
+					<snippet>sp_wheel_delta</snippet>
+				</action>	
+				<action name="gapp">
+					<parameters>
+					</parameters>				
+					<return type="string"></return>
+					<signature>gapp</signature>
+					<description>The name of the matched application</description>
+					<example>local strApp = gapp</example>
+					<snippet>gapp</snippet>
+				</action>	
+				<action name="gact">
+					<parameters>
+					</parameters>				
+					<return type="string"></return>
+					<signature>gact</signature>
+					<description>The name of the matched action</description>
+					<example>local strAction = gact</example>
+					<snippet>gact</snippet>
+				</action>					
+				<action name="gnm">
+					<parameters>
+					</parameters>								
+					<return type="string"></return>
+					<signature>gnm</signature>
+					<description>The name of the drawn gesture</description>
+					<example>local strGesture = gnm</example>
+					<snippet>gnm</snippet>
+				</action>
+				<action name="gsx">
+					<parameters>
+					</parameters>				
+					<return type="number"></return>
+					<signature>gsx</signature>
+					<description>The X coordinate of where the gesture began</description>
+					<example>local iGestureStartX = gsx</example>
+					<snippet>gsx</snippet>
+				</action>	
+				<action name="gsy">
+					<parameters>
+					</parameters>				
+					<return type="number"></return>
+					<signature>gsy</signature>
+					<description>The Y coordinate of where the gesture began</description>
+					<example>local iGestureStartY = gsy</example>
+					<snippet>gsy</snippet>
+				</action>
+				<action name="gex">
+					<parameters>
+					</parameters>				
+					<return type="number"></return>
+					<signature>gex</signature>
+					<description>The X coordinate of where the gesture ended</description>
+					<example>local iGestureEndX = gex</example>
+					<snippet>gex</snippet>
+				</action>	
+				<action name="gey">
+					<parameters>
+					</parameters>				
+					<return type="number"></return>
+					<signature>gey</signature>
+					<description>The Y coordinate of where the gesture ended</description>
+					<example>local iGestureEndY = gey</example>
+					<snippet>gey</snippet>
+				</action>	
+				<action name="gwd">
+					<parameters>
+					</parameters>				
+					<return type="number"></return>
+					<signature>gwd</signature>
+					<description>The mouse wheel scroll delta [positive or negative number], standard mouse wheels are 120 per wheel tick</description>
+					<example>local iGestureWheelDelta = gwd</example>
+					<snippet>gwd</snippet>
+				</action>	
+				<action name="gbl">
+					<parameters>
+					</parameters>				
+					<return type="number"></return>
+					<signature>gbl</signature>
+					<description>The bounding left coordinate (left-most X of the drawn gesture)</description>
+					<example>local iGestureBoundingLeft = gbl</example>
+					<snippet>gbl</snippet>
+				</action>			
+				<action name="gbt">
+					<parameters>
+					</parameters>				
+					<return type="number"></return>
+					<signature>gbt</signature>
+					<description>The bounding top coordinate (top-most Y of the drawn gesture)</description>
+					<example>local iGestureBoundingTop = gbt</example>
+					<snippet>gbt</snippet>
+				</action>		
+				<action name="gbr">
+					<parameters>
+					</parameters>				
+					<return type="number"></return>
+					<signature>gbr</signature>
+					<description>The bounding right coordinate (right-most X of the drawn gesture)</description>
+					<example>local iGestureBoundingRight = gbr</example>
+					<snippet>gbr</snippet>
+				</action>		
+				<action name="gbb">
+					<parameters>
+					</parameters>				
+					<return type="number"></return>
+					<signature>gbb</signature>
+					<description>The bounding bottom coordinate (bottom-most Y of the drawn gesture)</description>
+					<example>local iGestureBoundingBottom = gbb</example>
+					<snippet>gbb</snippet>
+				</action>						
+			</actions>
+		</group>	
+		<group name="---- Locate Window Actions ----">
+			<actions>
+				<action name="acFindWindow">
+					<parameters>
+						<parameter name="classname">The class name of the window to be located</parameter>
+						<parameter name="title">The title of the window to be located</parameter>	
+					</parameters>
+					<return type="number">Handle to the window, 0 if not found</return>
+					<signature>acFindWindow(classname, title)</signature>
+					<description>Finds a window by class and title, exact match. Pass [b]nil[/b] in place of either parameter to exclude it from the search. For example, acFindWindow("Winamp v1.x",nil) will find the Winamp class and ignore qualifying on title.</description>
+					<example>local iHandle = acFindWindow("Notepad", "Untitled - Notepad")</example>
+					<snippet>acFindWindow("class","title") --Pass nil in place of either parameter to exclude</snippet>
+				</action>
+				<action name="acFindWindowByTitleRegex">
+				<signature>acFindWindowByTitleRegex(titlepattern)</signature>
+				<parameters>
+				<parameter name="titlepattern">The regular expression to use when searching for a window title</parameter>
+				</parameters>
+				<return type="number">Handle to the window, 0 if not found</return>
+				<description>Finds the first window by matching the title to the regular expression passed in</description>
+				<example>acFindWindowByTitleRegex(titlepattern)</example>
+				<snippet>acFindWindowByTitleRegex("titlepattern") --regular expression</snippet>
+				</action>	
+				<action name="acGetAllWindows">
+				<signature>acGetAllWindows(toplevel)</signature>
+				<parameters>
+				<parameter name="toplevel">0 to return ALL window handles (a lot), 1 to return only top-level windows (recommended)</parameter>
+				</parameters>
+				<return type="number"></return>
+				<description>Fills global table sp_all_windows with the requested window handles. You do not need to define the sp_all_windows table.</description>
+				<example>acGetAllWindows(toplevel)</example>
+				<snippet>acGetAllWindows(1) --sample returns only top-level windows into sp_all_windows (you don't need to define this table)</snippet>
+				</action>				
+				<action name="acGetOwnerWindowByPoint">
+				<signature>acGetOwnerWindowByPoint(x, y)</signature>
+				<parameters>
+				<parameter name="x">The X (left) coordinate of the window</parameter>
+				<parameter name="y">The Y (top) coordinate of the window</parameter>
+				</parameters>
+				<return type="number"></return>
+				<description>Returns the handle of the owner (ancestor) window to which the target window belongs</description>
+				<example>acGetOwnerWindowByPoint(x, y)</example>
+				<snippet>acGetOwnerWindowByPoint(gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>
+				<action name="acGetParentWindowByPoint">
+				<signature>acGetParentWindowByPoint(gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</signature>
+				<parameters>
+				<parameter name="x">The X (left) coordinate of the window</parameter>
+				<parameter name="y">The Y (top) coordinate of the window</parameter>
+				</parameters>
+				<return type="number"></return>
+				<description>Returns the handle of the parent window to which the target window belongs</description>
+				<example>acGetParentWindowByPoint(x, y)</example>
+				<snippet>acGetParentWindowByPoint(gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>	
+				<action name="acGetWindowByPoint">
+				<signature>acGetWindowByPoint(x, y)</signature>
+				<parameters>
+				<parameter name="x">The X (left) coordinate of the window</parameter>
+				<parameter name="y">The Y (top) coordinate of the window</parameter>
+				</parameters>
+				<return type="number"></return>
+				<description>Returns the handle of the window at the specified coordinates</description>
+				<example>acGetWindowByPoint(x, y)</example>
+				<snippet>acGetWindowByPoint(gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>
+				<action name="acGetForegroundWindow">
+				<signature>acGetForegroundWindow()</signature>
+				<parameters/>
+				<return type="number"></return>
+				<description>Returns the handle of the foreground (top) window, the one which is currently active</description>
+				<example>acGetForegroundWindow()</example>
+				<snippet>acGetForegroundWindow()</snippet>
+				</action>	
+				<action name="acGetDesktopWindow">
+				<signature>acGetDesktopWindow()</signature>
+				<parameters/>
+				<return type="number"></return>
+				<description>Returns the handle of the Desktop window, this window which represents the Windows Desktop</description>
+				<example>acGetDesktopWindow()</example>
+				<snippet>acGetDesktopWindow()</snippet>
+				</action>
+			</actions>
+		</group>
+		<group name="---- Window State Actions ----">
+			<actions>
+				<action name="acActivateWindow">
+				<signature>acActivateWindow(hwndTarget, x, y, method)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the window to be activated; nil will use the x and y to locate the window</parameter>
+				<parameter name="x">The X (left) coordinate of the window to be activated</parameter>
+				<parameter name="y">The Y (top) coordinate of the window to be activated</parameter>
+				<parameter name="method">The type of method used to activate the window; 0 for standard, 1 for thread input, 2 for temporary ALT keypress. Use 0 (default) first, only try the others if 0 isn't working for you.</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Activates the window at the specified coordinates</description>
+				<example>acActivateWindow(hwndTarget, x, y, method)</example>
+				<snippet>acActivateWindow(nil, gsx, gsy, 0) --sample uses the gesture start coordinates (gsx and gsy) and the standard method for activating a window</snippet>
+				</action>
+				<action name="acPauseResumeThreadList">
+				<signature>acPauseResumeThreadList(hwndTarget, x, y, resume)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the window; nil will use the x and y to locate the window</parameter>
+				<parameter name="x">The X (left) coordinate of the window</parameter>
+				<parameter name="y">The Y (top) coordinate of the window</parameter>
+				<parameter name="resume">(0 for False, 1 for True) true to resume threads, false to suspend</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Suspends or resumes all threads of a window. This is VERY dangerous and NOT recommended, by me or Microsoft, in fact.</description>
+				<example>acPauseResumeThreadList(hwndTarget, x, y, resume)</example>
+				<snippet>acPauseResumeThreadList(nil, gsx, gsy, 0) --sample uses the gesture start coordinates (gsx and gsy) and defaults to pause (not resume)</snippet>
+				</action>	
+								<action name="acSetProcessPriority">
+				<signature>acSetProcessPriority(hwndTarget, x, y, priority)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the window; nil will use the x and y to locate the window</parameter>
+				<parameter name="x">The X (left) coordinate of the window</parameter>
+				<parameter name="y">The Y (top) coordinate of the window</parameter>
+				<parameter name="priority">(integer) The value of the new priority (based on the dwPriorityClass values on the Microsoft site. </parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Sets the process priority of the window</description>
+				<example>acSetProcessPriority(hwndTarget, x, y, priority)</example>
+				<snippet>acSetProcessPriority(nil, gsx, gsy, 0x00000020) --sample uses the gesture start coordinates (gsx and gsy) and sets process to normal priority</snippet>
+				</action>
+				<action name="acTerminateProcess">
+				<signature>acTerminateProcess(hwndTarget, x, y)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the window; nil will use the x and y to locate the window</parameter>
+				<parameter name="x">The X (left) coordinate of the window</parameter>
+				<parameter name="y">The Y (top) coordinate of the window</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Kills the main process of the window specified. This does not send a friendly close message which prompts to save files, etc.</description>
+				<example>acTerminateProcess(hwndTarget, x, y)</example>
+				<snippet>acTerminateProcess(nil, gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>	
+								<action name="acCloseApplication">
+				<signature>acCloseApplication(hwndTarget, x, y)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the window to be closed; nil will use the x and y to locate the window</parameter>
+				<parameter name="x">The X (left) coordinate of the window to be closed</parameter>
+				<parameter name="y">The Y (top) coordinate of the window to be closed</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Closes the window at the specified coordinates</description>
+				<example>acCloseApplication(hwndTarget, x, y)</example>
+				<snippet>acCloseApplication(nil, gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>
+			</actions>			
+		</group>
+		<group name="---- Window Placement Actions ----">
+			<actions>
+				<action name="acMoveWindow">
+				<signature>acMoveWindow(hwndTarget, x, y, left, top)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the window to be moved; nil will use the x and y to locate the window</parameter>
+				<parameter name="x">The X (left) coordinate of the window to be moved</parameter>
+				<parameter name="y">The Y (top) coordinate of the window to be moved</parameter>
+				<parameter name="left">The new X (left) coordinate of the window's location</parameter>
+				<parameter name="top">The new Y (top) coordinate of the window's location</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Moves the window using the specified coordinates</description>
+				<example>acMoveWindow(hwndTarget, x, y, left, top)</example>
+				<snippet>acMoveWindow(nil, gsx, gsy, 10, 10) --sample uses the gesture start coordinates (gsx and gsy) and moves the window to position 10, 10</snippet>
+				</action>
+								<action name="acMinimizeWindow">
+				<signature>acMinimizeWindow(hwndTarget, x, y)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the window to be minimized; nil will use the x and y to locate the window</parameter>
+				<parameter name="x">The X (left) coordinate of the window to be minimized</parameter>
+				<parameter name="y">The Y (top) coordinate of the window to be minimized</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Minimizes the window at the specified coordinates</description>
+				<example>acMinimizeWindow(hwndTarget, x, y)</example>
+				<snippet>acMinimizeWindow(nil, gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>
+								<action name="acRestoreWindow">
+				<signature>acRestoreWindow(hwndTarget, x, y)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the window; nil will use the x and y to locate the window</parameter>
+				<parameter name="x">The X (left) coordinate of the window</parameter>
+				<parameter name="y">The Y (top) coordinate of the window</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Restores the specified window</description>
+				<example>acRestoreWindow(hwndTarget, x, y)</example>
+				<snippet>acRestoreWindow(nil, gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>
+								<action name="acMaximizeWindow">
+				<signature>acMaximizeWindow(hwndTarget, x, y)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the window to be maximized; nil will use the x and y to locate the window</parameter>
+				<parameter name="x">The X (left) coordinate of the window to be maximized</parameter>
+				<parameter name="y">The Y (top) coordinate of the window to be maximized</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Maximizes the window at the specified coordinates</description>
+				<example>acMaximizeWindow(hwndTarget, x, y)</example>
+				<snippet>acMaximizeWindow(nil, gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>
+								<action name="acMaximizeOrRestoreWindow">
+				<signature>acMaximizeOrRestoreWindow(hwndTarget, x, y)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the window to be restored or maximized; nil will use the x and y to locate the window</parameter>
+				<parameter name="x">The X (left) coordinate of the window to be restored or maximized</parameter>
+				<parameter name="y">The Y (top) coordinate of the window to be restored or maximized</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Restores or maximizes the window, depending on its state at the specified coordinates</description>
+				<example>acMaximizeOrRestoreWindow(hwndTarget, x, y)</example>
+				<snippet>acMaximizeOrRestoreWindow(nil, gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>
+								<action name="acTileWindows">
+				<signature>acTileWindows(mode, area, method)</signature>
+				<parameters>
+				<parameter name="mode">1 to tile vertically, 2 to tile horizontally</parameter>
+				<parameter name="area">0 to tile only on the screen where the window under the gesture start resides, 1 to tile across the entire virtual desktop</parameter>
+				<parameter name="method">0 to have StrokesPlus handle the tiling, 1 to have Window handle the tiling</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Tiles all open windows vertically or horizontally across either the screen or all screens.  Note that some windows may not position properly due to non-standard window creation.  I will continue to refine thiese actions accordingly.</description>
+				<example>acTileWindows(1, 0, 0)</example>
+				<snippet>acTileWindows(2, 0, 0)  --sample defaults to tile horizontally, only on the screen where the gesture started, and tells S+ to handle the tiling (not Windows)</snippet>
+				</action>				
+			</actions>
+		</group>	
+		<group name="---- Window Size Actions ----">
+			<actions>
+				<action name="acGetWindowBottom">
+				<signature>acGetWindowBottom(hwndTarget, x, y)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the desired window (if nil, x and y will be used to get the window at those coordinates)</parameter>
+				<parameter name="x">If no hwndTarget is specified, this is gets the handle of the window at the x and y coordinates</parameter>
+				<parameter name="y">See above</parameter>
+				</parameters>
+				<return type="number"></return>
+				<description>Gets the CY (bottom) of the specified window</description>
+				<example>acGetWindowBottom(hwndTarget, x, y)</example>
+				<snippet>acGetWindowBottom(nil, gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>			
+				<action name="acGetWindowLeft">
+				<signature>acGetWindowLeft(hwndTarget, x, y)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the desired window (if nil, x and y will be used to get the window at those coordinates)</parameter>
+				<parameter name="x">If no hwndTarget is specified, this is gets the handle of the window at the x and y coordinates</parameter>
+				<parameter name="y">See above</parameter>
+				</parameters>
+				<return type="number"></return>
+				<description>Gets the X (left) coordinate of the specified window</description>
+				<example>acGetWindowLeft(hwndTarget, x, y)</example>
+				<snippet>acGetWindowLeft(nil, gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>
+				<action name="acGetWindowRight">
+				<signature>acGetWindowRight(hwndTarget, x, y)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the desired window (if nil, x and y will be used to get the window at those coordinates)</parameter>
+				<parameter name="x">If no hwndTarget is specified, this is gets the handle of the window at the x and y coordinates</parameter>
+				<parameter name="y">See above</parameter>
+				</parameters>
+				<return type="number"></return>
+				<description>Gets the CX (right) of the specified window</description>
+				<example>acGetWindowRight(hwndTarget, x, y)</example>
+				<snippet>acGetWindowRight(nil, gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>				
+								<action name="acGetWindowTop">
+				<signature>acGetWindowTop(hwndTarget, x, y)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the desired window (if nil, x and y will be used to get the window at those coordinates)</parameter>
+				<parameter name="x">If no hwndTarget is specified, this is gets the handle of the window at the x and y coordinates</parameter>
+				<parameter name="y">See above</parameter>
+				</parameters>
+				<return type="number"></return>
+				<description>Gets the Y (top) coordinate of the specified window</description>
+				<example>acGetWindowTop(hwndTarget, x, y)</example>
+				<snippet>acGetWindowTop(nil, gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>
+				<action name="acSetWindowSize">
+				<signature>acSetWindowSize(hwndTarget, x, y, width, height)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the window to be moved/sized; nil will use the x and y to locate the window</parameter>
+				<parameter name="x">The X (left) coordinate of the window to be moved/sized</parameter>
+				<parameter name="y">The Y (top) coordinate of the window to be moved/sized</parameter>
+				<parameter name="width">The new width of the window</parameter>
+				<parameter name="height">The new height of the window</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Moves and sizes the window using the specified coordinates and width/height</description>
+				<example>acSetWindowSize(hwndTarget, x, y, width, height)</example>
+				<snippet>acSetWindowSize(nil, gsx, gsy, 500, 500) --sample uses the gesture start coordinates (gsx and gsy) and sizes the window to 500 by 500</snippet>
+				</action>				
+			</actions>
+		</group>	
+		<group name="---- Window Order Actions ----">
+			<actions>
+				<action name="acSetTopmost">
+				<signature>acSetTopmost(hwndTarget, x, y)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the window; nil will use the x and y to locate the window</parameter>
+				<parameter name="x">The X (left) coordinate of the window</parameter>
+				<parameter name="y">The Y (top) coordinate of the window</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Sets the TOPMOST flag of the window to ON</description>
+				<example>acSetTopmost(hwndTarget, x, y)</example>
+				<snippet>acSetTopmost(nil, gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>
+								<action name="acClearTopmost">
+				<signature>acClearTopmost(hwndTarget, x, y)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the window; nil will use the x and y to locate the window</parameter>
+				<parameter name="x">The X (left) coordinate of the window</parameter>
+				<parameter name="y">The Y (top) coordinate of the window</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Clears the TOPMOST flag of the window</description>
+				<example>acClearTopmost(hwndTarget, x, y)</example>
+				<snippet>acClearTopmost(nil, gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>
+				<action name="acToggleTopmost">
+				<signature>acToggleTopmost(hwndTarget, x, y)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the window; nil will use the x and y to locate the window</parameter>
+				<parameter name="x">The X (left) coordinate of the window</parameter>
+				<parameter name="y">The Y (top) coordinate of the window</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Toggles the TOPMOST flag of the window on or off</description>
+				<example>acToggleTopmost(hwndTarget, x, y)</example>
+				<snippet>acToggleTopmost(nil, gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>	
+								<action name="acSendWindowToBottom">
+				<signature>acSendWindowToBottom(hwndTarget, x, y)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the window; nil will use the x and y to locate the window</parameter>
+				<parameter name="x">The X (left) coordinate of the window</parameter>
+				<parameter name="y">The Y (top) coordinate of the window</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Sends the specified window to the bottom of the window stack (imagine turning laying your screen flat and looking down at it)</description>
+				<example>acSendWindowToBottom(hwndTarget, x, y)</example>
+				<snippet>acSendWindowToBottom(nil, gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>
+				<action name="acPreviousApplication">
+				<signature>acPreviousApplication()</signature>
+				<parameters/>
+				<return type="number">(always 1)</return>
+				<description>Switches to the previous window, like pressing ALT+TAB</description>
+				<example>acPreviousApplication()</example>
+				<snippet>acPreviousApplication()</snippet>
+				</action>
+								<action name="acNextApplication">
+				<signature>acNextApplication()</signature>
+				<parameters/>
+				<return type="number">(always 1)</return>
+				<description>Switches to the next application in the window list, like holding ALT and pressing tab (cycles through the open programs)</description>
+				<example>acNextApplication()</example>
+				<snippet>acNextApplication()</snippet>
+				</action>
+			</actions>
+		</group>	
+		<group name="---- Transparency and Color Key Actions ----">
+			<actions>
+				<action name="acGetWindowTransparency">
+				<signature>acGetWindowTransparency(hwndTarget, x, y)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the window; nil will use the x and y to locate the window</parameter>
+				<parameter name="x">The X (left) coordinate of the window</parameter>
+				<parameter name="y">The Y (top) coordinate of the window</parameter>
+				</parameters>
+				<return type="number">0-255</return>
+				<description>Gets the level of transparency of a window, 0 being invisible, 255 being solid</description>
+				<example>acGetWindowTransparency(hwndTarget, x, y)</example>
+				<snippet>acGetWindowTransparency(nil, gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>
+				<action name="acGetWindowColorKeyR">
+				<signature>acGetWindowColorKeyR(hwndTarget, x, y)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the window; nil will use the x and y to locate the window</parameter>
+				<parameter name="x">The X (left) coordinate of the window</parameter>
+				<parameter name="y">The Y (top) coordinate of the window</parameter>
+				</parameters>
+				<return type="number">0-255</return>
+				<description>Gets the red (R) part of the color to which the window's color key is</description>
+				<example>acGetWindowColorKeyR(hwndTarget, x, y)</example>
+				<snippet>acGetWindowColorKeyR(nil, gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>
+								<action name="acGetWindowColorKeyG">
+				<signature>acGetWindowColorKeyG(hwndTarget, x, y)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the window; nil will use the x and y to locate the window</parameter>
+				<parameter name="x">The X (left) coordinate of the window</parameter>
+				<parameter name="y">The Y (top) coordinate of the window</parameter>
+				</parameters>
+				<return type="number">0-255</return>
+				<description>Gets the green (G) part of the color to which the window's color key is</description>
+				<example>acGetWindowColorKeyG(hwndTarget, x, y)</example>
+				<snippet>acGetWindowColorKeyG(nil, gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>
+				<action name="acGetWindowColorKeyB">
+				<signature>acGetWindowColorKeyB(hwndTarget, x, y)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the window; nil will use the x and y to locate the window</parameter>
+				<parameter name="x">The X (left) coordinate of the window</parameter>
+				<parameter name="y">The Y (top) coordinate of the window</parameter>
+				</parameters>
+				<return type="number">0-255</return>
+				<description>Gets the blue (B) part of the color to which the window's color key is</description>
+				<example>acGetWindowColorKeyB(hwndTarget, x, y)</example>
+				<snippet>acGetWindowColorKeyB(nil, gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>	
+								<action name="acSetWindowColorKey">
+				<signature>acSetWindowColorKey(hwndTarget, x, y, remove, red, green, blue)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the window; nil will use the x and y to locate the window</parameter>
+				<parameter name="x">The X (left) coordinate of the window</parameter>
+				<parameter name="y">The Y (top) coordinate of the window</parameter>
+				<parameter name="remove">(0 for False, 1 for True) true to remove the color key</parameter>
+				<parameter name="red">The red value of the color to make the color key</parameter>
+				<parameter name="green">The green value of the color to make the color key</parameter>
+				<parameter name="blue">The blue value of the color to make the color key</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Sets the color key for a window, which makes all parts of a window which match the color (R,G,B) transparent. Can have odd results depending on the window!</description>
+				<example>acSetWindowColorKey(hwndTarget, x, y, remove, red, green, blue)</example>
+				<snippet>acSetWindowColorKey(nil, gsx, gsy, 0, 255, 255, 255) --sample uses the gesture start coordinates (gsx and gsy) and sets the color key to white (255,255,255)</snippet>
+				</action>
+				<action name="acSetWindowTransparency">
+				<signature>acSetWindowTransparency(hwndTarget, x, y, opacity)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the window; nil will use the x and y to locate the window</parameter>
+				<parameter name="x">The X (left) coordinate of the window</parameter>
+				<parameter name="y">The Y (top) coordinate of the window</parameter>
+				<parameter name="opacity">The value to set the level of opacity to, 0-255 (255 is opaque)</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Sets the level of transparency of a window, 0 being invisible, 255 being solid</description>
+				<example>acSetWindowTransparency(hwndTarget, x, y, opacity)</example>
+				<snippet>acSetWindowTransparency(nil, gsx, gsy, 128) --sample uses the gesture start coordinates (gsx and gsy) and sets the opacity to 50 percent</snippet>
+				</action>
+
+
+				<action name="acSetWindowTransparencyAndColorKey">
+				<signature>acSetWindowTransparencyAndColorKey(hwndTarget, x, y, opacity, red, green, blue)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the window; nil will use the x and y to locate the window</parameter>
+				<parameter name="x">The X (left) coordinate of the window</parameter>
+				<parameter name="y">The Y (top) coordinate of the window</parameter>
+				<parameter name="opacity">The value to set the level of opacity to, 0-255 (255 is opaque)</parameter>
+				<parameter name="red">The red value of the color to make the color key</parameter>
+				<parameter name="green">The green value of the color to make the color key</parameter>
+				<parameter name="blue">The blue value of the color to make the color key</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Sets the transparency and color key for a window</description>
+				<example>acSetWindowTransparencyAndColorKey(hwndTarget, x, y, opacity, red, green, blue)</example>
+				<snippet>acSetWindowTransparencyAndColorKey(nil, gsx, gsy, 128, 255, 255, 255) --sample uses the gesture start coordinates (gsx and gsy), sets the opacity to 50 percent, and sets the color key to white (255,255,255)</snippet>
+				</action>				
+			</actions>
+		</group>	
+		<group name="---- Miscellaneous Window Actions ----">
+			<actions>
+				<action name="acGetWindowTitle">
+				<signature>acGetWindowTitle(hwndTarget, x, y)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the window; nil will use the x and y to locate the window</parameter>
+				<parameter name="x">The X (left) coordinate of the window</parameter>
+				<parameter name="y">The Y (top) coordinate of the window</parameter>
+				</parameters>
+				<return type="string">Window title</return>
+				<description>Returns the title of the window specified</description>
+				<example>acGetWindowTitle(hwndTarget, x, y)</example>
+				<snippet>acGetWindowTitle(nil, gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>
+				<action name="acGetClassName">
+				<signature>acGetClassName(hwndTarget, x, y)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the window or control; nil will use the x and y to locate the window or control</parameter>
+				<parameter name="x">The X (left) coordinate of the window or control to be located</parameter>
+				<parameter name="y">The Y (top) coordinate of the window or control to be located</parameter>
+				</parameters>
+				<return type="string"></return>
+				<description>Gets the class name of the specified window or control.  Note that unlike other actions where X and Y return the OWNING window, this control returns the window at the point specified, so if the point of over a button, the button's class name will be returned.  You can call acGetOwnerWindowByPoint() or acGetParentWindowByPoint() if you'd like to walk up the container hierarchy.</description>
+				<example>acGetClassName(hwndTarget, x, y)</example>
+				<snippet>acGetClassName(nil, gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet> 
+				</action>	
+				<action name="acGetControlID">
+				<signature>acGetControlID(hwndTarget, x, y)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the window or control; nil will use the x and y to locate the window or control</parameter>
+				<parameter name="x">The X (left) coordinate of the window or control to be located</parameter>
+				<parameter name="y">The Y (top) coordinate of the window or control to be located</parameter>
+				</parameters>
+				<return type="string"></return>
+				<description>Gets the ID for the control ID for the specified control handle.</description>
+				<example>acGetControlID(hwndTarget, x, y)</example>
+				<snippet>acGetControlID(nil, gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet> 
+				</action>					
+				<action name="acGetExecutableName">
+				<signature>acGetExecutableName(hwndTarget, x, y)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the window; nil will use the x and y to locate the window</parameter>
+				<parameter name="x">The X (left) coordinate of the window to be located</parameter>
+				<parameter name="y">The Y (top) coordinate of the window to be located</parameter>
+				</parameters>
+				<return type="string"></return>
+				<description>Gets the name of the EXE which owns the window</description>
+				<example>acGetExecutableName(hwndTarget, x, y)</example>
+				<snippet>acGetExecutableName(nil, gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>	
+			</actions>
+		</group>	
+		<group name="---- Multiple Monitor Actions ----">
+			<actions>
+				<action name="acCenterWindowToScreen">
+				<signature>acCenterWindowToScreen(hwndTarget, x, y, useworkarea)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the desired window (if nil, x and y will be used to get the window at those coordinates)</parameter>
+				<parameter name="x">If no hwndTarget is specified, this is gets the handle of the window at the x and y coordinates</parameter>
+				<parameter name="y">See above</parameter>
+				<parameter name="useworkarea">(0 for False, 1 for True) whether to use the work area of the screen or not (work area excludes the space used by the taskbar)</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Centers on the window on the screen</description>
+				<example>acCenterWindowToScreen(hwndTarget, x, y, useworkarea)</example>
+				<snippet>acCenterWindowToScreen(nil, gsx, gsy, 1) --sample uses the gesture start coordinates (gsx and gsy) and centers based on the work area</snippet>
+				</action>
+				<action name="acClipWindowToScreen">
+				<signature>acClipWindowToScreen(hwndTarget, x, y, useworkarea)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the desired window (if nil, x and y will be used to get the window at those coordinates)</parameter>
+				<parameter name="x">If no hwndTarget is specified, this is gets the handle of the window at the x and y coordinates</parameter>
+				<parameter name="y">See above</parameter>
+				<parameter name="useworkarea">(0 for False, 1 for True) whether to use the work area of the screen or not (work area excludes the space used by the taskbar)</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Re-positions the window on the screen, does the best to ensure the window is not outside the screen boundaries, but does not resize the window</description>
+				<example>acClipWindowToScreen(hwndTarget, x, y, useworkarea)</example>
+				<snippet>acClipWindowToScreen(nil, gsx, gsy, 1) --sample uses the gesture start coordinates (gsx and gsy) and repositions based on the work area</snippet>
+				</action>	
+				<action name="acFitWindowToScreen">
+				<signature>acFitWindowToScreen(hwndTarget, x, y, useworkarea)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the desired window (if nil, x and y will be used to get the window at those coordinates)</parameter>
+				<parameter name="x">If no hwndTarget is specified, this is gets the handle of the window at the x and y coordinates</parameter>
+				<parameter name="y">See above</parameter>
+				<parameter name="useworkarea">(0 for False, 1 for True) whether to use the work area of the screen or not (work area excludes the space used by the taskbar)</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Fits the window to the screen it's mostly occupying, so it takes up the whole screen.</description>
+				<example>acFitWindowToScreen(hwndTarget, x, y, useworkarea)</example>
+				<snippet>acFitWindowToScreen(nil, gsx, gsy, 1) --sample uses the gesture start coordinates (gsx and gsy) and resizes based on the work area</snippet>
+				</action>	
+				<action name="acMaximizeToAllScreens">
+				<signature>acMaximizeToAllScreens(hwndTarget, x, y)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the desired window (if nil, x and y will be used to get the window at those coordinates)</parameter>
+				<parameter name="x">If no hwndTarget is specified, this is gets the handle of the window at the x and y coordinates</parameter>
+				<parameter name="y">See above</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Stretches the window so it takes up the whole desktop, across all screens. Generally, this isn't very practical, but it's there for what it's worth.</description>
+				<example>acMaximizeToAllScreens(hwndTarget, x, y)</example>
+				<snippet>acMaximizeToAllScreens(nil, gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>		
+				<action name="acGetMonitorBrightness">
+				<signature>acGetMonitorBrightness(monitorhandle, x, y, mode)</signature>
+				<parameters>
+				<parameter name="monitorhandle">Handle to the monitor</parameter>
+				<parameter name="x">the x coordinate of the point used to locate the monitor</parameter>
+				<parameter name="y">the y coordinate of the point used to locate the monitor</parameter>
+				<parameter name="mode">1 = current value, 2 = minimum supported value, 3 = maximum supported value</parameter>
+				</parameters>
+				<return type="number"> (1 for success, -1 for failure)</return>
+				<description>Returns the specified brightness (based on mode parameter) value of the first physical monitor associated with the monitor handle (see change log for details)</description>
+				<example>acGetMonitorBrightness(monitorhandle, x, y, mode)</example>
+				<snippet>acGetMonitorBrightness(nil, gsx, gsy, 1) --sample gets the current brightness value of the monitor from the gesture start coordinates (gsx and gsy)</snippet>
+				</action>	
+				<action name="acSetMonitorBrightness">
+				<signature>acSetMonitorBrightness(monitorhandle, x, y, value)</signature>
+				<parameters>
+				<parameter name="monitorhandle">Handle to the monitor</parameter>
+				<parameter name="x">the x coordinate of the point used to locate the monitor</parameter>
+				<parameter name="y">the y coordinate of the point used to locate the monitor</parameter>
+				<parameter name="value">The new value to set as the brightness</parameter>
+				</parameters>
+				<return type="number"> (1 for success, -1 for failure)</return>
+				<description>Sets the brightness value of the first physical monitor associated with the monitor handle (see change log for details)</description>
+				<example>acSetMonitorBrightness(monitorhandle, x, y, value)</example>
+				<snippet>acSetMonitorBrightness(nil, gsx, gsy, 50) --sample sets the current brightness value to 50% for the monitor from the gesture start coordinates (gsx and gsy)</snippet>
+				</action>					
+				<action name="acGetMonitorFromPoint">
+				<signature>acGetMonitorFromPoint(x, y)</signature>
+				<parameters>
+				<parameter name="x">the x coordinate of the point used to locate the monitor</parameter>
+				<parameter name="y">See above</parameter>
+				</parameters>
+				<return type="number"></return>
+				<description>Returns the handle to the monitor where the x,y is located</description>
+				<example>acGetMonitorFromPoint(x, y)</example>
+				<snippet>acGetMonitorFromPoint(gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>
+				<action name="acGetMonitorFromName">
+				<signature>acGetMonitorFromName(monitorname)</signature>
+				<parameters>
+				<parameter name="monitorname">The name of the monitor (value must be in escaped form, "\\" for "\", e.g. "\\.\DISPLAY1" would be written in Lua script as "\\\\.\\DISPLAY1")</parameter>
+				</parameters>
+				<return type="number">monitor handle</return>
+				<description>Gets handle to the specified monitor</description>
+				<example>acGetMonitorFromName(monitorname)</example>
+				<snippet>acGetMonitorFromName("monitor-name") --"monitor-name" will need to be changed to match the actual monitor name, use acGetMonitorName to retrieve a monitor's name</snippet>
+				</action>	
+				<action name="acGetMonitorName">
+				<signature>acGetMonitorName(monitorhandle)</signature>
+				<parameters>
+				<parameter name="monitorhandle">Handle to the monitor</parameter>
+				</parameters>
+				<return type="string"></return>
+				<description>Returns the name of the monitor</description>
+				<example>acGetMonitorName(monitorhandle)</example>
+				<snippet>acGetMonitorName(123456) --123456 will need to be changed to match the actual monitor handle; use acGetMonitorFromName to retrieve a handle</snippet>
+				</action>
+				<action name="acGetMonitorRight">
+				<signature>acGetMonitorRight(monitorhandle, useworkarea)</signature>
+				<parameters>
+				<parameter name="monitorhandle">The handle to the monitor</parameter>
+				<parameter name="useworkarea">Whether to consider only the work area, not full monitor (excludes taskbar, docked windows)</parameter>
+				</parameters>
+				<return type="number"></return>
+				<description>Gets the CX (right) coordinate of the specified monitor</description>
+				<example>acGetMonitorRight(monitorhandle, useworkarea)</example>
+				<snippet>acGetMonitorRight(123456, 1) --123456 will need to be changed to match the actual monitor handle; use acGetMonitorFromName to retrieve a handle. this snippet specifies to use work area</snippet>
+				</action>
+
+
+				<action name="acGetMonitorTop">
+				<signature>acGetMonitorTop(monitorhandle, useworkarea)</signature>
+				<parameters>
+				<parameter name="monitorhandle">The handle to the monitor</parameter>
+				<parameter name="useworkarea">Whether to consider only the work area, not full monitor (excludes taskbar, docked windows)</parameter>
+				</parameters>
+				<return type="number"></return>
+				<description>Gets the Y (top) coordinate of the specified monitor</description>
+				<example>acGetMonitorTop(monitorhandle, useworkarea)</example>
+				<snippet>acGetMonitorTop(123456, 1) --123456 will need to be changed to match the actual monitor handle; use acGetMonitorFromName to retrieve a handle. this snippet specifies to use work area</snippet>
+				</action>	
+				<action name="acGetMonitorLeft">
+				<signature>acGetMonitorLeft(monitorhandle, useworkarea)</signature>
+				<parameters>
+				<parameter name="monitorhandle">The handle to the monitor</parameter>
+				<parameter name="useworkarea">Whether to consider only the work area, not full monitor (excludes taskbar, docked windows)</parameter>
+				</parameters>
+				<return type="number"></return>
+				<description>Gets the X (left) coordinate of the specified monitor</description>
+				<example>acGetMonitorLeft(monitorhandle, useworkarea)</example>
+				<snippet>acGetMonitorLeft(123456, 1) --123456 will need to be changed to match the actual monitor handle; use acGetMonitorFromName to retrieve a handle. this snippet specifies to use work area</snippet>
+				</action>
+				<action name="acGetMonitorBottom">
+				<signature>acGetMonitorBottom(monitorhandle, useworkarea)</signature>
+				<parameters>
+				<parameter name="monitorhandle">The handle to the monitor</parameter>
+				<parameter name="useworkarea">Whether to consider only the work area, not full monitor (excludes taskbar, docked windows)</parameter>
+				</parameters>
+				<return type="number"></return>
+				<description>Gets the CY (bottom) coordinate of the specified monitor</description>
+				<example>acGetMonitorBottom(monitorhandle, useworkarea)</example>
+				<snippet>acGetMonitorBottom(123456, 1) --123456 will need to be changed to match the actual monitor handle; use acGetMonitorFromName to retrieve a handle. this snippet specifies to use work area</snippet>
+				</action>	
+				<action name="acSendWindowToMonitorByHandle">
+				<signature>acSendWindowToMonitorByHandle(monitorhandle)</signature>
+				<parameters>
+				<parameter name="monitorhandle">The handle to the desired monitor</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Sends the window to the specified monitor (positions based on LEFT and TOP, does not resize)</description>
+				<example>acSendWindowToMonitorByHandle(monitorhandle)</example>
+				<snippet>acSendWindowToMonitorByHandle(123456) --123456 will need to be changed to match the actual monitor handle; use acGetMonitorFromName to retrieve a handle</snippet>
+				</action>
+
+
+				<action name="acSendWindowToMonitorByName">
+				<signature>acSendWindowToMonitorByName(monitorname)</signature>
+				<parameters>
+				<parameter name="monitorname">The name of the desired monitor (must be an escaped string! \\ for \, e.g. "\\.\DISPLAY1" would be written in Lua script as "\\\\.\\DISPLAY1")</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Sends the window to the specified monitor (positions based on LEFT and TOP, does not resize)</description>
+				<example>acSendWindowToMonitorByName(monitorname)</example>
+				<snippet>acSendWindowToMonitorByName("monitor-name") --"monitor-name" will need to be changed to match the actual monitor name, use acGetMonitorName to retrieve a monitor's name</snippet>
+				</action>
+
+
+				<action name="acSendWindowToNextMonitor">
+				<signature>acSendWindowToNextMonitor(hwndTarget, x, y)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the desired window (if nil, x and y will be used to get the window at those coordinates)</parameter>
+				<parameter name="x">If no hwndTarget is specified, this is gets the handle of the window at the x and y coordinates</parameter>
+				<parameter name="y">See above</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Sends the window to the next monitor (positions based on LEFT and TOP, does not resize)</description>
+				<example>acSendWindowToNextMonitor(hwndTarget, x, y)</example>
+				<snippet>acSendWindowToNextMonitor(nil, gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>
+
+
+				<action name="acSendWindowToPreviousMonitor">
+				<signature>acSendWindowToPreviousMonitor(hwndTarget, x, y)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the desired window (if nil, x and y will be used to get the window at those coordinates)</parameter>
+				<parameter name="x">If no hwndTarget is specified, this is gets the handle of the window at the x and y coordinates</parameter>
+				<parameter name="y">See above</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Sends the window to the previous monitor (positions based on LEFT and TOP, does not resize)</description>
+				<example>acSendWindowToPreviousMonitor(hwndTarget, x, y)</example>
+				<snippet>acSendWindowToPreviousMonitor(nil, gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>				
+			</actions>
+		</group>	
+		<group name="---- Keyboard Actions ----">
+			<actions>
+				<action name="acSendKeys">
+				<signature>acSendKeys(keystring)</signature>
+				<parameters>
+				<parameter name="keystring">The string of send keys commands (covered in the Help page)
+^ = Control
+% = Alt
++ = Shift
+@ = Win
+~ = Enter</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Sends keystrokes to the active window.</description>
+				<example>acSendKeys(keystring)</example>
+				<snippet>acSendKeys("your text here")</snippet>
+				</action>
+				<action name="acSendKeyDown">
+				<signature>acSendKeyDown(VKey)</signature>
+				<parameters>
+				<parameter name="VKey">The virtual keycode to send</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Sends the key down event to the active window.</description>
+				<example>acSendKeyDown(VKey)</example>
+				<snippet>acSendKeyDown(65) --sends the key down event for the letter "a"</snippet>
+				</action>				
+				<action name="acSendKeyUp">
+				<signature>acSendKeyUp(VKey)</signature>
+				<parameters>
+				<parameter name="VKey">The virtual keycode to send</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Sends the key up event to the active window.</description>
+				<example>acSendKeyUp(VKey)</example>
+				<snippet>acSendKeyUp(65) --sends the key up event for the letter "a"</snippet>
+				</action>								
+				<action name="acSendControlDown">
+				<signature>acSendControlDown()</signature>
+				<parameters/>
+				<return type="number">(always 1)</return>
+				<description>Sends the Control key down event</description>
+				<example>acSendControlDown()</example>
+				<snippet>acSendControlDown()</snippet>
+				</action>
+
+
+				<action name="acSendControlUp">
+				<signature>acSendControlUp()</signature>
+				<parameters/>
+				<return type="number">(always 1)</return>
+				<description>Sends the Control key up event</description>
+				<example>acSendControlUp()</example>
+				<snippet>acSendControlUp()</snippet>
+				</action>
+				<action name="acSendAltDown">
+				<signature>acSendAltDown()</signature>
+				<parameters/>
+				<return type="number">(always 1)</return>
+				<description>Sends the Alt key down event</description>
+				<example>acSendAltDown()</example>
+				<snippet>acSendAltDown()</snippet>
+				</action>
+
+
+				<action name="acSendAltUp">
+				<signature>acSendAltUp()</signature>
+				<parameters/>
+				<return type="number">(always 1)</return>
+				<description>Sends the Alt key up event</description>
+				<example>acSendAltUp()</example>
+				<snippet>acSendAltUp()</snippet>
+				</action>
+				<action name="acSendShiftDown">
+				<signature>acSendShiftDown()</signature>
+				<parameters/>
+				<return type="number">(always 1)</return>
+				<description>Sends the Shift key down event</description>
+				<example>acSendShiftDown()</example>
+				<snippet>acSendShiftDown()</snippet>
+				</action>
+
+
+				<action name="acSendShiftUp">
+				<signature>acSendShiftUp()</signature>
+				<parameters/>
+				<return type="number">(always 1)</return>
+				<description>Sends the Shift key up event</description>
+				<example>acSendShiftUp()</example>
+				<snippet>acSendShiftUp()</snippet>
+				</action>
+
+
+				<action name="acSendWinDown">
+				<signature>acSendWinDown()</signature>
+				<parameters/>
+				<return type="number">(always 1)</return>
+				<description>Sends the Win key down event</description>
+				<example>acSendWinDown()</example>
+				<snippet>acSendWinDown()</snippet>
+				</action>
+
+
+				<action name="acSendWinUp">
+				<signature>acSendWinUp()</signature>
+				<parameters/>
+				<return type="number">(always 1)</return>
+				<description>Sends the Win key up event</description>
+				<example>acSendWinUp()</example>
+				<snippet>acSendWinUp()</snippet>
+				</action>				
+			</actions>
+		</group>	
+		<group name="---- Mouse Actions ----">
+			<actions>
+				<action name="acGetMouseLocationX">
+				<signature>acGetMouseLocationX()</signature>
+				<parameters/>
+				<return type="number"></return>
+				<description>Returns the X (left) coordinate of the current mouse location</description>
+				<example>acGetMouseLocationX()</example>
+				<snippet>acGetMouseLocationX()</snippet>
+				</action>
+
+
+				<action name="acGetMouseLocationY">
+				<signature>acGetMouseLocationY()</signature>
+				<parameters/>
+				<return type="number"></return>
+				<description>Returns the Y (top) coordinate of the current mouse location</description>
+				<example>acGetMouseLocationY()</example>
+				<snippet>acGetMouseLocationY()</snippet>
+				</action>
+				<action name="acMouseClick">
+				<signature>acMouseClick(x, y, button, down, up)</signature>
+				<parameters>
+				<parameter name="x">The X (left) coordinate of where the click should occur</parameter>
+				<parameter name="y">The Y (top) coordinate of where the click should occur</parameter>
+				<parameter name="button">The mouse button which should be sent
+    0: Secondary button (right by default, unless mouse buttons are swapped)
+    1: Middle button
+    2: Primary button (left by default, unless mouse buttons are swapped)
+    3: X1 button
+    4: X2 button</parameter>
+				<parameter name="down">(0 for False, 1 for True) If the MOUSE_BUTTON_DOWN message should be sent</parameter>
+				<parameter name="up">(0 for False, 1 for True) If the MOUSE_BUTTON_UP message should be sent</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Send a mouse down and/or up event at the specified coordinates</description>
+				<example>acMouseClick(x, y, button, down, up)</example>
+				<snippet>acMouseClick(100, 100, 0, 1, 1) --this sample clicks the right mouse button at 100,100; sending down and up button events</snippet>
+				</action>
+
+
+				<action name="acMouseMove">
+				<signature>acMouseMove(x, y)</signature>
+				<parameters>
+				<parameter name="x">The X (left) coordinate to move the mouse cursor to</parameter>
+				<parameter name="y">The Y (top) coordinate to move the mouse cursor to</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Moves the mouse cursor to the specified coordinates</description>
+				<example>acMouseMove(x, y)</example>
+				<snippet>acMouseMove(100, 100) --this sample moves the mouse to coordinates 100,100</snippet>
+				</action>	
+
+				<action name="acGetMouseCursorType">
+				<signature>acGetMouseCursorType()</signature>
+				<parameters/>
+				<return type="string">Name of the cursor type as: ARROW, IBEAM, WAIT, CROSS, UP, SIZENWSE, SIZENESW, SIZEWE, SIZENS, SIZEALL, NO, HAND, APPSTARTING, HELP, or Unknown</return>
+				<description>Returns the name of the mouse current mouse cursor, or Unknown</description>
+				<example>acGetMouseCursorType()</example>
+				<snippet>acGetMouseCursorType()</snippet>
+				</action>	
+
+				<action name="acAutoHideMouseCursor">
+				<signature>acAutoHideMouseCursor(hidetimer,rehidetimer)</signature>
+				<parameters>
+				<parameter name="hidetimer">How long (in milliseconds) to wait without mouse movement before hiding the mouse cursor. Passing 0 (zero) disables auto-hiding.</parameter>
+				<parameter name="rehidetimer">How often (in milliseconds) to rehide the mouse cursor if it should be hidden (in case another applications re-displays the cursor)</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Auto-hides all standard mouse cursors based on the specified timers.</description>
+				<example>acAutoHideMouseCursor(2000,2000)</example>
+				<snippet>acAutoHideMouseCursor(2000,2000) --this tells S+ to hide the mouse after 2 seconds of not moving, and to re-hide every 2 seconds (in case another applications re-displays the cursor)</snippet>
+				</action>					
+				
+				<action name="acHideMouseCursor">
+				<signature>acHideMouseCursor()</signature>
+				<parameters/>
+				<return type="number">(always 1)</return>
+				<description>Hides all standard mouse cursors.</description>
+				<example>acHideMouseCursor()</example>
+				<snippet>acHideMouseCursor()</snippet>
+				</action>					
+				
+				<action name="acShowMouseCursor">
+				<signature>acShowMouseCursor()</signature>
+				<parameters/>
+				<return type="number">(always 1)</return>
+				<description>Reloads all standard mouse cursors.</description>
+				<example>acShowMouseCursor()</example>
+				<snippet>acShowMouseCursor()</snippet>
+				</action>					
+			</actions>
+		</group>	
+		<group name="---- Clipboard Actions ----">
+			<actions>
+				<action name="acGetClipboardText">
+				<signature>acGetClipboardText()</signature>
+				<parameters/>
+				<return type="string"></return>
+				<description>Returns the current text of the clipboard</description>
+				<example>acGetClipboardText()</example>
+				<snippet>acGetClipboardText()</snippet>
+				</action>
+				<action name="acSetClipboardText">
+				<signature>acSetClipboardText(value)</signature>
+				<parameters>
+				<parameter name="value">The text to save to the clipboard</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Sets the clipboard text to "value"</description>
+				<example>acSetClipboardText(value)</example>
+				<snippet>acSetClipboardText("value") --Sets the current clipboard text to "value"</snippet>
+				</action>				
+			</actions>
+		</group>	
+		<group name="---- Audio Actions ----">
+			<actions>
+				<action name="acGetVolume">
+				<signature>acGetVolume()</signature>
+				<parameters/>
+				<return type="number">Current volume level, 0-100</return>
+				<description>Returns the current volume of the master channel</description>
+				<example>acGetVolume()</example>
+				<snippet>acGetVolume()</snippet>
+				</action>
+				<action name="acSetVolume">
+				<signature>acSetVolume(value, increment)</signature>
+				<parameters>
+				<parameter name="value">(integer 0-100) Value to set the volume to </parameter>
+				<parameter name="increment">(0 for False, 1 for True) - true tells SP to use the Value parameter as an adjustment to the current volme, false sets the volume to the Value explicitly</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Sets the master volume level</description>
+				<example>acSetVolume(value, increment)</example>
+				<snippet>acSetVolume(50, 0) --sets the volume to 50 percent, doesn't increment</snippet>
+				</action>	
+				<action name="acGetMute">
+				<signature>acGetMute()</signature>
+				<parameters/>
+				<return type="number">1 for muted, 0 for not muted</return>
+				<description>Returns the state of the mute on the master channel</description>
+				<example>acGetMute()</example>
+				<snippet>acGetMute()</snippet>
+				</action>			
+				<action name="acSetMute">
+				<signature>acSetMute(value)</signature>
+				<parameters>
+				<parameter name="value">1 to mute, 0 to unmute</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Sets the mute state based on the value passed in</description>
+				<example>acSetMute(value)</example>
+				<snippet>acSetMute(1) --Turns on Mute</snippet>
+				</action>	
+				<action name="acToggleMute">
+				<signature>acToggleMute()</signature>
+				<parameters/>
+				<return type="number">(always 1)</return>
+				<description>Toggles the mute on the master channel</description>
+				<example>acToggleMute()</example>
+				<snippet>acToggleMute()</snippet>
+				</action>	
+				<action name="acPlaySound">
+				<signature>acPlaySound(filename)</signature>
+				<parameters>
+				<parameter name="filename">The full path (remembering about escaping Lua strings) to the WAV file</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Plays a sound.</description>
+				<example>acPlaySound(filename)</example>
+				<snippet>acPlaySound("C:\\Windows\\Media\\ding.wav") --only works if that file exists</snippet>
+				</action>				
+			</actions>
+		</group>	
+		<group name="---- Windows Registry Actions ----">
+			<actions>
+				<action name="acRegistryCreateKey">
+				<signature>acRegistryCreateKey(rootkey, path)</signature>
+				<parameters>
+				<parameter name="rootkey">The root registry key:
+	1 = HKEY_CLASSES_ROOT
+	2 = HKEY_LOCAL_MACHINE
+	3 = HKEY_CURRENT_USER
+	4 = HKEY_USERS</parameter>
+				<parameter name="path">The path of the key to be created (\ must be escaped as \\)</parameter>
+				</parameters>
+				<return type="number">0 for failed, 1 for success</return>
+				<description>Creates a new key at the specified path.</description>
+				<example>acRegistryCreateKey(rootkey, path)</example>
+				<snippet>acRegistryCreateKey(2, "Software\\MyApp") --Creates a new key under HKEY_LOCAL_MACHINE named MyApp</snippet>
+				</action>	
+				<action name="acRegistryDeleteKey">
+				<signature>acRegistryDeleteKey(rootkey, path)</signature>
+				<parameters>
+				<parameter name="rootkey">The root registry key:
+	1 = HKEY_CLASSES_ROOT
+	2 = HKEY_LOCAL_MACHINE
+	3 = HKEY_CURRENT_USER
+	4 = HKEY_USERS</parameter>
+				<parameter name="path">The path of the key to be deleted (\ must be escaped as \\)</parameter>
+				</parameters>
+				<return type="number">0 for failed, 1 for success</return>
+				<description>Delete the key at the specified path. Will not delete if subkeys exist; subkeys must be deleted first.</description>
+				<example>acRegistryDeleteKey(rootkey, path)</example>
+				<snippet>acRegistryDeleteKey(2, "Software\\MyApp") --Deletes the MyApp key under HKEY_LOCAL_MACHINE</snippet>
+				</action>	
+				<action name="acRegistryDeleteValue">
+				<signature>acRegistryDeleteValue(rootkey, path, name)</signature>
+				<parameters>
+				<parameter name="rootkey">The root registry key:
+	1 = HKEY_CLASSES_ROOT
+	2 = HKEY_LOCAL_MACHINE
+	3 = HKEY_CURRENT_USER
+	4 = HKEY_USERS</parameter>
+				<parameter name="path">The path to the key where the value to be deleted exists (\ must be escaped as \\)</parameter>
+				<parameter name="name">The name of the value to be deleted</parameter>
+				</parameters>
+				<return type="number">0 for failed, 1 for success</return>
+				<description>Delete the value at the specified path/name.</description>
+				<example>acRegistryDeleteValue(rootkey, path, name)</example>
+				<snippet>acRegistryDeleteValue(2, "Software\\MyApp","Setting1") --Deletes the Setting1 value in the MyApp key under HKEY_LOCAL_MACHINE</snippet>
+				</action>	
+				<action name="acRegistryGetNumber">
+				<signature>acRegistryGetNumber(rootkey, path, name, default)</signature>
+				<parameters>
+				<parameter name="rootkey">The root registry key:
+	1 = HKEY_CLASSES_ROOT
+	2 = HKEY_LOCAL_MACHINE
+	3 = HKEY_CURRENT_USER
+	4 = HKEY_USERS</parameter>
+				<parameter name="path">The path to the key where the value to be retrieved exists (\ must be escaped as \\)</parameter>
+				<parameter name="name">The name of the value to be retrieved</parameter>
+				<parameter name="default">The default value to be returned if not found</parameter>
+				</parameters>
+				<return type="number">Value or default if not found</return>
+				<description>Gets the value at the specified key/path/name. </description>
+				<example>acRegistryGetNumber(rootkey, path, name, default)</example>
+				<snippet>acRegistryGetNumber(2,"Software\\MyApp","Setting1",0) --Gets the Setting1 value in the MyApp key under HKEY_LOCAL_MACHINE, or returns 0 if it doesn't exist</snippet>
+				</action>	
+				<action name="acRegistryGetString">
+				<signature>acRegistryGetString(rootkey, path, name, default)</signature>
+				<parameters>
+				<parameter name="rootkey">The root registry key:
+	1 = HKEY_CLASSES_ROOT
+	2 = HKEY_LOCAL_MACHINE
+	3 = HKEY_CURRENT_USER
+	4 = HKEY_USERS</parameter>
+				<parameter name="path">The path to the key where the value to be retrieved exists (\ must be escaped as \\).</parameter>
+				<parameter name="name">The name of the value to be retrieved</parameter>
+				<parameter name="default">The default value to be returned if not found</parameter>
+				</parameters>
+				<return type="string">Value or default if not found</return>
+				<description>Gets the value at the specified key/path/name. Keys of the type REG_EXPAND_SZ will have their environment variables expanded as available.</description>
+				<example>acRegistryGetString(rootkey, path, name, default)</example>
+				<snippet>acRegistryGetString(2,"Software\\MyApp","Setting2","Not Found") --Gets the Setting2 value in the MyApp key under HKEY_LOCAL_MACHINE, or returns "Not Found" if it doesn't exist</snippet>
+				</action>	
+				<action name="acRegistrySetNumber">
+				<signature>acRegistrySetNumber(rootkey, path, name, value)</signature>
+				<parameters>
+				<parameter name="rootkey">The root registry key:
+	1 = HKEY_CLASSES_ROOT
+	2 = HKEY_LOCAL_MACHINE
+	3 = HKEY_CURRENT_USER
+	4 = HKEY_USERS</parameter>
+				<parameter name="path">The path to the key where the value is to be stored (\ must be escaped as \\)</parameter>
+				<parameter name="name">The name of the value to be stored</parameter>
+				<parameter name="value">The value to be stored</parameter>
+				</parameters>
+				<return type="integer">0 for failed, 1 for success</return>
+				<description>Sets the value at the specified key/path/name.</description>
+				<example>acRegistrySetNumber(rootkey, path, name, value)</example>
+				<snippet>acRegistrySetNumber(2,"Software\\MyApp","Setting1",4) --Sets the Setting1 value to 4 in the MyApp key under HKEY_LOCAL_MACHINE</snippet>
+				</action>
+				<action name="acRegistrySetString">
+				<signature>acRegistrySetString(rootkey, path, name, value, type)</signature>
+				<parameters>
+				<parameter name="rootkey">The root registry key:
+	1 = HKEY_CLASSES_ROOT
+	2 = HKEY_LOCAL_MACHINE
+	3 = HKEY_CURRENT_USER
+	4 = HKEY_USERS</parameter>
+				<parameter name="path">The path to the key where the value is to be stored (\ must be escaped as \\)</parameter>
+				<parameter name="name">The name of the value to be stored</parameter>
+				<parameter name="value">The value to be stored</parameter>
+				<parameter name="type">The key type to be stored as:
+	1 = REG_SZ (default)
+	2 = REG_EXPAND_SZ</parameter>
+				</parameters>
+				<return type="integer">0 for failed, 1 for success</return>
+				<description>Sets the value at the specified key/path/name.</description>
+				<example>acRegistrySetString(rootkey, path, name, value, type)</example>
+				<snippet>acRegistrySetString(2,"Software\\MyApp","Setting2","Test Value", 1) --Sets the Setting2 value to "Test Value" (as REG_SZ) in the MyApp key under HKEY_LOCAL_MACHINE</snippet>
+				</action>					
+			</actions>
+		</group>
+		<group name="---- Utility Actions ----">
+			<actions>
+				<action name="acConsumePhysicalInput">
+				<signature>acConsumePhysicalInput(value)</signature>
+				<parameters>
+				<parameter name="value">Whether to consume all physical input, 0 = False, 1 = True</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Tells S+ to consume ALL physical input (mouse and keyboard). This may be useful if you're about to call a mouse or keyboard action where you don't want any physical input to interfere with the action. But make sure you call again, passing 0, to enable input or your computer may become unusable!</description>
+				<example>acConsumePhysicalInput()</example>
+				<snippet>acConsumePhysicalInput(1) --sample instructs S+ to consume ALL input (make sure to call acConsumePhysicalInput(0) within the SAME Lua script or your computer may become unusable!). </snippet>
+				</action>
+				
+				<action name="acDelay">
+				<signature>acDelay(duration)</signature>
+				<parameters>
+				<parameter name="duration">(ms) Number of millisecond to pause</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Pauses the Lua script for the specified duration (Sleep(n))</description>
+				<example>acDelay(duration)</example>
+				<snippet>acDelay(duration)</snippet>
+				</action>	
+				<action name="acDisplayBalloonTip">
+					<parameters>
+						<parameter name="title">The title to display</parameter>
+						<parameter name="message">The message to display</parameter>	
+						<parameter name="icon">The icon to display in the balloon: 0 = None, 1 = Info, 2 = Warning, 3 = Error</parameter>	
+					</parameters>
+					<return type="number">(always 1)</return>
+					<signature>acDisplayBalloonTip(title, message, icon)</signature>
+					<description>Displays a balloon tip near the S+ tray icon. Note that Windows limits the frequency at which balloon tips can be displayed and the timing in general, so if you try to call this again a few seconds after the tip was dismissed, nothing will happen. Seems to be different in WinXP vs. Win7. </description>
+					<example>acDisplayBalloonTip("Testing", "Hello!", 1)</example>
+					<snippet>acDisplayBalloonTip("Testing", "Hello!", 1) --displays a simple balloon tip with an info icon</snippet>
+				</action>				
+				<action name="acDisplayText">
+					<parameters>
+						<parameter name="message">The text to display</parameter>
+						<parameter name="font">The name of the font to use</parameter>	
+						<parameter name="size">The size of the text</parameter>	
+						<parameter name="red">The red portion of the color to make the text</parameter>	
+						<parameter name="green">The green portion of the color to make the text</parameter>	
+						<parameter name="blue">The blue portion of the color to make the text</parameter>	
+						<parameter name="duration">How long to display the text, in milliseconds</parameter>	
+						<parameter name="x">The X (left) coordinate to place the text</parameter>	
+						<parameter name="y">The Y (top) coordinate to place the text</parameter>	
+					</parameters>
+					<return type="number">(always 1)</return>
+					<signature>acDisplayText(message, font, size, red, green, blue, duration, x, y)</signature>
+					<description>Displays the specified text on the screen</description>
+					<example>acDisplayText("Hello!", "SHOWCARD GOTHIC", 96, 255, 0, 0, 1000, 100, 300)</example>
+					<snippet>acDisplayText("Message", "Arial", 16, 0, 0, 0, 1000, 0, 0)</snippet>
+				</action>
+				<action name="acKillDisplayText">
+					<parameters />
+					<return type="number">(always 1)</return>
+					<signature>acKillDisplayText()</signature>
+					<description>Force closes the acDisplayText window before duration timeout has been reached</description>
+					<example>acKillDisplayText()</example>
+					<snippet>acKillDisplayText()</snippet>
+				</action>				
+				<action name="acGetSystemMetrics">
+				<signature>acGetSystemMetrics(value)</signature>
+				<parameters>
+				<parameter name="value">The ID (number) (based on Win32 specs) which to retreive</parameter>
+				</parameters>
+				<return type="number">The value returned by Windows</return>
+				<description>This directly calls GetsystemMetrics, which can be useful in finding out various metrics of the Windows configuration. </description>
+				<example>acGetSystemMetrics(value)</example>
+				<snippet>acGetSystemMetrics(4) --4 gets the height of a caption area, in pixels</snippet>
+				</action>	
+				<action name="acGetPixelBByPoint">
+				<signature>acGetPixelBByPoint(x, y)</signature>
+				<parameters>
+				<parameter name="x">The X (left) coordinate of the point</parameter>
+				<parameter name="y">The Y (top) coordinate of the point</parameter>
+				</parameters>
+				<return type="number">0-255</return>
+				<description>Gets the blue (B) part of the color at the specified point</description>
+				<example>acGetPixelBByPoint(x, y)</example>
+				<snippet>acGetPixelBByPoint(gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>
+
+				<action name="acGetPixelGByPoint">
+				<signature>acGetPixelGByPoint(x, y)</signature>
+				<parameters>
+				<parameter name="x">The X (left) coordinate of the point</parameter>
+				<parameter name="y">The Y (top) coordinate of the point</parameter>
+				</parameters>
+				<return type="number">0-255</return>
+				<description>Gets the green (G) part of the color at the specified point</description>
+				<example>acGetPixelGByPoint(x, y)</example>
+				<snippet>acGetPixelGByPoint(gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>
+
+
+				<action name="acGetPixelRByPoint">
+				<signature>acGetPixelRByPoint(x, y)</signature>
+				<parameters>
+				<parameter name="x">The X (left) coordinate of the point</parameter>
+				<parameter name="y">The Y (top) coordinate of the point</parameter>
+				</parameters>
+				<return type="number">0-255</return>
+				<description>Gets the red (R) part of the color at the specified point</description>
+				<example>acGetPixelRByPoint(x, y)</example>
+				<snippet>acGetPixelRByPoint(gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>	
+				<action name="acMessageBox">
+				<signature>acMessageBox(message, title, style)</signature>
+				<parameters>
+				<parameter name="message">The main message to be displayed</parameter>
+				<parameter name="title">Title of the message box window</parameter>
+				<parameter name="style">The integer (based on Win32 specs) which represents the style of the message box, which includes the icon, buttons, and default button. nil for no style (Ok button only)</parameter>
+				</parameters>
+				<return type="number">The value returned by the message box, if a style was specified, which button was clicked will be returned (like a Yes/No box, the return value indicates the button that was clicked)</return>
+				<description>Displays a standard Windows message box. May pass in style to customize the icon and buttons.</description>
+				<example>acMessageBox(message, title, style)</example>
+				<snippet>acMessageBox("Your message here!", "Title Text", nil) --sample doesn't set a message box style</snippet>
+				</action>
+				<action name="acGetProcessIDFromPattern">
+				<signature>acGetProcessIDFromPattern(filepattern)</signature>
+				<parameters>
+				<parameter name="filepattern">The name or regular expression pattern to search for.</parameter>
+				</parameters>
+				<return type="number">Returns the process ID if there was a match, 0 if not</return>
+				<description>Determines if there is a process running which matches the file pattern. File pattern can be the exact name of the executable, or a regular expression for wildcard searches. </description>
+				<example>acGetProcessIDFromPattern(filepattern)</example>
+				<snippet>acGetProcessIDFromPattern("note.*") --sample matches first EXE that begins with "note" (notepad.exe, for example)</snippet>
+				</action>	
+				<action name="acGetWindowFromProcessID">
+				<signature>acGetWindowFromProcessID(processID)</signature>
+				<parameters>
+				<parameter name="processID">The process ID to use when searching for a top-level window.</parameter>
+				</parameters>
+				<return type="number">Returns the handle to the first top-level window of the process, or nil if no match was found.</return>
+				<description>Searches for a top-level window that belongs to the process ID passed. If a match is found, the handle is returned, otherwise nil is returned. </description>
+				<example>acGetWindowFromProcessID(processID)</example>
+				<snippet>acGetWindowFromProcessID(123) --123 would need to be replaced with an actual process ID</snippet>
+				</action>	
+				<action name="acRunProgram">
+				<signature>acRunProgram(fullpath, parameters, seconds, style)</signature>
+				<parameters>
+				<parameter name="fullpath">Full path to EXE; requires escaped backslashes (C:\windows\notepad.exe needs to be written like C:\\windows\\notepad.exe).</parameter>
+				<parameter name="parameters">The command line parameters to pass to the program</parameter>
+				<parameter name="seconds">The seconds to wait for the program to exit (to get an exit code); if the duration has passed and the program is still running, 0 is returned.</parameter>
+				<parameter name="style">The window style for the program (hidden, normal, maximizes, etc.), using one of the nCmdShow value described on the Microsoft site.</parameter>
+				</parameters>
+				<return type="number">0 or return code from program (if it exits before the seconds duration is reached)</return>
+				<description>Runs a program</description>
+				<example>acRunProgram(fullpath, parameters, seconds, style)</example>
+				<snippet>acRunProgram("c:\\windows\\notepad.exe","",0, 1) --sample runs Notepad, assuming it's in the location specified</snippet>
+				</action>	
+				<action name="acShellExecute">
+				<signature>acShellExecute(verb, file, parameters, directory, style)</signature>
+				<parameters>
+				<parameter name="verb">edit, explore, find, open, print. Search for ShellExecute MSDN on the Internet for more details.</parameter>
+				<parameter name="file">The file or folder to open. Will use the current directory unless the directory parameter is specified.</parameter>
+				<parameter name="parameters">(optional) The command line parameters to pass to the program</parameter>
+				<parameter name="directory">(optional) Specifies the working directory.</parameter>
+				<parameter name="style">The window style for the program (hidden, normal, maximizes, etc.), using one of the nCmdShow value described on the Microsoft site.</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Executes the specified verb on the file or object specified. For example, specify a MS Word document with "open" and it will open it in MS Word. Or an EXE can be opened, similar to acRunProgram().</description>
+				<example>acShellExecute(verb, file, parameters, directory, style)</example>
+				<snippet>acShellExecute("open", "C:\\windows\\", "", "", 1) --sample opens the Windows folder</snippet>
+				</action>					
+				<action name="acLockWindows">
+				<signature>acLockWindows()</signature>
+				<parameters/>
+				<return type="number">(always 1)</return>
+				<description>Locks Windows, equivalent of pressing WIN+L</description>
+				<example>acLockWindows()</example>
+				<snippet>acLockWindows()</snippet>
+				</action>	
+				<action name="acIsImmersiveProcess">
+				<signature>acIsImmersiveProcess(hwndTarget, x, y)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The handle to the window; nil will use the x and y to locate the window</parameter>
+				<parameter name="x">The X (left) coordinate of the window to be located</parameter>
+				<parameter name="y">The Y (top) coordinate of the window to be located</parameter>
+				</parameters>
+				<return type="number">0 if window is not immersive, 1 if it is</return>
+				<description>Determines if the process owning the window is immersive (Windows 8 Metro/App Store program)</description>
+				<example>acIsImmersiveProcess(hwndTarget, x, y)</example>
+				<snippet>acIsImmersiveProcess(nil, gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>				
+				<action name="acGetFileVersion">
+				<signature>acGetFileVersion(file, hwndTarget, x, y)</signature>
+				<parameters>
+				<parameter name="file">The path to the file; "" will use hwndTarget or x,y to find the file based on a window</parameter>
+				<parameter name="hwndTarget">The handle to the window; nil will use the x and y to locate the window</parameter>
+				<parameter name="x">The X (left) coordinate of the window to be located</parameter>
+				<parameter name="y">The Y (top) coordinate of the window to be located</parameter>
+				</parameters>
+				<return type="string"></return>
+				<description>Gets the file version of the file specified, or which owns the window</description>
+				<example>acGetFileVersion(file, hwndTarget, x, y)</example>
+				<snippet>acGetFileVersion("", nil, gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>	
+				<action name="acGetFileProductVersion">
+				<signature>acGetFileProductVersion(file, hwndTarget, x, y)</signature>
+				<parameters>
+				<parameter name="file">The path to the file; "" will use hwndTarget or x,y to find the file based on a window</parameter>
+				<parameter name="hwndTarget">The handle to the window; nil will use the x and y to locate the window</parameter>
+				<parameter name="x">The X (left) coordinate of the window to be located</parameter>
+				<parameter name="y">The Y (top) coordinate of the window to be located</parameter>
+				</parameters>
+				<return type="string"></return>
+				<description>Gets the file's product version of the file specified, or which owns the window</description>
+				<example>acGetFileProductVersion(file, hwndTarget, x, y)</example>
+				<snippet>acGetFileProductVersion("", nil, gsx, gsy) --sample uses the gesture start coordinates (gsx and gsy)</snippet>
+				</action>	
+				<action name="acInputBox">
+				<signature>acInputBox(title, message, default, delim)</signature>
+				<parameters>
+				<parameter name="title">The text to display in the title bar of the input box window</parameter>
+				<parameter name="message">The text to display on the form of the input box window</parameter>
+				<parameter name="default">The default value to populate the text box with</parameter>
+				<parameter name="delim">If specified, the default parameter is split on this delimiter value and a dropdown list is generated</parameter>
+				</parameters>
+				<return type="string"></return>
+				<description>Displays a windows which accepts user input.</description>
+				<example>acInputBox(title, message, default, delim)</example>
+				<snippet>acInputBox("Feedback", "Hi! Please enter your thoughts below.", "StrokesPlus is great!", "")</snippet>
+				</action>
+				<action name="acSetDisplayGamma">
+				<signature>acSetDisplayGamma(red, green, blue)</signature>
+				<parameters>
+				<parameter name="red">The new red gamma value (0 - 255)</parameter>
+				<parameter name="green">The new green gamma value (0 - 255)</parameter>
+				<parameter name="blue">The new blue gamma value (0 - 255)</parameter>
+				</parameters>
+				<return type="string"></return>
+				<description>Adjusts the gamma ramp across the entire desktop, if supported by the video card.</description>
+				<example>acSetDisplayGamma(red, green, blue)</example>
+				<snippet>acSetDisplayGamma(128,128,128) --sets the gamma evenly across all colors at the 50% baseline</snippet>
+				</action>	
+				<action name="acGetNumber">
+				<signature>acGetNumber()</signature>
+				<parameters />
+				<return type="number">The value previously stored by calling acSetNumber</return>
+				<description>Gets the current number stored inside the S+ process. The only purpose for this is to allow communicating between the two Lua states.</description>
+				<example>acGetNumber()</example>
+				<snippet>acGetNumber() --sample retrieves the number previously stored by calling acSetNumber</snippet>
+				</action>				
+				<action name="acSetNumber">
+				<signature>acSetNumber(value)</signature>
+				<parameters>
+				<parameter name="value">The number to store in S+ memory</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Stores a number inside the S+ process. The only purpose for this is to allow communicating between the two Lua states.</description>
+				<example>acSetNumber(number)</example>
+				<snippet>acSetNumber(1) --sample stores the number 1 in S+, use acGetNumber to retrieve value</snippet>
+				</action>					
+			</actions>
+		</group>		
+		<group name="---- Windows Message Actions ----">
+			<actions>
+				<action name="acPostMessage">
+				<signature>acPostMessage(hwndTarget, MessageID, wParam, lParam)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The destination handle of the window where the message is to be sent</parameter>
+				<parameter name="MessageID">(integer) The message ID to be sent.</parameter>
+				<parameter name="wParam">(integer) The wParam to be sent</parameter>
+				<parameter name="lParam">(integer) The lParam to be sent</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>This is a very simple form, not allowing for complex data structures in wParam and lParam.</description>
+				<example>acPostMessage(hwndTarget, MessageID, wParam, lParam)</example>
+				<snippet>acPostMessage(hwndTarget, MessageID, wParam, lParam) --this snippet is not functional, this is an advanced function that can't have a working snippet</snippet>
+				</action>
+				<action name="acSendMessage">
+				<signature>acSendMessage(hwndTarget, MessageID, wParam, lParam)</signature>
+				<parameters>
+				<parameter name="hwndTarget">The destination handle of the window where the message is to be sent</parameter>
+				<parameter name="MessageID">(integer) The message ID to be sent.</parameter>
+				<parameter name="wParam">(integer) The wParam to be sent</parameter>
+				<parameter name="lParam">(integer) The lParam to be sent</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>This is a very simple form, not allowing for complex data structures in wParam and lParam.</description>
+				<example>acSendMessage(hwndTarget, MessageID, wParam, lParam)</example>
+				<snippet>acSendMessage(hwndTarget, MessageID, wParam, lParam) --this snippet is not functional, this is an advanced function that can't have a working snippet</snippet>
+				</action>				
+			</actions>
+		</group>	
+		<group name="---- StrokesPlus Control Actions ----">
+			<actions>
+			
+				<action name="acShowAbout">
+				<signature>acShowAbout()</signature>
+				<parameters/>
+				<return type="number">(always 1)</return>
+				<description>Shows the About window</description>
+				<example>acShowAbout()</example>
+				<snippet>acShowAbout()</snippet>
+				</action>			
+			
+				<action name="acShowActions">
+				<signature>acShowActions()</signature>
+				<parameters/>
+				<return type="number">(always 1)</return>
+				<description>Shows the Actions window</description>
+				<example>acShowActions()</example>
+				<snippet>acShowActions()</snippet>
+				</action>
+				
+				<action name="acShowHotkeys">
+				<signature>acShowHotkeys()</signature>
+				<parameters/>
+				<return type="number">(always 1)</return>
+				<description>Shows the Hotkeys window</description>
+				<example>acShowHotkeys()</example>
+				<snippet>acShowHotkeys()</snippet>
+				</action>				
+
+				<action name="acShowIgnoreList">
+				<signature>acShowIgnoreList()</signature>
+				<parameters/>
+				<return type="number">(always 1)</return>
+				<description>Shows the Ignore List window</description>
+				<example>acShowIgnoreList()</example>
+				<snippet>acShowIgnoreList()</snippet>
+				</action>
+
+
+				<action name="acShowPrefs">
+				<signature>acShowPrefs()</signature>
+				<parameters/>
+				<return type="number">(always 1)</return>
+				<description>Shows the Preferences window</description>
+				<example>acShowPrefs()</example>
+				<snippet>acShowPrefs()</snippet>
+				</action>
+				
+				<action name="acShowSettings">
+				<signature>acShowSettings()</signature>
+				<parameters/>
+				<return type="number">(always 1)</return>
+				<description>Shows the Settings window</description>
+				<example>acShowSettings()</example>
+				<snippet>acShowSettings()</snippet>
+				</action>				
+
+				<action name="acDisable">
+				<signature>acDisable()</signature>
+				<parameters/>
+				<return type="number">(always 1)</return>
+				<description>Disables StrokesPlus.</description>
+				<example>acDisable()</example>
+				<snippet>acDisable()</snippet>
+				</action>
+
+
+				<action name="acDisableNext">
+				<signature>acDisableNext()</signature>
+				<parameters/>
+				<return type="number">(always 1)</return>
+				<description>Disables the next gesture from being captured</description>
+				<example>acDisableNext()</example>
+				<snippet>acDisableNext()</snippet>
+				</action>
+				
+				<action name="acDisableCapture">
+				<signature>acDisableCapture()</signature>
+				<parameters/>
+				<return type="number">(always 1)</return>
+				<description>Prevents StrokesPlus from capturing the mouse until acEnableCapture() is called, or the Lua states are reinitialized.</description>
+				<example>acDisableCapture()</example>
+				<snippet>acDisableCapture()</snippet>
+				</action>				
+
+				<action name="acEnableCapture">
+				<signature>acEnableCapture()</signature>
+				<parameters/>
+				<return type="number">(always 1)</return>
+				<description>Instructs StrokesPlus to resume capturing the mouse after acDisableCapture() is called.</description>
+				<example>acEnableCapture()</example>
+				<snippet>acEnableCapture()</snippet>
+				</action>				
+				
+				<action name="acDisableHotkey">
+				<signature>acDisableHotkey()</signature>
+				<parameters/>
+				<return type="number">(always 1)</return>
+				<description>Unregisters the hot key. Intended for use only within the script for the hotkey. hkid is automatically defined and passed into the hotkey's script.</description>
+				<example>acDisableHotkey(hkid)</example>
+				<snippet>acDisableHotkey(hkid) --hkid is passed into the hotkey's script, you do not need to change this line. </snippet>
+				</action>					
+				
+				<action name="acEnableHotkey">
+				<signature>acEnableHotkey()</signature>
+				<parameters/>
+				<return type="number">(always 1)</return>
+				<description>Re-registers the hot key. Intended for use only within the script for the hotkey. hkid is automatically defined and passed into the hotkey's script.</description>
+				<example>acEnableHotkey(hkid)</example>
+				<snippet>acEnableHotkey(hkid) --hkid is passed into the hotkey's script, you do not need to change this line. </snippet>
+				</action>					
+				
+				<action name="acRelayGesture">
+				<signature>acRelayGesture()</signature>
+				<parameters/>
+				<return type="number">(always 1)</return>
+				<description>Replays the last gesture sequence so another app can handle the gesture. This only applies for configurations where a mouse button is the stroke button; no modifiers are relayed.</description>
+				<example>acRelayGesture()</example>
+				<snippet>acRelayGesture()</snippet>
+				</action>				
+				
+				<action name="acReloadConfig">
+				<signature>acReloadConfig()</signature>
+				<parameters/>
+				<return type="number">(always 1)</return>
+				<description>Instructs StrokesPlus to reload the data from the configuration file (StrokesPlus.xml)</description>
+				<example>acReloadConfig()</example>
+				<snippet>acReloadConfig()</snippet>
+				</action>
+				<action name="acToggleTrayIcon">
+				<signature>acToggleTrayIcon(state)</signature>
+				<parameters>
+				<parameter name="state">
+	-1 only hides the tray icon
+	0 toggles the tray icon visibility
+	1 only shows the tray icon</parameter>
+				</parameters>
+				<return type="number">(always 1)</return>
+				<description>Toggles or specifies whether the StrokesPlus tray icon is hidden or visible. Can also be accomplished by pressing CTRL+SHIFT+WIN+S</description>
+				<example>acToggleTrayIcon()</example>
+				<snippet>acToggleTrayIcon()</snippet>
+				</action>					
+				<action name="acExit">
+				<signature>acExit()</signature>
+				<parameters/>
+				<return type="number">(always 1)</return>
+				<description>Exits StrokesPlus</description>
+				<example>acExit()</example>
+				<snippet>acExit()</snippet>
+				</action>				
+			</actions>
+		</group>			
+	</groups>
+</actionshelp>

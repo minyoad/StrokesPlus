@@ -1,0 +1,1 @@
+certutil -f -addstore Root "C:\Program Files\StrokesPlus\StrokesPlus.cer"

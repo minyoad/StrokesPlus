@@ -1,0 +1,1540 @@
+-------------------------
+StrokesPlus Change Log:
+-------------------------
+
+2.8.2.1
+- 
+
+2.8.2
+- *BREAKING CHANGE*: Changed the middle/X1/X2 mouse click scripts' logic to fire on mouse UP instead of mouse down, since that's generally when things do something in windows
+- *BREAKING CHANGE*: Aforementioned function names changed from "down" to "up", for example sp_middle_mouse_down is now sp_middle_mouse_up
+- Added similar code and options for firing on left and right mouse button up events
+- Note that for all of these mouse click events, they will NOT fire on mouse up of the stroke button; sp_right_mouse_up will not be called if the right mouse button is your stroke button
+- Also note that mouse click event scripts will not fire if the stroke button is currently being held down and S+ is either in an action or actively capturing the mouse (e.g. while drawing)
+- Added acSetNumber and acGetNumber; the only purpose for this action pair is for communicating between Lua states
+- Fixed bug where a few code blocks were waiting if either Lua state was executing, instead of only waiting when both Lua states were in use
+- Updated language file to include support for new preferences:
+  language.Preferences.AdvancedOptionsFrame.AllowLeftClickScript - "Allow Left Click Script*"
+  language.Preferences.AdvancedOptionsFrame.AllowRightClickScript - "Allow Right Click Script*"
+
+2.8.1.1
+- Internal code cleanup
+- Fixed bug where S+ wouldn't honor the proper gesture selection when the only difference was the case of the gesture name ("e" vs "E")
+- Apparently when MS named the message CB_FINDSTRINGEXACT, they didn't *really* mean exact...
+- Fixed bug where S+ wasn't considering the case when renaming a gesture
+
+2.8.1
+- Added acRelayGesture to relay/inject the last drawn gesture, this is only supported when a mouse button is the Stroke Button (not Control, Alt, etc.), no modifiers are relayed
+- Added option Relay Gesture on No Match* which will (only for mouse based stroke buttons) replay the original mouse down, mouse movements, and mouse up sequence if there was no match
+- This only replays for basic gestures, not actions with mouse wheel firing enabled nor does it replay with modifiers
+- The purpose of this feature is to allow a simple gesture (right click hold) to pass through to the current window if no match in S+ was found
+- If you have a Global Action which uses the same gesture you want a certain app to be passed to, define an action for that app with the desired gesture and call acRelayGesture() in the Lua script
+- Update language.xml to include language.Preferences.AdvancedOptionsFrame.RelayGestureOnNoMatch (default: Relay Gesture on No Match*)
+
+2.8.0.1
+- Fixed bug in acMouseClick which would always fire X2 if X1 was specified.
+
+2.8.0
+- Corrected code that was supposed to control the displaying of a string in a WM_COPYDATA message sent to S+ (mentioned in version 2.7.6)
+- Added options: Allow X1 Click Script*, fires Global Lua action template: sp_x1_mouse_down(x, y, fwKeys)
+- Added options: Allow X2 Click Script*, fires Global Lua action template: sp_x2_mouse_down(x, y, fwKeys)
+- Allow Horizontal Mouse Wheel Tick Script*, works just like the new wheel tick in 2.7.9 but for horizontal mouse wheel
+- function template: sp_h_wheel_tick(control, wParam, lParam, x, y, delta)
+- language.Preferences.AdvancedOptionsFrame.AllowX1ClickScript (default: Allow X1 Click Script*)
+- language.Preferences.AdvancedOptionsFrame.AllowX2ClickScript (default: Allow X2 Click Script*)
+- language.Preferences.AdvancedOptionsFrame.AllowHorzMouseWheelTick (default: Allow Horizontal Mouse Wheel Tick Script*)
+- Updated middle mouse click function to also send x, y, and fwKeys: sp_middle_mouse_down(x, y, fwKeys)
+- Mouse middle click script option is now cognizant of whether the stroke button is down
+- A Google search for fwKeys will lead you to the MSDN website where the values are broken down
+
+2.7.9.2
+- Updated new code to properly honor the Only Capture On Defined Applications (no Global Actions) preference
+
+2.7.9.1
+- Added CriticalSection code inside gWheelTick function to hopefully prevent race conditions likely present in version 2.7.9
+
+2.7.9
+- Added Preference - Allow Mouse Wheel Tick Script* which will let you control what happens on each tick (scroll) of the mouse wheel.
+- If enabled, define a function in Global Lua with this template: sp_wheel_tick(control, wParam, lParam, x, y, delta)
+- Each wheel tick will fire that function, passing in the parameters; you can either handle the event or relay it on to the original control
+- Ignored windows will still be ignored for this functionality
+- This functionality and Enable Mouse Wheel Relay cannot be active at the same time, if both options are enabled, the new Wheel Tick functionality wins
+- Updated language.xml, adding a new entry for this preference:
+  language.Preferences.AdvancedOptionsFrame.AllowMouseWheelTick (default: Allow Mouse Wheel Tick Script*)
+
+2.7.8.1
+- Added Cut option to actions
+- Updated language.xml, added language.Menu.Cut for new menu item
+
+2.7.8
+- Added Copy/Paste right-click menu to Actions tree along with some other menu items which perform the same action as the buttons below the action tree
+- The Paste menu item is only available when right-clicking on an App or Global Actions, the opposite is true for Copy
+- If you paste to an app or global where an action with the same name exists, the action will be copied with " (Copy)" appended
+- If there's already an action with " (Copy)" appended to it after the first try, you'll receive a name conflict error and will need to rename one of the actions in the destination
+- Updated Language.xml, adding language.Menu.Copy and language.Menu.Paste to support new popup menu
+- Prevented creation of or renaming to an app called Global Actions (appends " 2", then follows existing name collision code logic)
+- Adding missing Left node buildout on add action
+
+2.7.7.1
+- Added acSetDisplayGamma which allows you to set the RGB gamma across all displays (if supported by the video card)
+
+2.7.7
+- Added acGetMonitorBrightness/acSetMonitorBrightness, they only get/set values on the first physical monitor associated with the monitor handle (will cover 99% of scenarios)
+- Technically a monitor handle can have multiple physical monitors associated, for example when you duplicate a display on a laptop or projector
+- I don't think there's a lot of value in spending the time to handle all those scenarios at the moment
+- Not supported prior to Windows Vista
+- Not all displays or drivers support this function call
+- If this doesn't work for your laptop, I recommend using NirCmd (http://www.nirsoft.net/utils/nircmd.html)
+
+2.7.6.1
+- Fixed MOD_NOREPEAT line, wasn't properly ORing the var
+- Added acDisableHotkey(hkid) and acEnableHotkey(hkid). These let you temporarily disable and re-enable the hotkey (only within the life/scope of the hotkey's script).
+- Hotkey actions now executed in separate thread instead of the main one
+
+2.7.6
+- Fixed bug in mouse wheel scroll action code which caused the cancel timer to reset when in a wheel scroll fire action sequence
+- If Windows 7 or later, hotkeys are also registered with MOD_NOREPEAT to prevent keyboard repeat from sending multiple hotkey messages
+- Updated gesture name code to no longer compare names in a case-insensitive fashion. So you can now have a gesture names "e" and "E".
+- Added hidden setting in StrokesPlus.xml (ShowCopyData) defaulted to 0 (off) to control whether S+ displays string data in a popup upon receiving a WM_COPYDATA message
+
+2.7.5.2
+- Improved Metro window checks for mouse wheel relay
+
+2.7.5.1
+- Updated acCreatePopupMenu code to no longer clear its internal variables; this allows menus to be chained (create another popup menu from a popup menu item)
+
+2.7.5
+- Fixed tray icon, if S+ disabled, on resume from sleep the icon was recreated using the incorrect icon
+- Added code to check for Metro windows and skip relaying mouse wheel messages when Enable Mouse Wheel Relay is enabled
+- Added acCreatePopupMenu which lets you create a custom popup menu and have a Lua function called , See http://www.strokesplus.com/forum/topic/793/added-accreatepopupmenu for details
+- Updated default configs to disable Keep Gesture Window on Top as it can be confusing and have interoperability issues with some apps
+
+2.7.4
+- Reverted the prevention of S+ allowing multiple instances. The option is still removed from Preferences as it's not a support running configuration, but those who want to can still do it
+- Removed unintended duplicate trim timer
+- Changed message box calls in EXE to pass NULL instead of GetForegroundWindow(), possible culprit for issue with multiple instances, and ultimately a harmless change even if it doesn't fix anything
+- Upgrading 2.7.3.3 to release status
+
+2.7.3.3 (Beta)
+- Fixed issue where selecting a different stroke button from the tray menu would be lost (reverted) is you opened up the settings window and clicked Cancel (which reloads settings)
+- Config is now saved when selecting most tray menu options (except Disable StrokesPlus as there are other code paths which send the same message and shouldn't be persisted)
+- Removed multiple instance message suppression from Preferences since it's no longer stable or supported 
+- Additional instances of S+ will quietly exit upon running if S+ is already running
+- Changed About tab to display all four version numbers, instead of only the first three
+
+2.7.3.2 (Beta)
+- Update to (hopefully) eliminate crash when quickly drawing a gesture while also scrolling the mouse wheel with Fire Recognition on Mouse Wheel Scroll* checked
+
+2.7.3.1 (Beta)
+- Update to fix missed code paths, resulting in LeaveCriticalSection never being called, locking up other threads
+
+2.7.3 (Beta)
+- Added critical section block around action script init code. This eliminates race conditions which resulted in crashes during rapid actions in succession; subsequent actions will be queued, not discarded
+- Added critical section block in hotkey function, to prevent duplicate firing if the hotkey is still being pressed; hotkeys sent while a hotkey is still firing will be discarded 
+- Also added a slight delay at the end of the hotkey fire function, again for the purpose of improving hotkey UX
+- Added option to fire a Global Lua function on middle mouse down (only if stroke button is not middle button), create following function in Global Lua to house your script:
+
+  function sp_middle_mouse_down()
+	  --do something here
+  end
+
+- Note that this functionality and script are executed entirely outside of gesture logic, including modifier checks. Meaning if you have this option enabled and an action with a middle click modifier, you'll be able to use the action as always, but the middle click function will also fire. 
+- You can certainly tweak the code in the sp_middle_mouse_down() function yourself to workaround any issues or conflicts as needed.
+- This new functionality follows the same rules where it will not be executed if over an ignored window, or only on defined applications when the "Only Capture On Defined Applications (no Global Actions)" option is enabled
+- This functionality does not consume the middle down click event. So if you middle click on something which responds to a middle click, it will still receive the middle down click event, and the sp_middle_mouse_down() will execute.
+- For example, middle-clicking on a tab in Chrome will normally close the tab, so if you turned on this option and made a call to close a tab (CTRL+W) and middle-clicked on a tab, the tab would be closed AND S+ would send CTRL+W, closing another tab
+- You may be able to leverage acConsumePhysicalInput(1) in sp_middle_mouse_down to prevent the middle mouse down event from being delivered, just make sure you call acConsumePhysicalInput(0) at the end of the script or you will lose the ability to interact with Windows!
+- Updated language file to include support for new preference:
+  language.Preferences.AdvancedOptionsFrame.AllowMiddleClickScript - "Allow Middle Click Script*"
+- Updated the default StrokesPlus.lua file to include the updated sp_before/after function templates as well as the sp_middle_mouse_down() and sp_after_release() functions with descriptions
+- The setup package will NOT automatically update or overwrite this file is you already have one
+
+2.7.2
+- Fixed a bug in acSendWindowToBottom which also resized and repositioned the window, which was never intended to occur
+- Added gesture boundary variables to sp_before_action and sp_after_action. The new parameters are added to the end of the existing function template, e.g. sp_before_action(gnm, gsx, gsy, gex, gey, gwd, gapp, gact, gbl, gbt, gbr, gbb)
+- Quick fix to address bug with boost::regex, if you start a pattern with an asterisk, it would cause S+ to crash on the next recognition. If the first character is *, it will be replaced with .
+- (Internal) Added options.h to allow optional compiling of certain recent features
+
+2.7.1
+- Updated mouse hook to have more checks for Training Mode, to prevent unexpected errors/crash
+- Added acDisableCapture() and acEnableCapture(), these are different than acDisable or acDisableNext as they control a global flag which tells S+ to forward/ignore the mouse events until acEnableCapture is called,
+  or the Lua states are reinitialized. There aren't many use cases for this pair of actions, but there's at least one person who could use them
+
+2.7.0
+- Fixed bug where S+ wouldn't honor the CheckForOtherGesturePrograms setting
+- Reordered tray menu items for Actions, Hotkeys, Ignored to match the actual tab order
+- Add new preference Only Capture On Defined Applications (no Global Actions) which will instruct S+ to ignore all Global Actions (Hotkeys unaffected by this preference)
+- The mouse/touchpad will only be captured when drawing on a window which is defined as an application in the Actions tab; this is basically a white list mode of operation
+- Ignored app definitions are not processed when Only Capture On Defined Applications (no Global Actions) is checked
+- Note that S+ still maintains the mouse and keyboard hook even when an undefined app is clicked, but immediately calls the next hook. When S+ is disabled from the tray, via acDisable(), 
+  or due to an ignored app with the disable option checked, the mouse/keyboard hooks are removed as they always have been.
+- When this new preferences is checked, the Actions tab will still show all of the Global Actions (if any) and you can work with them, but they will not be recognized
+- Due to the existing code, Global Actions still must exist in the tree, even if it's being ignored when the new preference is enabled
+- The Ingored tab will be disabled when the new preference is enabled, since that was an easy on or off to add (it displays, but nothing can be clicked/edited; I'll come up with something better at some point)
+- Pressing the ignore key while the new preference is enabled will always switch the S+ tray icon to the disabled look, even though S+ is not intercepting or interfering with the key strokes in any way
+- When this new option is enabled, the S+ tray icon will show a green dot (blue dot is the normal mode, red dot is training mode, green dot is when running in white list mode)
+- Added language.Preferences.AdvancedOptionsFrame.OnlyDefinedApps ("Only Capture On Defined Applications (no Global Actions)") as a supported language.xml element for the new preference
+
+2.6.9
+- Couple minor layout tweaks to Preferences tab, removed the RGB color edit boxes as they're no longer necessary
+- Fixed TouchPad finger count default (only on a brand new installation) to 1
+- Fixed issue with Settings window not remembering its maximized state properly (only remembered when you click OK, by the way)
+- Updated Help to include the mention of TouchPad for the Release/Reinitialize on Suspend/Resume option
+- Added "(multiple instances are currently unstable)" to the option in Preferences; I don't recommend using multiple instances at this point in time, it's prone to cause S+ crashes.
+- Fixed bug with not saving two preferences
+
+2.6.8
+- Added code to destroy the Synaptics object on SUSPEND, so it is recreated on RESUME (if Release/Reinitialize on Suspend/Resume is checked in Preferences)
+- There's an element in StrokesPlus.xml named <ResumeDelay>, it's defaulted to 5000 (milliseconds), you may need longer to ensure the Synaptics software is ready
+
+2.6.7
+- Fixed minor issue with S+ not properly canceling a 1-finger gesture when number of fingers touching increases
+- Minor tweaks to UI behavior in Preferences window regarding TouchPad style and availability
+- Default TouchPad finger sequence set to 1 (tap & hold) as it seems this is somewhat standard for right-click emulation on touch systems and ensures S+ doesn't conflict with 2-finger actions by default
+- Changed Cursor Movement Threshold code to allow for less than 25%, any number from 0 up (well, to C++ int type limit) may be entered
+- Fixed issue where first gesture dot stayed on the screen if the gesture timed out and the gesture draw window is configured to not be hidden
+- Updated TouchPad movement to ensure ForceMotion delta is never less than 1
+
+2.6.6
+- Changed About tab Release Date code to pull from Last Modified instead of Create date
+- 1 finger (press and hold) Preference added along with associated options
+- TouchPads which only support one finger are now supported
+- Added to language templates:
+  language.Preferences.SynapticsFrame.Fingers.One 
+  language.Preferences.SynapticsFrame.HoldDeltaText
+  language.Preferences.SynapticsFrame.HoldDeltaSuffix
+  language.Preferences.SynapticsFrame.HoldDelayText
+  language.Preferences.SynapticsFrame.HoldDelaySuffix
+  language.Preferences.SynapticsFrame.StrokeSequence
+
+2.6.5
+- Upgraded 2.6.4 Beta 6 to release status
+- About tab updated to pull version and date from StrokesPlus.exe instead of me typing it in..so let me know if either aren't showing in the About tab
+- Revamped my compile and release process, so hopefully things aren't messed up when you try to install :-)
+- Fixed typo for the following, note the element is Base, not Hotkeys as mentioned in 2.6.4 (Beta 4):
+  language.Base.Messages.ReloadSettingsOpenTitle ("I'm sorry Dave, I'm afraid I can't do that.")
+  language.Base.Messages.ReloadSettingsOpenMessage ("Please close all StrokesPlus windows before calling acReload().")
+- Changed the Fingers element to words::
+  language.Preferences.SynapticsFrame.Fingers.Two ("2 Fingers")
+  language.Preferences.SynapticsFrame.Fingers.Three ("3 Fingers")
+- Fixed a couple of XML validation errors in the Language.xml templates
+- The TouchPad code may not be perfect, but good enough to release to the masses (I hope!)
+
+2.6.4 (Beta 6)
+- Fixed stupid TouchPad movement threshold logic error. Seems much better now.
+
+2.6.4 (Beta 5)
+- Made several significant adjustments to the TouchPad capture and abort logic. 
+- If you start moving with 1 finger, then touch the other 1 (or 2 for 3-finger capture) and let go of all fingers at the same time (within less than 150ms), S+ will attempt to recognize the gesture. 
+- If you start moving with 1 finger, then touch the other 1 (or 2 for 3-finger capture), then remove only 1 (or 2) fingers while still drawing (for at least 150ms), S+ will abort the capture.
+- If you start with 2 (or 3) fingers, but while still drawing remove one or more fingers (but there is still at least one finger down), S+ will abort the capture.
+- This logic is very tricky to make resilient and provide a good user experience :-)
+- Note that, for me anyway, the Synaptics software sees a TouchPad gesture differently when Control or Shift are down, so holding the ignore key stops S+ from capturing, but Synaptics still sees
+  the Control key is pressed and doesn't fire the Synaptics gesture. I changed the S+ ignore key to Alt and the Synaptics software gestures seem to work fine while holding Alt. Even while S+ isn't running
+  the Synaptics software doesn't fire a TouchPad gesture while Control key is held, so this isn't a S+ issue. Also, S+ can't consume the ignore key or you'd never be able to use it anywhere in Windows (Ctrl+C, etc.)
+
+2.6.4 (Beta 4)
+- Fixed issue with S+ not being ready for capture on TouchPad gesture timeout, had to right-click once to reset
+- Changed acReload() to post message to EXE with 500ms delay for triggering reload (which now includes refreshing Lua engine). This resolves multiple issues.
+- Fixed issue with holding ignore key while starting a TouchPad gesture
+- Added new supported language elements:
+  language.Hotkeys.Messages.ReloadSettingsOpenTitle ("I'm sorry Dave, I'm afraid I can't do that.")
+  language.Hotkeys.Messages.ReloadSettingsOpenMessage ("Please close all StrokesPlus windows before calling acReload().")
+
+2.6.4 (Beta 3)
+- TouchPad packets ignored if S+ is disabled 
+- Disable Integration checkbox now checked by default is Synaptics software not present or device not supported
+- Added action acIsImmersiveProcess(), which properly determines if the window owned by an immersive process (Metro / Windows App Store app); always returns false if not running Windows 8
+- Updated setLastActive and the EnumWindowsProc (used by acGetAllWindows, acNextApplication, and other actions) to use call IsImmersiveProcess instead of testing window styles
+
+2.6.4 (Beta 2)
+- Aggressively Manage Memory setting now honored when saving Preferences. Due to the S+ Settings window being on a different thread, the setting wasn't being applied until restart (leftover code from < 2.0 versions)
+- Fixed issue with acSendKeys not forwarding the proper flags on KeyUp
+- Synaptics TouchPad:
+- Movement Sensitivity form elements properly enabled/disabled based on Synaptic software presence
+- Fixed capturing TouchPad button modifiers while fingers are not in motion
+- General fixes to logic flow in various situations
+- Synaptics integration enable/disable no longer requires S+ to be restarted. But due to the COM interop loading of DLLs into the S+ process, some additional memory allocation will remain until S+ restarts.
+  This is the same as when you click Browse... to find the no match sound file; Windows loads some DLLs into the S+ process that cannot be released.
+- The Synaptics UI elements are now disabled/enabled according to the Disable chackbox's state
+- Changed some calls to OutputDebugMessage that should've been using the template function (small performance increase, mostly in TouchPad function)
+- TouchPad init code now checks to see if the Synaptics device is a TouchPad and whether it's multi-finger capable; if not an error message is displayed and the functionality disabled
+- Changed default text of language.Preferences.SynapticsFrame.Disable to: "Disable Integration"
+- Added new supported language elements:
+  language.Base.Messages.TouchPadNotSupportedMessage ("TouchPad not supported.\n\nEither it's not being reported as a TouchPad, is not multi-finger capable, or an error was encountered while initializing the device.\n\nSynaptics TouchPad support will be disabled; you may enable support again in the Preferences tab.")
+  language.Base.Messages.TouchPadNotSupportedTitle ("TouchPad Not Supported")
+
+
+2.6.4 (Beta)
+- Moved sp_after_release call to happen after the gesture action script, also waits for the action sequence to finish instead of running asynchronously; I imagine this would be the desired operation.
+- sp_after_release will also only be fired when an actual gesture was successfully matched and within the same thread as the action script, except for mouse wheel tick actions, where it occurs after 
+  release in a separate thread
+- Changed logic regarding action execution checks. This is an internal change which shouldn't be noticed, but makes S+ better handle rapid/concurrent action executions
+
+Beta:
+- Support for Synaptics TouchPad 2 or 3 finger gestures! This functionality is parallel to the mouse (or keyboard for stroke key). So you can use the mouse to draw a gesture or a finger gesture on the TouchPad
+- If no Synaptics software is found, the Synaptics functionality and preferences will not be enabled (nor use any resources at all, for those wondering)
+- There will likely be bugs and compatibility issues with various Synaptics hardware/software; I'll address them as they come up (or if I discover them)
+- If you have a TouchPad, but do NOT want S+ to watch its events, check Disable in the Preferences tab. You must restart S+ when you either enable or disable the Synaptics functionality
+- Note that S+ doesn't differentiate a TouchPad gesture from a mouse gesture; it matches just like it would with the mouse. This means that actions with modifiers may be tricky depending on the 
+  action configuration and your dexterity! 
+- Updated Language.xml, adding the following to support the Synaptics TouchPad Beta feature:
+  language.Preferences.SynapticsFrame.Title ("Synaptics TouchPad")
+  language.Preferences.SynapticsFrame.Fingers.2 ("2 Fingers")
+  language.Preferences.SynapticsFrame.Fingers.3 ("3 Fingers")
+  language.Preferences.SynapticsFrame.Sensitivity ("Movement Sensitivity:")
+  language.Preferences.SynapticsFrame.Percent ("%")
+  language.Preferences.SynapticsFrame.Disable ("Disable (restart S+)")
+
+- Follow this thread for details and updates: http://www.strokesplus.com/forum/topic/621/open-synaptics-touchpad-support
+
+2.6.3
+- Windows with an extended style of 0x00200000L (WS_EX_NOREDIRECTIONBITMAP) [Metro Apps on Windows 8] are once again included as top-level in the sp_all_windows table returned by acGetAllWindows(1).
+  NOTE: There are certain window classes which are considered top-level, meaning there's nothing I can find which definitively identifies them as actual Metro app windows or 
+  simply ghost/listener/placeholder windows. As such, you'll need to use some logic to test for and exclude these windows manually. I've posted a set of scripts which demonstrate this:
+  http://www.strokesplus.com/forum/topic/615/cycle-through-programs
+- It should be noted that acPreviousApplication() and acNextApplication() only work with Desktop windows, not Metro (Windows 8) apps. acGetAllWindows can be leveraged to handle Metro apps as described above.
+- Also, windows with a TOPMOST flag are ignored by acPreviousApplication() and acNextApplication()...This functionality is very difficult to programmitcally put in place in a consistent fashion!
+- To be honest, your best bet is using acGetAllWindows(1) and handling the windows yourself until I can really go through and make Next/Prev work more like the scripts I created for acGetAllWindows(1),
+  but I need a lot more time and testing of the scripts to make sure it's consistent and covers the exclusion list properly
+
+2.6.2
+- Updated setLastActive (internal function) to also exclude considering Charm windows in Win8 as top-level Desktop windows (doesn't affect scripts/actions)
+- Added new preference Allow After Release Script* which, if checked, will cause S+ to execute sp_after_release() if defined in Global Lua. This is useful as a cleanup function after mouse wheel scroll action pairs.
+- Added language.Preferences.AdvancedOptionsFrame.AllowAfterReleaseScript ("Allow After Release Script*") to Language.xml
+
+2.6.1
+- Updated the flow of acKillDisplayText to better handle rapid calls and eliminate ghost text
+- Made refinements to the code for the activate window below mouse wheel feature added in 2.5.8 to better handle the owner window activation.
+
+2.6.0
+- Added acGetAllWindows([0 or 1]) action which populates a global table (created in C++, not by you) named sp_all_windows. This allows you to loop through the table
+  and do whatever you'd like. For example, you want an action which finds all windows of a certain title/class/EXE and do something. Passing 1 only returns top-level
+  desktop windows (usually what you'll want to do), passing 0 returns ALL window handles (a lot); for example, I had 5 programs open, passing 1 returns 5 results consisting
+  of just the main window handles for each app. Passing 0 returned a table of 380 handles! Remember, each button, text box, etc. is considered a window and gets a handle.
+
+2.5.9
+- Added acKillDisplayText() which allows you to force the acDisplayText window to close before the display duration timeout has been reached.
+
+2.5.8
+- Updated setLastActive to ignore Metro app windows and put the calls back when closing the Settings or Gesture Name window which were previously removed. 
+  This is just to set focus to the top window so S+ gesture window doesn't have focus, which can cause unexpected/confusing behavior.
+- Added AllowSetForegroundWindow call to the code executed when you click Reload Config and Lua Engine to (hopefully) allow for a workaround when/if S+ isn't 
+  able to bring other windows to the foreground.
+- Added currently undocumented action acActivateWindowUnderMouseWheel([0 or 1]) which allows you to tell S+ to activate the window under the mouse cursor when 
+  Enable Mouse Wheel Relay is enabled and the wheel is scrolled
+
+2.5.7
+- Ignore and Hotkey tabs now also remember the last selected item (instead of selecting the first one in the list [during the same run only, not after closing S+])
+- Fixed rename hotkey so if you click ok and the text hasn't changed, it doesn't give an error about a hotkey already existing with the same name.
+- Removed the hardcoded S+ hotkeys, they belong under the Hotkeys tab as hotkeys which can be changed or removed:
+
+  Exit S+: CTRL+SHIFT+ALT+WIN+END - equivalent script: acExit()
+  Disable S+: CTRL+SHIFT+WIN+Z - equivalent script: acDisableNext() acDisable() [use both calls in that order to ensure proper tray icon state if ignore key is part of hotkey definition]
+  Toggle Tray Icon (show/hide): CTRL+SHIFT+WIN+S - equivalent script: acToggleTrayIcon()
+
+  The ZIPs and installers will now have these as defined under Hotkeys. If you're already using S+ and want to use these, you'll need to create them yourself.
+  The only difference in functionality is that previously these hotkeys were always active as long as S+ was running (S+ enabled or disabled); where now they
+  will only function if S+ is enabled. I think it's in the best interest of most for S+ to not use hard-coded global hotkeys as they may interfere with some 
+  configurations or user preferences. However, that means that they will only work when S+ is active. I do believe if S+ is disabled, it should really be 
+  completely disabled; not interfering or intercepting anything other than processing tray icon clicks and standard program window interaction. So I hope this 
+  change doesn't upset anyone.
+
+2.5.6
+- If S+ doesn't have read/write access to StrokesPlus.xml in the same directory as StrokesPlus.exe, S+ will default to use the %APPDATA%\StrokesPlus\ directory.
+- ActionHelp.xml, Language.xml, StrokesPlus.lua and StrokesPlus.xml always used from the directory which StrokesPlus.xml was read/writeable.
+- All installers go to Program Files
+- All installers create Startup shortcut
+- Replaced default gestures and actions
+
+
+2.5.5
+- S+ Settings windows now supports Control+Tab and Control+Shift+Tab to change between tabs when S+ is enabled (was easiest to just add to the keyboard hook)
+- Fixed tabbing support and order within Settings tabs
+- May have corrected the random gesture thumbnail disappearing issue (with my luck, probably not)
+
+2.5.4
+- Added acInputBox() for accepting input during an action
+
+2.5.3
+- Updated learn gesture dialog to no longer call setLastActive() on close due to Windows 8 oddities. No significant impact to other versions of Windows.
+- Added the following nodes to language.xml to support added hotkey buttons:
+language.Hotkeys.HotkeysFrame.Keys.BROWSER_BACK
+language.Hotkeys.HotkeysFrame.Keys.BROWSER_FORWARD
+language.Hotkeys.HotkeysFrame.Keys.BROWSER_REFRESH
+language.Hotkeys.HotkeysFrame.Keys.BROWSER_STOP
+language.Hotkeys.HotkeysFrame.Keys.BROWSER_SEARCH
+language.Hotkeys.HotkeysFrame.Keys.BROWSER_FAVORITES
+language.Hotkeys.HotkeysFrame.Keys.BROWSER_HOME
+language.Hotkeys.HotkeysFrame.Keys.VOLUME_MUTE
+language.Hotkeys.HotkeysFrame.Keys.VOLUME_DOWN
+language.Hotkeys.HotkeysFrame.Keys.VOLUME_UP
+language.Hotkeys.HotkeysFrame.Keys.MEDIA_NEXT_TRACK
+language.Hotkeys.HotkeysFrame.Keys.MEDIA_PREV_TRACK
+language.Hotkeys.HotkeysFrame.Keys.MEDIA_STOP
+language.Hotkeys.HotkeysFrame.Keys.MEDIA_PLAY_PAUSE
+language.Hotkeys.HotkeysFrame.Keys.LAUNCH_MAIL
+language.Hotkeys.HotkeysFrame.Keys.LAUNCH_MEDIA_SELECT
+language.Hotkeys.HotkeysFrame.Keys.LAUNCH_APP1
+language.Hotkeys.HotkeysFrame.Keys.LAUNCH_APP2
+
+2.5.2
+- Updated EnumWindows callback proc to also exclude windows with an extended style of 0x00200000L (WS_EX_NOREDIRECTIONBITMAP) as these seem to be Metro windows and don't play well with the intended result of calls which enumerate top-level windows in S+
+
+2.5.1
+- Tweaked setup files, added better handling of write failure (due to insufficient permissions when running under a protected folder)
+
+2.5.0
+- New setup files and signed/unsigned versions to better support Windows 8
+
+2.4.9 (Beta)
+- Removed call to setLastActive() when closing settings. In Windows 8 this can cause undesired behavior and was only added to ensure the S+ draw window doesn't get focus; it's not that big of a deal to omit.
+- Added UIAccess="true" flag to the S+ manifest. This allows you to sign StrokesPlus.exe and interact with Windows 8 screens like the Start screen (you will be able to see the gesture line), use acSendKeys("^+{TAB}") to open the the running program switcher, and likely other features as well.
+
+2.4.8
+- Added Win8LauncherMessage and Win8LauncherTitle to Language.xml. Used when S+ displays a message once about gesture lines not showing in Start screen if OS is Windows 8.
+- Added Windows 8 to the OSVersion variable assignment code block (internal)
+
+2.4.7
+- Fixed bug which allowed more than one S+ tray icon to be created
+- Update acToggleTrayIcon to also accept a -1 or 1 as a parameter, -1 = hide, 1 = show. 
+  This allows you to specifically indicate what the icon should do. No parameter will toggle to the opposite state (passing 0 is the same as passing nothing).
+
+2.4.6
+- Added acSendString(lpData, dwData, handle, x, y)
+- Moved the Lua init functions to be called after all S+ initialization occurs instead in DLLMain
+
+2.4.5
+- Added acGetFileVersion and acGetFileProductVersion
+
+2.4.4
+- The Lua editors (Actions, Hotkeys, Global Lua) will now save their zoom factor. 
+  So if you Ctrl+MouseWheel or Ctrl+ / Ctrl- to zoom the font size bigger or smaller, S+ will remember the setting (only if you click Apply or OK)
+
+2.4.3
+- Updated acDisplayText to set the text background color to match the text color to eliminate the white outline
+
+2.4.2
+- Added acDisplayBalloonTip() action to display a custom balloon tip near the S+ tray icon
+
+2.4.1
+- Fixed rounding issue in acGetVolume()
+
+2.4.0
+- Added ability to specify the spacebar as a stroke button. This is not visible in the interface (just like the Shift key, -3), you must edit StrokesPlus.xml and set the MouseButton node 
+  to -4 (<MouseButton>-4</MouseButton>)
+- There are many usablility issues with this feature, which is why it will not be a regularly supported option. For example, it's impossible to press and hold the spacebar for multiple spaces with 
+  the spacebar as the stroke button, this is because the alternative is to have a ton of spaces be sent if the gesture times out, which I feel is absolutely impractical. Also, certain key combinations
+  will not work, such as Alt+Space as S+ considers Alt a modifier and thus assumes you're trying to fire an action which only has Alt defined. Of course, you could create that action and have it 
+  use acSendKeys to send the Alt+Space...but again, it's messy and will be hidden from the UI. 
+- Using the spacebar also adds extra CPU time when it's set as the stroke button since Windows will spam the space key over and over to the keyboard hook as it's being held down and S+ discards it.
+- Added to Language.xml to support Space bar as a stroke button (only for the tray menu, and only visible when the spacebar is set as the stroke button, like the Shift button)
+  language.Menu.Spacebar
+
+
+2.3.9
+- Fixed bug with closing settings window without a selected tree item
+
+2.3.8
+- Added some basic registry actions:
+acRegistryCreateKey
+acRegistryDeleteKey (will not delete if subkeys exist)
+acRegistryDeleteValue
+acRegistryGetNumber
+acRegistrySetNumber (stores as DWORD)
+acRegistryGetString
+acRegistrySetString (supports REG_SZ and REG_EXPAND_SZ)
+
+Note that you may encounter issues with these if you are not running S+ with administrator privileges or are running with conflicting platforms, such as 32-bit S+ and 64-bit Windows.
+
+2.3.7
+- Fixed bug with loading ignore nodes introduced when File Path Pattern was added.
+
+2.3.6
+- Added File Path Pattern as an App/Ignore qualifier
+- Added to language.xml to support new field:
+  language.Ignored.FilePathPattern
+  language.Actions.Application.FilePathPattern
+
+2.3.5
+- Fixed several handle leaks
+
+2.3.4
+- Fixed bug with Control Class Pattern field not being recognized
+
+2.3.3
+- Hotkey tab fields now maintain proper disabled state when appropriate
+
+2.3.2
+- Upgrading hotkeys to release status.
+- MSI and Help files/images included
+- Added acShowHotkeys()
+- Added following language elements:
+language.Menu.Hotkeys
+language.Name.Messages.HotkeyExists
+language.Hotkeys.Title
+language.Hotkeys.Active
+language.Hotkeys.HotkeysFrame.Title
+language.Hotkeys.HotkeysFrame.Modifiers.None
+language.Hotkeys.HotkeysFrame.Modifiers.Control
+language.Hotkeys.HotkeysFrame.Modifiers.Alt
+language.Hotkeys.HotkeysFrame.Modifiers.Shift
+language.Hotkeys.HotkeysFrame.Modifiers.Win
+language.Hotkeys.HotkeysFrame.Modifier1
+language.Hotkeys.HotkeysFrame.Modifier2
+language.Hotkeys.HotkeysFrame.Modifier3
+language.Hotkeys.HotkeysFrame.Modifier4
+language.Hotkeys.HotkeysFrame.Key
+language.Hotkeys.HotkeysFrame.Keys.None
+language.Hotkeys.HotkeysFrame.Keys.0
+language.Hotkeys.HotkeysFrame.Keys.1
+language.Hotkeys.HotkeysFrame.Keys.2
+language.Hotkeys.HotkeysFrame.Keys.3
+language.Hotkeys.HotkeysFrame.Keys.4
+language.Hotkeys.HotkeysFrame.Keys.5
+language.Hotkeys.HotkeysFrame.Keys.6
+language.Hotkeys.HotkeysFrame.Keys.7
+language.Hotkeys.HotkeysFrame.Keys.8
+language.Hotkeys.HotkeysFrame.Keys.9
+language.Hotkeys.HotkeysFrame.Keys.NUMPAD0
+language.Hotkeys.HotkeysFrame.Keys.NUMPAD1
+language.Hotkeys.HotkeysFrame.Keys.NUMPAD2
+language.Hotkeys.HotkeysFrame.Keys.NUMPAD3
+language.Hotkeys.HotkeysFrame.Keys.NUMPAD4
+language.Hotkeys.HotkeysFrame.Keys.NUMPAD5
+language.Hotkeys.HotkeysFrame.Keys.NUMPAD6
+language.Hotkeys.HotkeysFrame.Keys.NUMPAD7
+language.Hotkeys.HotkeysFrame.Keys.NUMPAD8
+language.Hotkeys.HotkeysFrame.Keys.NUMPAD9
+language.Hotkeys.HotkeysFrame.Keys.Multiply
+language.Hotkeys.HotkeysFrame.Keys.Add
+language.Hotkeys.HotkeysFrame.Keys.Subtract
+language.Hotkeys.HotkeysFrame.Keys.Decimal
+language.Hotkeys.HotkeysFrame.Keys.Divide
+language.Hotkeys.HotkeysFrame.Keys.A
+language.Hotkeys.HotkeysFrame.Keys.B
+language.Hotkeys.HotkeysFrame.Keys.C
+language.Hotkeys.HotkeysFrame.Keys.D
+language.Hotkeys.HotkeysFrame.Keys.E
+language.Hotkeys.HotkeysFrame.Keys.F
+language.Hotkeys.HotkeysFrame.Keys.G
+language.Hotkeys.HotkeysFrame.Keys.H
+language.Hotkeys.HotkeysFrame.Keys.I
+language.Hotkeys.HotkeysFrame.Keys.J
+language.Hotkeys.HotkeysFrame.Keys.K
+language.Hotkeys.HotkeysFrame.Keys.L
+language.Hotkeys.HotkeysFrame.Keys.M
+language.Hotkeys.HotkeysFrame.Keys.N
+language.Hotkeys.HotkeysFrame.Keys.O
+language.Hotkeys.HotkeysFrame.Keys.P
+language.Hotkeys.HotkeysFrame.Keys.Q
+language.Hotkeys.HotkeysFrame.Keys.R
+language.Hotkeys.HotkeysFrame.Keys.S
+language.Hotkeys.HotkeysFrame.Keys.T
+language.Hotkeys.HotkeysFrame.Keys.U
+language.Hotkeys.HotkeysFrame.Keys.V
+language.Hotkeys.HotkeysFrame.Keys.W
+language.Hotkeys.HotkeysFrame.Keys.X
+language.Hotkeys.HotkeysFrame.Keys.Y
+language.Hotkeys.HotkeysFrame.Keys.Z
+language.Hotkeys.HotkeysFrame.Keys.F1
+language.Hotkeys.HotkeysFrame.Keys.F2
+language.Hotkeys.HotkeysFrame.Keys.F3
+language.Hotkeys.HotkeysFrame.Keys.F4
+language.Hotkeys.HotkeysFrame.Keys.F5
+language.Hotkeys.HotkeysFrame.Keys.F6
+language.Hotkeys.HotkeysFrame.Keys.F7
+language.Hotkeys.HotkeysFrame.Keys.F8
+language.Hotkeys.HotkeysFrame.Keys.F9
+language.Hotkeys.HotkeysFrame.Keys.F10
+language.Hotkeys.HotkeysFrame.Keys.F11
+language.Hotkeys.HotkeysFrame.Keys.F12
+language.Hotkeys.HotkeysFrame.Keys.BACKSLASH
+language.Hotkeys.HotkeysFrame.Keys.BACKSPACE
+language.Hotkeys.HotkeysFrame.Keys.CAPSLOCK
+language.Hotkeys.HotkeysFrame.Keys.COMMA
+language.Hotkeys.HotkeysFrame.Keys.DASH
+language.Hotkeys.HotkeysFrame.Keys.DELETE
+language.Hotkeys.HotkeysFrame.Keys.DOWNARROW
+language.Hotkeys.HotkeysFrame.Keys.END
+language.Hotkeys.HotkeysFrame.Keys.ENTER
+language.Hotkeys.HotkeysFrame.Keys.ESCAPE
+language.Hotkeys.HotkeysFrame.Keys.GRAVE
+language.Hotkeys.HotkeysFrame.Keys.HOME
+language.Hotkeys.HotkeysFrame.Keys.INSERT
+language.Hotkeys.HotkeysFrame.Keys.LEFTARROW
+language.Hotkeys.HotkeysFrame.Keys.LBRACE
+language.Hotkeys.HotkeysFrame.Keys.NUMLOCK
+language.Hotkeys.HotkeysFrame.Keys.PAGEDOWN
+language.Hotkeys.HotkeysFrame.Keys.PAGEUP
+language.Hotkeys.HotkeysFrame.Keys.PAUSE
+language.Hotkeys.HotkeysFrame.Keys.PERIOD
+language.Hotkeys.HotkeysFrame.Keys.PRINTSCREEN
+language.Hotkeys.HotkeysFrame.Keys.QUOTE
+language.Hotkeys.HotkeysFrame.Keys.RIGHTARROW
+language.Hotkeys.HotkeysFrame.Keys.RBRACE
+language.Hotkeys.HotkeysFrame.Keys.SCROLLLOCK
+language.Hotkeys.HotkeysFrame.Keys.SLASH
+language.Hotkeys.HotkeysFrame.Keys.SPACEBAR
+language.Hotkeys.HotkeysFrame.Keys.TAB
+language.Hotkeys.HotkeysFrame.Keys.UPARROW
+language.Hotkeys.FormText.LuaScriptTitle
+language.Hotkeys.FormText.InfoText
+language.Hotkeys.FormButtons.AddHotkey
+language.Hotkeys.FormButtons.Rename
+language.Hotkeys.FormButtons.Delete
+language.Hotkeys.AvailableActionsFrame.Title
+language.Hotkeys.AvailableActionsFrame.Info
+language.Hotkeys.AvailableActionsFrame.Insert
+language.Hotkeys.AvailableActionsFrame.Messages.InfoPopup.Description
+language.Hotkeys.AvailableActionsFrame.Messages.InfoPopup.Usage
+language.Hotkeys.AvailableActionsFrame.Messages.InfoPopup.Returns
+language.Hotkeys.AvailableActionsFrame.Messages.InfoPopup.Parameters
+language.Hotkeys.AddHotkeyPopupTitle
+language.Hotkeys.RenameHotkeyPopupTitle
+language.Hotkeys.Messages.HotkeyFailure
+language.Hotkeys.Messages.HotkeyFailureTitle
+language.Hotkeys.Messages.HotkeyConflict
+language.Hotkeys.Messages.HotkeyConflictSave
+language.Hotkeys.Messages.HotkeyConflictTitle
+language.Hotkeys.Messages.DeleteTreeItem
+language.Hotkeys.Messages.DeleteTreeItemTitle
+
+2.3.1 (Beta)
+- S+ now supports global hotkeys. These reside in their own tab, do not receive Lua script variables like gsx, gsy, etc., and do not trigger sp_before_action or sp_after_action.
+- Language updates, additional help file updates, and MSI installs will be posted when hotkey functionality makes a beta run.
+
+2.3.0
+- S+ now ensures the auto-hide mouse function is stopped and the cursor shown before exiting
+- Added acSendKeyDown(VKey) and acSendKeyUp(VKey)
+
+2.2.9
+- Minor update to tray icon recreate code when swapping between shells
+- Added additional logic when checking for top-level windows (ensure client window is not empty rect)
+- Added acHideMouseCursor(), acShowMouseCursor(), acAutoHideMouseCursor(hidetimer, rehidetimer)
+
+2.2.8
+- Made a couple small tweaks to ensure password dialog becomes the foreground window when opening from various code paths.
+
+2.2.7
+- Added a simple password protection and encryption feature. From the tray menu, there is now a Password... menu option which allows you to set a password which will 
+  encrypt your StrokesPlus.xml file and restrict access to the main configuration window. Since some people may have their passwords in clear text with actions, this 
+  provides some simple security for others viewing your StrokesPlus.xml file or opening the actions window and looking at your passwords directly. This change does
+  not affect the StrokesPlus.lua (Global Lua) file in any way and it remains clear text.
+- Added the following language nodes (in Language.zip) to support the new UI elements:
+  language.Menu.Password
+  language.Password.Title
+  language.Password.ChangeTitle
+  language.Password.SetText
+  language.Password.EnterText
+  language.Password.ChangeText
+  language.Password.Password
+  language.Password.CurrentPassword
+  language.Password.NewPassword
+  language.Password.OK
+  language.Password.Cancel
+  language.Password.MatchFailMessage
+  language.Password.MatchFailTitle
+
+2.2.6
+- Removed the syntax highlighting of loadstring and added load (in place of it; same functionality)
+- Made stability improvements to actions which return strings
+
+2.2.5
+- Added acGetMouseCursorType() to retrieve the name of the mouse cursor as: ARROW, IBEAM, WAIT, CROSS, UP, SIZENWSE, SIZENESW, SIZEWE, SIZENS, SIZEALL, NO, HAND, APPSTARTING, HELP, or Unknown
+
+2.2.4
+- Fixed issue with Aggressively Manage Memory that I created during some recent code cleanup, the option was being ignored and assumed off
+
+2.2.3
+- Changed acDisplayText so its dialog is created on its own thread. This allows the script to continue executing while the text is displayed. If you want to have a delay,
+  add a call to acDelay after your call to acDisplayText for the script to pause for a certain amount of time.
+- Updated MSI installer to default to USer AppData folder, to avoid the file virtualization if not running as Administrator
+- Updated MSI installer to create a shortcut in the Startup folder
+
+2.2.2
+- Reverted the changes made to acDisplayText as they introduced some other intermittent display issues and inconsistent behavior.  I believe the Lua state change actually 
+  addressed the original reason that acDisplayText was changed.Long-term, I'd like to completely change the way this action functions, but for now I'm putting things back 
+  to the functionality prior to 2.1.2. These means that calls to acDisplayText once again cause script processing to be on hold until the text display duration has passed. 
+  To be honest, I'm not at all happy with this action; it's been nothing but trouble and needs to be completely changed. Though, I need to spend some time to think about 
+  how to properly implement it. I apologize for this flip-flop, but the random display oddities were unacceptable.
+
+2.2.1
+- By default, StrokesPlus no longer requires Administrator privileges. For most uses, this is acceptable. However, there are some unexpected behaviors that you may run into.
+  For example, S+ will not be able to control other programs running with elevated privileges, and there may be a couple actions which will not work due the underlying calls 
+  to Windows requiring Administrator privileges.  If you prefer to run S+ with elevated privileges, you may right-click the StrokesPlus.exe file and select 
+  Properties -> Compatibility -> Run this program as an administrator. However, S+ cannot be started automatically with Windows if it opens with Administrator privileges.
+- Added language.Base.Messages.AdminModeMessage and language.Base.Messages.AdminModeTitle to new message box when S+ runs for the first time.
+
+2.2.0
+- Added some calls to hopefully ensure the acDisplayText window always stays on top, and changed a couple things regarding its instantiation
+- Made a couple quick fixes to address the positioning of the gesture dropdown, gesture preview, and stroke color preview for those who have a DPI <> 100%
+
+2.1.9
+- Fixed a bug with the [b]Disable S+ if this application becomes active[/b] (Ignored List) setting; if a rule was made with this setting enabled, any other ignored windows created after that rule 
+  would also cause S+ to be disabled if they became active, whether the option was selected or not
+
+2.1.8
+- Added acSetKeyboardHook(0 or 1) [will remain undocumented] to turn the keyboard hook on (1) or off (0)..this is only for troubleshooting scripts so you can use the keyboard if S+ crashes to 
+close the program
+- Created an additional Lua state (total 2) and prevent more than 2 actions from firing concurrently. This is a compromise to allow some level of multi-threading, but preventing S+ crashes 
+when actions were tripping over each other. This was only noticable when firing two actions back-to-back which had calls to acDelay (for the most part) leaving the Lua state unstable if another
+action fired in the same state, which caused S+ to crash. Now, only two actions can fire simultaneously, each with their own state. However, since these are separate states, they won't share
+the same values assigned to variables. For example, if you define a global variable named MyGlobalVar in the Global Lua tab and set it to 123, it will be 123 for each state initially, but if you
+fire an action which sets MyGlobalVar to 321 within a script that is still running while you execute another action which sets MyGlobalVar to 456, in Lua state 1, MyGlobalVar will be 321, but in 
+Lua state 2 it will be 456.  Lua state 1 is always the primary state used for actions, state 2 is only used if state 1 is currently executing a script. For the most part, no one will likely be
+affected by this change, and those who are will likely understand this contention and the necessity for it. Again, it's a compromise to keep some level of functionality prior to this change, even
+though it often led to crashes.
+- If a gesture is completed and state 1 and state 2 are both executing, the gesture will be discarded; if you have Play Sound For No Match checked and a WAV file selected, it will be played when 
+this condition occurs to let you know it was ignored.
+
+2.1.7
+- Removed duplicate gsx declaration in gestureComplete function (internal)
+- Added code to change any pure white color passed into acDisplayText to 254,255,255 since pure white is the transparency color key
+- Added a new parameter to the end of acActivateWindow named method. This allows you to try different methods of activating a window since Microsoft has made it very difficult. 
+  Passing 0 uses the default SetForegroundWindow call
+  Passing 1 uses a method which calls AttachThreadInput to temporarily bind S+ to the target window
+  Passing 2 presses the Alt key temporarily during the SetForegroundWindow call (a known hack/workaround)
+
+2.1.6
+- Includes changes from 2.1.51 - 2.1.54.
+- Help files updated
+
+2.1.54 (Test)
+- Updated setLastActive (internal function) to also not consider the acDisplayText nor Settings windows a valid top-level window for which to set focus
+- Mirrored 2.1.53's code change in the keyboard hook as well
+- Put the gwd variable back in..must've accidentally removed it in 2.1.51 (best guess)
+- Added dwExtraInfo to acMouseMove and acMouseClick for S+ to distinguish its own mouse event injections from others
+
+2.1.53 (Test)
+- Updated code so acConsumePhysicalInput consumes all input, regardless of whether the stroke button is still held or not.
+
+2.1.52 (Test)
+- Added acConsumePhysicalInput(bool) action. acConsumePhysicalInput(1) tells S+ to consume ALL physical input (mouse and keyboard). This may be useful if you're about to call a 
+  mouse or keyboard action where you don't want any physical input to interfere with the action. 
+  But make sure you call again, passing 0 [acConsumePhysicalInput(0)], within the SAME Lua script to enable input or your computer may become unusable!
+
+2.1.51 (Test)
+- Added bounding coordinates to the exposed variables:
+  gbl = bounding left coordinate (left-most X of the drawn gesture)
+  gbt = bounding top coordinate (top-most Y of the drawn gesture)
+  gbr = bounding right coordinate (right-most X of the drawn gesture)
+  gbb = bounding bottom coordinate (bottom-most Y of the drawn gesture)
+- Mouse Hook now uses CursorInfo coordinates instead of those from MSLLHOOKSTRUCT
+
+2.1.5
+- Added Check Cursor Flags* setting Preference. By default, S+ checks to make sure the cursor flags are not 0, if 0, then S+ doesn't capture the mouse. This specifically addresses
+  Input Director (which I use), but for some, it may interfere with other programs which alter the cursor flags but should still be captured by S+
+- Added language.Preferences.AdvancedOptionsFrame.CheckCursorFlags to support the new preference
+
+2.1.4
+- Another patch to fix the acDisplayText window from creating a taskbar button in Windows 8
+
+2.1.3
+- I really don't feel like going through the whole build/release process for these two minor changes..install 2.1.2 and replace the EXE and DLL with the contents of this patch
+- Fixed a refresh issue when switching tabs via action while Settings window is open
+- Modifiers are now reset to unchecked when a new action is created
+
+2.1.2
+- Moved the clear vars check back to its original location as it didn't correct the issue I was hoping, and caused another problem where S+ stopped capturing modifiers or drawing
+- Changed the way acDisplayText works, instead of creating and destroying a full screen window each time, one is created at startup and left in place, showing/hiding as necessary.
+  This also allows a subsequent calls to acDisplayText to replace the displayed text. However, a new call to acDisplayText while one is already displays immediately replaces the existing
+  text, regardless of the previous call's display duration. If you want to display a message, followed by another in the same action, you would need to add a call to acDelay(ms) to pause the 
+  action so the next call to acDisplayText doesn't replace the previous one until you'd like it to. Although, any other action that calls acDisplayText during this pause would still replace
+  the text..this is about the best I'm willing to do with this at the moment..I can't imagine it would cause a problem for anyone, especially considering acDisplayText is more flexible now
+  Therefore, the Lua script immediately following the call to acDisplayText is no longer on hold until the text duration has passed, it executes immediately; so if you want the delay, you'll
+  need to add a call to acDelay(ms).
+
+2.1.1
+- Moved reset cancel delay check to inside the minimum segment length block.  Basically, this means that the cancel delay will only be reset if the mouse has been moved more than the pixels defined
+  for the minimum segment length (or if any modifer has been pressed, those always reset the cancel timer, if you have the option checked), instead of even a single pixel movement resetting the 
+  cancel timer. I can't think of a reason why this would be an issue, in fact it seems to make sense given the minimum segment length setting exists.  Specifically, this addresses the issue of 
+  using a pen on a tablet where keeping the pen absolutely still is virtually impossible, leading to having no viable method to use S+ without significant compromise of general Windows usability 
+  while also being able to use S+.  Unless you're specifically resetting the cancel timer by moving the mouse only a few pixels, this shouldn't affect anyone, or even be noticed (unless you 
+  defined a very large minimum segment length value, which doesn't seem practical).  If this causes any issues, I'll break this functionality out into a new preference, but since this logic is 
+  in the mouse hook, I'd prefer to keep the checks to an absolute minimum for performance reasons; another preference means another CPU cycle for each mouse move. In fact, this change improves 
+  performance as the timer isn't killed and restarted every single mouse move, only when the mouse has been moved the minimum segment length. As I said, I believe this will
+  be a completely transparent change, but make S+ far more usable for pen/tablet users.
+- acDisplayText now supports multiple lines of text (using \n for new line)
+- The Settings window now runs on its own thread, eliminating the resize lag and scrollbar drag issues (and just makes sense). Also changed the Settings window so it doesn't redraw itself on
+  each pixel while resizing, to further improve responsiveness when resizing on lower end systems.
+- Moved the clear vars call in gestureComplete from before lua_load to just inside the block, in hopes to maybe fix Andreasvb's issue (fingers crossed, but I don't think it actually will!)
+- Added some checks to help prevent a crash if you have a long running action executing while trying to reload the Lua state (like clicking Apply or OK in the Settings window or Reload from tray menu.
+  It's not air tight as you could have multiple long running actions set in motion and due to the nature of allowing actions running in parallel, they still could trip over each other, but I imagine
+  that would be a very rare scenario; this fixes the most likely (albeit still rare) scenario
+
+2.1.0
+- Updated to Lua 5.2.1
+- Updated to Boost C++ libraries 1.50.0
+- Added additional licenses that were missing
+- Updated StrokesPlus.xml in the MSI packages to the cleaned versions
+- Fixed the missing Help page header image in the MSI install
+- Fixed the missing Action Report and Global Lua missing images in the MSI install
+- Ok, NOW that I've cleaned things up and done all the little maintenance stuff, I'm taking a development break for real this time =)
+
+2.0.19
+- Upgraded 2.0.18 to release status
+- Fixed Allow After Action Script setting issue. If you change the setting and click Apply, the new setting is now recognized without having to click OK first.
+- For those of you who maintain a language file, note that the text for the Allow After Action Script* preference should no longer include mention about script errors
+- Updated ActionHelp.xml (which populates the Available Actions dropdown menu) so the snippets (when you click Insert) are generally functioning examples instead of function templates
+
+2.0.18 (Beta)
+- Added sp_before_action and sp_after_action to Scintilla keyword list
+- Changed the way Allow After Script (for sp_after_action functionality) works, should no longer cause script errors for those who received them before. 
+  It still remains optional, however, due to the fact that it requires a little extra processing now. So if you don't use it, leave it unchecked.
+- Updated Allow After Action Script option to remove script error warning text
+
+2.0.17
+- Commands which open About no longer open Global Lua instead.
+
+2.0.16
+- Added Global Lua tab for utilizing the Scintilla editor, for modifying StrokesPlus.lua directly.
+- Added the followinf entries to Language.xml for the new tab:
+ language.LuaTab.Title
+ language.LuaTab.Text
+
+2.0.15
+- Added the highlight hack to the Help button as well
+- Made the Settings window the owner of the Delete confirmation boxes instead of the gesture draw window and made them modal
+- Made the message boxes for the name dialog modal
+- Fixed Aggressively Manage Memory state checking. Changing the option when already enabled didn't disable the functionality until restarting S+ even though the preference was saved successfully
+
+2.0.14
+- Upgraded 2.0.13 to release status, updating Language.zip, help, and created MSI packages
+- Updated some text for new Modifier Check functionality
+- Added Lua bit32 functions to Scintilla highlighting list of keywords
+- Added a hack to help prevent permanent button highlighting in Settings tabs. I never did anything to change the buttons, other than make the dialogs children of the tab control...but I can't find anything
+  regarding how to fix this issue. Disabling and re-enabling the buttons, however, seems to take care of it for now.
+
+2.0.13 (Beta)
+- If you click OK in the Rename window (ignored, app, action, gesture) and the text hasn't changed (case ignored), you no longer receive a warning that the app/action already exists; it just closes.
+- Added a sleep loop in acSendKeys. If an instance of acSendKeys is still being executed in another action, queue the next call to acSendKeys so they don't trip over each other.
+  Hopefully this will prevent a reported crash with using two actions with acSendKeys calls being executed very quickly one after the other
+- Settings window refreshes when receiving WM_STYLECHANGED message
+- Updated text in Actions Report tab
+- Stroke button is once again disabled in the modifiers checkbox group as well as refreshed whenever the Actions tab is clicked and when the Stroke button is changed from the tray menu
+- Stroke button in Preferences is now updated when changed from the tray menu while Settings window is open
+- Added ability (only when Capture Modifiers on Stroke Button Down* is checked under Preferences) to qualify an action based on when the modifier was pressed, either before or after
+  the Stroke button was pressed or either. This allows you to create a true rocker gesture action pair. For example, define both actions with Left Mouse Button modifier, but one with 
+  Before Stroke Button and the other action with After Stroke Button and they're two different actions. You're welcome.
+  Note that S+ does not consume a modifier if the stroke button isn't down (otherwise you wouldn't be able to do anything with the mouse!), so for Before Stroke Button actions, the modifier
+  will still be sent to the window under the mouse (or with focus, for key mods). This is just a technical note for those who understand what it means.
+- Added the following to the language.xml file to support these new UI elements:
+  language.Actions.ModifierPress.Title
+  language.Actions.ModifierPress.Before
+  language.Actions.ModifierPress.After
+  language.Actions.ModifierPress.Either
+
+2.0.12
+- Upgraded 2.0.11 to release status, updating Language.zip, updated help, created MSI packages
+- Added license details for Scintilla to Licenses.txt and in the About tab
+- Taking a development break for a while, so no changes other than critical bug fixes for some time
+
+2.0.11 (Beta)
+- Pressing Escape on the Name or Gesture Name window now closes the window as if you clicked Cancel
+- Added Scintilla editor for Lua scripts (don't bitch about the color choices, the keyword lists, or the lack of ability to customize any of those yet!)
+- Reset Name window variables when Settings is closed; this ensures sending a close app command to the Name window (which closes the Settings window) doesn't screw up the state of the Name window
+- Info and Insert (action help) buttons are once again able to be clicked
+
+2.0.10 (Beta)
+- Name window is back to being a dialog box, but with Settings as the owner. This means Name is modal to the Settings window, as it should be. But you can still draw gestures on it.
+- Note that for internal reasons, the Save Gesture window (with the gesture name and the thumbail on the left) will remain modal to the gesture draw window and continue to stop capturing until closed.
+- If S+ is enabled, the icon will turn to disabled while the Gesture Name window is open, since you can't draw gestures anyway in that state.
+- If S+ is disabled, clicking New gesture will reactivate the mouse hook until a gesture is drawn
+- Made a couple other minor logic tweaks to the Save Gesture window
+
+2.0.9 (Beta)
+- Name (add, rename) window is no longer a dialog box and can be drawn on.
+- Name window title now better reflects its intention
+- Added language.Actions.AddAppPopupTitle to Language.xml
+- Added language.Actions.AddActionPopupTitle to Language.xml
+- Added language.Actions.RenameAppPopupTitle to Language.xml
+- Added language.Actions.RenameActionPopupTitle to Language.xml
+- Added language.Actions.RenameGesturePopupTitle to Language.xml
+- Added language.Ignored.AddPopupTitle to Language.xml
+- Added language.Ignored.RenamePopupTitle to Language.xml
+- Fixed issue which caused Lua script window to retain prior action's script when adding a new action
+
+2.0.8 (Test)
+- Fixed Rename and Delete buttons in the Ignore tab so they're enabled properly
+
+2.0.7 (Test)
+- Releasing this is a test build since the last couple were plagued with problems
+- Multiple changes to hopefully address stability/usability issues
+
+2.0.6 (Beta)
+- If S+ fails to parse StrokesPlus.xml, it no longer saves StrokesPlus.xml when exiting
+- The Application and Action Active checks now defaults to checked for new actions
+- Fixed some file opening code which should resolve the crashes people were having in 2.0.5; due to the nature of this issue, I would recommend restarting Windows first.
+  S+ was locking up file objects and may still have issues without a reboot..of course, if it works without a reboot, great..but in case it's crashing, try rebooting 
+  first to make sure all file handles/objects are released.
+- Reverted all DPI changes as another possible cause of the crashing issues
+- If this doesn't do it, I'll have to go back to saving and refreshing the config for changes as the next step.
+
+2.0.5 (Beta)
+- Same as before, report bugs starting with [BETA].
+- Added acShowSettings() to open the new settings window to whichever tab it was last at. The existing acShowPrefs(), etc. actions still function as you would expect
+- Note that certain actions, especially those using acSendMessage, acPostMessage, and acSendKeys, used on the S+ window may cause very unpredictable behavior
+- Set S+ as DPI-aware. This was supposed to override DPI settings and seems to do so on Win XP, but not Win 7. However, it's usable at 125% and 150% so I'm not going to pursue for now.
+- Proper Settings tab is now selected when you call a action which sets a different tab as the active one and the Settings window is already open
+- Do not create an action that uses the mouse wheel when Fire on mouse wheel is enabled to call acShowSetting(), it causes problems and leads to S+ not capturing gestures until re-opened
+- Hopefully fixed a race condition which caused the image list in Actions and Actions Report to sometimes collide, leaving the wrong gesture thumbnail size in one of the tabs.
+  Turns out it didn't fix it..worst-case scenario for now, just close and re-open the window and the thumbnails should be fine...if not, let me know, otherwise I'm going to keep working on it.
+- Added Action Active, Application Active, and Rule Active for Applications, Actions, and Ignored Actions. Note that if you manually tinkered with StrokesPlus.xml relating to the enabled attribute,
+  you could have unexpected behavior. I would recommend backing up your StrokesPlus.xml file, opening up Settings and deleting any old apps/actions and duplicates (dupes will cause very 
+  unprediectable behavior).  In theory, this shouldn't be an issue for nearly everyone, but just so it's said.  Disclaimer out of the way, this new feature lets you disabled a whole app, 
+  an action, or an ignored rule so you can keep them around but turned off. The checkboxes are in the lower right for apps/actions, and below the Global checkbox for ignored windows
+- Note that the Actions Report window only shows ACTIVE actions
+- Changed the logic for New/Rename/Delete Gesture to be in line with the overall Settings window Apply/OK/Cancel logic. Now, nothing changed via the Settings window nor tray menu is saved to your 
+  config file unless you click OK in the Settings window, click OK on the Gesture Name window while in Training Mode (not while creating a new gesture from the Settings window), or Exit S+ normally. 
+  Clicking Apply simply applies the settings in memory, but does not save your config file. This allows you to make all kinds of changes in the Settings window, but not actually commit anything 
+  to disk unless you do one of the 3 steps listed above.  This also means you can click Reload Config and Lua Engine from the tray menu to revert the settings to what's saved in your config; 
+  again, assuming you haven't performed any of those 3 steps.
+- Clicking Cancel in the Settings window reloads the config file from disk; so if you've been in and out of the window, made new gestures (via clicking New, not via Training Mode), etc. but never 
+  performed one of the 3 steps, they will be lost since clicking Cancel would seem to indicate you want to abort all changes. However, clicking the X to close Settings does NOT perform a reload 
+  from disk, for whatever that's worth to know. That gives you the option to Apply the setting, not save it, and not cause a reload of your config file.
+- Added language.Actions.Application.Active for new checkbox
+- Added language.Actions.Active for new checkbox
+- Added language.Ignored.Active for new checkbox
+
+2.0.4 (Beta)
+- This is a Beta release, so backup your StrokesPlus.xml file and only use for testing. Report any bugs to the New Bugs forums with [BETA] preceding the subject
+- Moved all core windows into a single, tabbed window. More UI changes are coming, but this was the first step in making the next round of updates
+- This has been such an unbelievable mind-fuck to make happen, so I'll probably be taking a little break!
+- You can now draw on the S+ window!
+- Opening the Settings window is a little slow since it's loading up a lot of resources into one window, I'll keep tweaking it to improve performance
+- Resizing the Settings window is VERY choppy, but I'll try to work on that at some point..at least you really only need to do it once =)
+- Changing tree nodes can be choppy on updating the window as well..I'm sure there's something I'll find that will fix all of the issues, but I've got to draw the line here and recuperate
+- The Settings window remembers if it is maximized or not
+- The keyboard hook now stops monitoring keystrokes during an acSendKeys operation
+- Prevented ignore key from being recognized if a S+ window has focus as it was causing unexpected behavior when copying/pasting (if CTRL key is set to ignore)
+- To test the ignore key with the window open, change focus to a different window first
+- Fixed an issue which caused S+ to crash if the OSD (acDisplayText) was displayed while a S+ window was open and the S+ window was closed before the OSD went away..yea, that was fun to find and fix.
+- Set the Lua script window to Courier New font (just a small change for now, until better editor in place)
+- Made various code updates since all UI is in the DLL now. Let me know if you experience anything odd, specifically relating to saving settings
+- For those with DPI settings other than Normal (100%) I'm sure things will look ugly..that's on the to do list
+- Langauge.xml has not been updated on the site download as this is a Beta release
+- Added language.Base.Messages.LuaScriptError to Language.xml
+- Added language.Base.Messages.GestureTooShortTitle to Language.xml
+- Added language.Base.Messages.GestureTooShortMessage to Language.xml
+- Added language.Gestures.Title to Language.xml for future Gestures tab text
+- Added language.Gestures.SavedImmediately to Language.xml for future Gestures tab text indicating gesture changes are saved immediately
+- Added language.Settings.Title to Language.xml for Settings window title
+- The following Language.xml are transitional until the Gestures tab is created and the Actions tab is completely overhauled
+- language.Preferences.OK will be used for the Settings window OK button text (may be left as is in existing Language files, caption/intent is not changing)
+- language.Preferences.Cancel will be used for the Settings window Cancel button text (may be left as is in existing Language files, caption/intent is not changing)
+- language.Preferences.Save will be used for the Settings window Apply button text (may be left as is in existing Language files, caption/intent is not changing)
+- language.Preferences.Help will be used for the Settings window Help button text (may be left as is in existing Language files, caption/intent is not changing)
+- language.Actions.Title will be used for the Actions tab in the Settings window (may be left as is in existing Language files, caption/intent is not changing)
+- language.Ignored.Title will be used for the Ignored tab in the Settings window (may be left as is in existing Language files, caption/intent is not changing)
+- language.Preferences.Title will be used for the Preferences tab in the Settings window (may be left as is in existing Language files, caption/intent is not changing)
+- language.Report.Title will be used for the Report tab in the Settings window (may be left as is in existing Language files, caption/intent is not changing)
+- language.Actions.FormButtons.Autosave will be used for the Auto Save check box in the Settings window (may be left as is in existing Language files, caption/intent is not changing)
+- Note that due to the Unicode issue, this means the tabs will *not* properly display complex characters..still trying to figure out a way around that problem
+
+2.0.3
+- Dragging the Find Window crosshair over windows now populates the Control ID field as well, if one exists for the control under the mouse cursor.
+- acSendKeys now activates the top-level window below the S+ gesture draw window if any of the S+ windows are the foreground window; if S+ has focus while a key combination which included the ignore key, 
+  it left S+ in an odd state where you had to tap the ignore key to stop S+ from ignoring gestures. If this causes unexpected behavior, use acActivateWindow in your action to assign focus as needed.
+- Realized that when I added the Lua parameter checks, it broke passing true/false as parameters. Updated the Help and Action Reference to reflect "0 for False, 1 for True" in place of "boolean"
+
+2.0.2
+- Fixed Control ID not being populated in Ignored window
+
+2.0.1
+- Added Control ID as an application qualifier
+- Added acGetControlID action
+- Added language.Actions.Application.ControlID to Language.xml to support new field in Actions window
+- Added language.Ignored.ControlID to Language.xml to support new field in Ignored window
+
+2.0.0
+- Beta 1.9.903 upgraded to release status
+- Changed the way S+ determines the last active window prior to opening a S+ window, now it just starts at the gesture draw window's handle and works backward until a top-level.
+  This hopes to prevent the S+ draw window from ever having focus, which can cause odd behavior.
+- Added check box in Ignored window that instructs S+ to disable itself completely (unhook mouse/keyboard) if the application becomes the active window at any point in time.
+  Once disabled via this method, you must manually reenable S+ via single left-clicking the tray icon, right-clicking the tray icon and unchecking Disable StrokesPlus,
+  or via the hotkey SHIFT+CTRL+WIN+Z. The main purpose of this feature is because I play EverQuest II and I want S+ completely out of the way when I'm playing, simply
+  ignoring the window means S+ still checks all ignored windows every time I press the right mouse, which I do all the time in-game and I don't want the extra processing
+  to occur..but sometimes I forget to disable S+ before I go in the game; this feature resolves that! Note that there's no reasonably deterministic method to reenable S+
+  after being disabled via this method. Meaning, S+ could disable itself by detecting the game gained focus, but what if I already disabled S+ before opening the game, how would S+ 
+  know to when to reenable? Basically, this is just a difficult task of state management that isn't worth the time for this rarely used feature.
+- Added language.Ignored.<DisableOnActivate> to Language.xml to support new checkbox in Ignored window.
+
+1.9.903 (Beta)
+- Removed some checks which prevented certain state changes while S+ windows are open
+- Fixed a whole bunch of issues due to allowing windows to be open
+- Realized that the config object wasn't actually being shared by EXE and DLL, only sharing the same name even though only declared once in the DLL and exported to the EXE.
+  So rebuilt the whole damn thing, moving all dialogs and config code into the DLL as it should be. Part of this change was some performance improvements regarding saving
+  the config file. Now, it is only saved when updating a gesture (actual drawing), closing an S+ window (Actions, Ignored, Preferences), or exiting S+. BEfore, this was happening 
+  constantly, causing a lot of unnecessary disk IO. 
+  Note that I mean to the file, changes are saved in memory when you click Save/Apply or change nodes with Autosave checked; changes are committed to disk upon closing the window or exiting S+.
+- While the DLL is larger, the EXE is smaller, resulting in the sum of the two files being overall smaller than prior release.
+
+1.9.902 (Beta)
+- Updated "Reload Config" tray menu title to "Reload Config and Lua Engine" to better distinguish the difference between it and acReloadConfig(), the latter which does not (cannot) reload the Lua state
+- The Autosave checkbox in the Actions window is now honored in the Ignored window; so changing between ignored apps will save just like the Actions window, including clicking Close in the Ignored window
+- The gesture preview is now redrawn after restoring the Actions window
+
+1.9.901 (Beta)
+- Added minimize buttons to Actions, Preferences, and Ignored windows
+- Unhooking and rehooking mouse and keyboard while saving/refreshing config
+
+1.9.9 (Beta)
+- S+ will now allow you to draw gestures while S+ windows are open. Note that drawing is NOT captured when drawing on top of an S+ window for internal reasons; draw outside of S+ windows to test
+- Added Apply button to Preferences window for saving Preferences without closing the window (to test settings before leaving the Preferences window)
+- Enabled Save button in Configure Actions window, this lets you save while staying at the selected App/Action, mainly for testing a gesture/script while the window is still open
+- Clicking Save in the Ignored window will do as it always has, except it refreshes the config immediately so you can test without closing the window
+- Note that this is a Beta release as there were several core changes made to support this. BACKUP your StrokesPlus.xml file BEFORE USING! Don't yell at me if something goes wrong.
+  The config and language variables are now shared between the EXE and the DLL, so there's always a possibility that something in that change may not work properly and could result in lost settings.
+- Depending on your preferences relating to the gesture draw window, the S+ windows may stay on top, or fall behind other windows when testing.
+- Added <Save> element to language.Preferences in Language.xml to support the Apply button in the Preferences window. Note that since this is a Beta release, I'm not yet updating the posts
+  in the Language forum until this has been tested thoroughly. 
+- There is no MSI package for this release. If you're trying S+ for the first time, install 1.9.8 first then replace StrokesPlus.exe and StrokesPlus.dll from the 1.9.9b ZIP file for your platform.
+- Please report bugs to the New Bugs forum, starting with [BETA] to make them easily separated from the current stable release.
+
+1.9.8
+- Added option "Allow After Action Script* (may cause script errors)" (default off) to enable the sp_after_action functionality removed in 1.9.7; 
+  enabling this setting causes script errors for some users for reasons yet unknown.
+- Language.xml template updated to support new preference
+
+1.9.7
+- Made the text to the right of the modifiers section and the text below the app qualifier fields autosize along with the Configure Actions window
+- Moved the bottom buttons in Configure Actions window up a few pixels
+- Removed the sp_after_action functionality due to unknown reasons why it was causing problems for some people; sp_before_action is still included
+
+1.9.6
+- Added sp_app_name (or gapp) and sp_action_name (or gact) as variables available to all scripts
+  This change impacts the sp_before_action and sp_after_action function templates added in 1.9.5, see the help page for details
+
+1.9.51
+- Updated the Help file header image (courtesy of forum member imafishimafish)
+- Added ability to have global functions (defined in StrokesPlus.lua) to fire before and after all actions. 
+  This is helpful if you always want something to happen, like activating the window under the cursor before the action fires
+  See http://www.strokesplus.com/help/#Variables for more details
+
+1.9.4
+- Fixed a HUGE issue with App Pattern Recognition; the code was setting the regex expression to const variables...which would cause the first expression to be permanent in memory until S+ was restarted
+  To be fair, this was some of the earliest code written while I was really unfamiliar with C++, I only spot-checked the code which worked fine...as long as there were no other pattern matches for the 
+  same app qualifier!
+
+1.9.3
+- Updated acFindWindow to not assign class or title parameters to an empty string if nil is passed in; this allows you to search by exact title or class, if you pass nil for the other parameter
+
+1.9.2
+- Updated yet some MORE code paths which led to incorrect tray icon states
+- When in Training Mode, S+ no longer checks for ignored windows as it's irrelevant in that state
+
+1.9.1
+- Added tray icon to indicate when in Training Mode (blue dot turns red)
+- Middle-clicking tray icon while S+ is disabled will no longer toggle Training Mode state
+- Cleaned up some other code paths which led to incorrect icon state
+- Tray icon caption now indicates training mode
+- Language.xml updated to include <TrainingCaption></TrainingCaption> under <Base><Icon> for the tray icon text when in Training Mode
+- Added ability to specify a custom location for StrokesPlus.xml (main config file); StrokesPlus.lua and Language.xml are derived from the command-line parameter so the config must be name be "StrokesPlus.xml".
+  See http://www.strokesplus.com/forum/topic.asp?TOPIC_ID=347 for more details
+
+1.9.0
+- Left single-click on S+ tray icon to toggle disabled mode (was double-click)
+- Left double-click on S+ tray icon now opens the Actions window. 
+- Middle single-click on S+ tray icon now toggles Training Mode
+- Middle double-click on S+ tray icon now opens Preferences window
+
+1.8.9
+- Corrected key modifier capture logic which prevented some modifier keys from being recognized if pressed together after the stroke button was pressed
+- Added a try/catch around the DPI check and assign code; may address an issue one person was having that I cannot reproduce
+
+1.8.8
+- Updated acSendMessage and acPostMessage to use lua_tounsigned instead of lua_tonumber to address signed number limitation
+
+1.8.7
+- MDK Edition! [not the game..] (just changed some colors, I had all kinds of neat ideas for blood spatter, etc..but alas, WinAPI makes it too difficult)
+- This release is REALLY red (pretty ugly, TBH), if you want normal colors, download 1.8.6..nothing else has really changed. I just wanted to do something fun with 187 since it won't happen again. But decided to only release it with no real features, so people wouldn't be annoyed =)
+- Updated BOOST libraries to latest version (1.49)
+
+1.8.6
+- Added option in Preferences for indicating whether to hide the gesture draw window when not drawing a gesture; otherwise the window is sent behind all other windows.
+
+1.8.5/.1
+- Updated the way the gesture draw window functions. Instead of hiding and showing the transparent window, it is sent to the bottom and brought to the front. This addresses some performance and usability issues.
+- Added Min. Segment Length option in Preferences. This specifies the distance between drawing segments; mainly, this lets you set a minimum draw distance before S+ considers you've started drawing a Stroke.
+
+1.8.4
+- Added acGetProcessIDFromPattern(filepattern)
+- Added acGetWindowFromProcessID(processID)
+
+1.8.3
+- Added necessary logic for when a key is a Stroke button (feature: Capture Modifiers on Stroke Button Down)
+- Fixed bug where Left mouse modifier wasn't being recognized with the new feature
+- Fixed bug which prevented Stroke key from working if no Ignore key was selected
+
+1.8.2
+- Added experimental feature Capture Modifiers on Stroke Button Down. This tells S+ to also capture modifiers at the moment the Stroke button is pressed.
+- Language.zip updated to include element for new option (above) in Preferences
+
+1.8.1
+- Added DPI modifier to App definition fields to help position them better when Windows text size > 100%
+
+1.8.0
+- Added simple About box with version and release date
+- Added acShowAbout()
+- Language.xml updated to support About UI elements
+
+1.7.9
+- Added try/catch around acShellExecute
+- Fixed issue with S+ not forwarding the keystate properly when relaying WM_MOUSEWHEEL
+
+1.7.8
+- Fixed issue with Help button not working in Preferences window
+- Expanded Sound: label in Prefs
+- Added remembering of last app/action selected in Actions window. Since the tree is destroyed when the window closes, S+ can't store the actual handle to the selected item
+  So it's based on App name and Action name. This should probably always be fine, but feels like there's a chance for some sequence of events (adding/renaming/etc.) which
+  may cause S+ to not remember perfectly, but I've tested and it seems to work fine.
+
+1.7.7
+- Commented out call next kb hook if action executing. Noting here in case of any odd issues.
+- Added experimental feature Fire Recognition on Mouse Wheel Scroll in Preferences. If checked, S+ will STOP recognizing any additional drawing/modifers and fire actions which met
+the criteria at the time the mouse wheel was scrolled up or down, which INCLUDES the current Scroll Up or Scroll Down event modifier.  For example, if you have Increment Volume set as no
+gesture and only Scroll Up, then when you press the Stroke button and Scroll UP, the volume will be incremented immediately (without releasing the Stroke button); each scroll up 
+will fire the Increment Volume action while you're holding the Stroke button. If you have Decrement volume set to no gesture and Scroll Down modifier, you could hold the Stroke button 
+and scroll up and down, incrementing or decrementing the volume each wheel tick. Even though they're two separate actions, the base criteria (only the Stroke button, no gesture) match
+, so the Scroll Up or Scroll Down events drives which action is fired.  Yes, this is a confusing feature, but it's a compromise for those who want to hold the Stroke button, scroll up/down
+, and have actions fire with each tick of the wheel (like scrolling through Chrome browser tabs, for example).
+- Since there's a new UI element in Preferences, Language.zip has been updated.
+
+1.7.6
+- Fixed issue with acSendKeys not sending VKEY characters
+
+1.7.5
+- Fixed issue with not being able to select Global Actions if Global Actions has no child actions
+
+1.7.4
+- Added extra parameter to acTileWindows to signal whether S+ does the tiling, or Windows handles it via the TileWindows API call, 0 or false means S+ will tile, 1 or true means Windows will handle it
+
+1.7.3
+- Added acTileWindows() action
+- Updated help for acSetWindowSize, it doesn't accept left and top parameters.  That functionality was moved to acMoveWindow, but the actions and help still shows the old signature.
+
+1.7.2
+- Fixed positioning of stroke color preview in Preferences window
+
+1.7.1
+- Added code to get the gesture window rect when a gesture is complete. This may help to correct a difficult to reproduce issue with multiple monitors and the line being drawn on the wrong screen.
+  Note that I'm doing this after a gesture is complete, so it's possible that it's on the wrong screen, then the next gesture it's fixed. I don't want to fire this call everytime the stroke button
+  is pressed for performance reasons when not intended to draw anything, but doing it after a gesture is complete doesn't slow anything down (not that it's an intensive call to begin with).
+- Added support for Actions window title when using Languages.xml along with <Title> tag under <Actions>
+- Fixed typo on Actions screen ("Authosave")
+- Updated Window layouts to leave room for longer text due to translations
+
+1.7.0
+- Added support for languages other than English. Note that no other languages are supplied, but if Language.xml exists along side StrokesPlus.exe, it will be used.
+  See the Other Languages forum under Feature Updates for additional details and to download the Language.xml template.
+  Note that S+ doesn't currently support UNICODE, so some languages may not be possible, like Chinese, for example.
+- Added option to tell S+ to cancel recognition once the Cancel Delay is reached, regardless of mouse movement or other modifier events
+- Reverted small code optimization due to crash report.
+
+1.6.9
+- Fixed issue with conflict detection comparing actions which have no gesture nor modifiers assigned.
+- Compiled EXE favoring small code to reduce footprint.  DLL is still set to favor speed since that's where all the magic happens. Please let me know if you're noticing slow-downs when working with the UI.
+
+1.6.8
+- Updated to loadHookConfig before setting hook; this ensures mouse is responsive while config is being loaded (benefit for low-powered systems)
+- Added option in Preferences to always keep the gesture window on top.  This can be helpful for low-power systems and prevent flickering UI elements for Windows XP users.
+  However, there may be issues with other programs if they react to StrokesPlus' gesture window being above them.  Therefore, this is an experimental feature.
+- Added * in Preferences window to denote which features are considered Experimental
+
+1.6.7
+- In SetWindowState, added SWP_SHOWWINDOW to SetWindowPos call, eliminating the need to call ShowWindow prior (very slight performance tweak)
+- Fixed bug which prevented closing Actions window if Autosave was unchecked
+
+1.6.6
+- Updated to only consume the mouse BUTTONUP event if the matching BUTTONDOWN event was also consumed by S+.
+
+1.6.5
+- Introduced action definition conflict detection. If you try to save an action within the same app (including Global) using the same gesture/modifier combination, 
+  S+ will warn you about the conflict and ask how you'd like to proceed.
+
+1.6.4
+- Gestures dropdown hidden initially (was only an issue when there are no apps or actions defined at all)
+- Delete, Rename, Save and Autosave checkbox are disabled initially (was only an issue when there are no apps or actions defined at all)
+- Fixed issue with Report and Tree and Gesture dropdown image lists in Actions overwriting each other
+
+1.6.3
+- Swapped File Name and File Name Pattern labels in Actions window, they were reversed
+
+1.6.2
+- Prevented BUTTONUP mouse events from flagging internal mouse modifier variables, only makes sense to capture on BUTTONDOWN. 
+  BUTTONUP is still consumed, but doesn't flag the modifer since the button was pressed prior to Stroke button
+
+1.6.1
+- Removed warning if DPI != 96
+- Added some code to adjust manually drawn items for DPI differences; it's far from perfect, but S+ is at least usable (I can't seem to derive the precise scale modifier via code, among other issues). 
+  However, Actions window needs at least 1291x768 of space for all buttons to be displayed at 120 DPI and 1613x881 at 144 DPI.
+  Some UI elements are not positioned ideally, but they're usable enough; a heck of a lot better than it was anyway!
+  
+1.6.0
+- Gesture dropdown now sorted case-insensitive and puts non-letter characters first
+- Renamed and new gestures also appear in their proper position immediately
+
+1.5.9
+- Made the app and X image list thumbails a little smaller/better looking (FYI, they're drawn via code, not from images; so they're never going to look fancy!)
+- Replaced gesture dropdown in Actions window, now has gesture thumbnail (note that sorting of the gesture dropdown has also changed, now based on ASCII value of gesture names)
+
+1.5.8
+- Fixed memory leaks present for the last few releases.
+
+1.5.7
+- Unmerged Gestre column in Report window, just all separate columns
+- Added gesture thumbnails to Actions window tree
+
+1.5.6
+- Merged Gesture and (Gesture) Name into same column; added a no gesture image
+- Enabled full row select on Report grid
+- Fixed issue with clicking Refresh in Report adding duplicate columns to grid
+
+1.5.5
+- Report imagelist is no longer destroyed when Actions window is closed
+- Added a + limiter between modifiers in Report
+
+1.5.4
+- Gave Report window a taskbar button.
+- Report window can no longer be opened multiple times simultaneously.
+- Added Refresh button to Report window, since it's not updated in realtime with Actions window
+
+1.5.3
+- Added a Report button to Actions window which pops open a list view containing all defined actions in sortable columns.
+
+1.5.2
+- Added acShellExecute(), allows opening, editing, printing files, exploring folders, invoking Windows find.  
+  It's kind of like double-clicking a file in Explorer or right-clicking a file and selecting one of the verbs like Open, Edit, Print, etc. Search ShellExecute MSDN on the Internet for more details.
+
+1.5.1
+- Added exception handling at StrokesPlus.xml load, reload, and save points, as well as an exception check for missing or corrupt ActionHelp.xml.  
+  This addresses the only known faults which would cause S+ to crash; surely S+ isn't crash-proof, but I'm not aware of any other faults.
+
+1.5.0
+- Added parameter type defaulting to all actions.  If a parameter is supposed to be a string, but a non-string was specified, it will be passed in as an empty string (""). 
+  There are certain defaults like font name for acDisplayText which I've set to "Arial" and some others where empty or NULL doesn't make the most sense.
+
+1.4.9
+- Removed pDataArray for GestureComplete thread, it's not needed
+- Removed acClearCaptureVarsBeforeLua(), after realizing it's completely unnecessary based on the existing program flow and actually wouldn't have done anything of significance
+- Added check to acSendKeys to prevent crash if parameter isn't a string (will make my way through all actions, checking all parameters are correctly typed)
+
+1.4.8
+- Uncommented the code that loads alien.struct .. not sure why that was commented out
+
+1.4.7
+- Added code to make sure Help button doesn't look weird after fast inward resizing
+- Added option in Preferences to disable the multiple instance warning
+- Added hotkey (CTRL+SHIFT+WIN+S) and action acToggleTrayIcon() to toggle whether the S+ tray icon is visible or hidden
+
+1.4.6
+- Used a better method of setting the minimum Actions window size so it can't be dragged smaller than the default size
+- Fixed code that was supposed to select the first action under Global Actions if Global Actions is selected (so the rest of the window isn't empty)
+- Couple other tweaks to the code flow dealing with creating actions (internal only)
+
+1.4.5
+- Actions window can now be resized
+
+1.4.4
+- Apps/Actions and Ignored list are now sorted alphabetically, with the exception of Global Actions always being first in Actions window. 
+  Sorting occurs when the window is loaded, not when changes are made within the screen; new items will appear at the end of the list until next time window is opened.
+- Added help in Actions window to assist with built-in functions
+- Made Actions window a little taller (resize functionality still on the list..)
+
+1.4.3
+- Added check and message on startup if DPI != 96 (StrokesPlus doesn't currently support DPI-scaling so the window layouts will be nasty)
+- Scaled-down the Ignored List window a bit
+
+1.4.2
+- Ensured StrokesPlus.lua is always loaded from program folder
+
+1.4.1
+- Set StrokesPlus to stay at High priority (except in dialogs) instead of switching between Above Normal and High when the Stroke button is pressed.  
+  This type of program must not interfere with user interaction and High priority helps to ensure there is no mouse lag. 
+  Plus, this reduces processing cycles used since S+ isn't calling to change priority levels during operation.
+
+1.4.0
+- Added Help button to Ignore and Preferences windows
+- Updated acMouseClick to be aware of swapped mouse buttons as well. 0 is the secondary button (default right), 2 is the primary (default left) button
+
+1.3.9
+- S+ now allows multiple instances (with a confirmation on starting subsequent instances). Note that this is not officially a supported feature and has some quirky (but entirely valid) behavior.
+  - The instanced opened first has the top position in the mouse/keyboard hook chains (in relation to the other S+ instances.
+  - The Global hotkeys CTRL+ALT+SHIFT+WIN+END (to exit StrokesPlus) and CTRL_SHIFT+WIN+Z (to toggle StrokesPlus disabled mode) will only be received by the first instance.
+  - Modifiers which use the hook button from another instance may not behave properly, depending on the position of the active hook in the S+ instance chain.
+  - Don't run from the same folder, or you will be using the same config file...which makes no sense to do.
+  - ...so use at your own risk!
+- Removed "Resumed" message box from popping on..that was for my testing and I forgot to take it out. Doh!
+- Added line to increment trayID for suspend/resume cycles (internal thing)
+
+1.3.8
+- Made S+ aware of Windows going into suspend by deleting the tray icon and unhooking the mouse and keyboard.  On resume, the tray icon is recreated and the mouse/keyboard are re-hooked.
+
+1.3.7
+- Made Match Probability and Match Precision number-only fields
+- Added some extra checks before loading StrokesPlus.xml as well, to ensure it's always loading from the correct location. This issue is now 100% airtight.
+
+1.3.6
+- Enabled Visual Styles for S+ (buttons, dropdowns, etc. are prettier)
+
+1.3.5
+- Moved gesture thumbnail up 5px in Actions window
+- Added some overkill precautions to ensure there is no repeat of the StrokesPlus.xml saving issue, in case a custom Lua script somehow calls something which changes the directory
+- Added StrokesPlus_PAD.xml (Portable Application Description file) 
+
+1.3.4
+- Corrected Test button's tab order in Preferences window and Help button in Actions window
+- Corrected issue with Play Sound for No Match not saving properly. After opening Browse window, the current directory is changed, causing S+ to write StrokesPlus.xml to whatever directory that was being browsed when clicking Open to select the WAV file. So the settings were saved successfully, but to the wrong location, so next time you opened S+, any other changes made weren't being loaded.  This problem has been in existence since 1.2.6, when the Browse... button was introduced.  =(
+
+1.3.3
+- Couple updates to help file (website version is always updated immediately, unless it relates to a new feature)
+- Updated Right and Left button key modifier text to reflect properly when mouse buttons swapped
+
+1.3.2
+- Cleaned up the Preferences window layout a little
+- Removed help link in Actions window, replaced with Help button at bottom of window
+
+1.3.1
+- Added Test button to preview No Match Sound File
+
+1.3.0
+- Added Stroke color pick button and preview
+
+1.2.9
+- Added option to App definition to disable processing Global Actions. This tells S+ that if the app is under the mouse, but no actions defined for that app were matched, don't try to check Global Actions for a match
+
+1.2.8
+- Fixed bug with selecting X2 from tray menu
+- Fixed Actions window so it centers better on the screen
+
+1.2.7
+- StrokesPlus is now aware of swapped mouse buttons
+
+1.2.6
+- Expanded Preferences window to include many of the hidden options in the StrokesPlus.xml file.
+- Presented the Control and Alt in the UI as valid Stroke buttons, just remember these options aren't fully supported or tested
+- Updated help file
+
+1.2.5
+- Updated the the way the experimental MouseWheelScroll feature functions to be much better.  Doesn't require application to be the active app nor does it change the focus within the active window any longer.
+- Help file updated to include acLockWindows() action
+
+1.2.4
+- Added acLockWindows() (no parameters, equivalent of pressing WIN+L)
+- Removed copying of StrokesPlus shortcut to Startup folder for MSI installs (since Vista and later will not allow auto-running an app require elevated priveleges)
+- Corrected Program Files path for 64-bit MSI, was going to Program Files (x86)
+- Added experimental feature MouseWheelFocus option under config.settings in StrokesPlus.xml, if set to 1, S+ will send WM_SETFOCUS to the control under the mouse 
+  cursor before mouse wheel scrolling.  Basically, makes it so the area under the mouse will scroll, instead od having to click the 
+  control/pane/tree/list before the mouse wheel will scroll that area.  This is a "use at your own risk" option as it may not
+  play nice with some programs.  This feature doesn't appear to work well under Windows XP, inside of a VM anway, I don't have a 
+  stand-alone XP box to confirm.
+
+1.2.3
+- Made gesture preview lines a little fancier using GDI+
+
+1.2.2
+- Added acGetExecutableName()
+- Added acGetClassName()
+
+1.2.1
+- Updated acDisplayText window to include WS_EX_NOACTIVATE so it cannot be clicked (or take focus from an app).  It isn't click-through (on the text, anyway), just will not receive focus if clicked.
+- Fixed issue where acDisplayText only displayed the first 8 characters, was getting the size of the pointer (8), not the size of the string
+
+1.2.0
+- Added acDisplayText() (similar to StrokeIt's On Screen Display)
+
+1.1.9
+- alien 0.5.1 built directly into StrokesPlus and available to Lua scripts
+
+1.1.8
+- Conceded to disabling appropriate key modifier check box if a stroke key has been specified...it was bothering me =)
+- Removed Desktop from Ignored List, instead made an app to ignore the problematic actions
+- Updated MaxDrawPoints to force 0 if setting is < 0, force 3 if > 0 and < 3 (S+ doesn't like negative or being set to 1 or 2 due to internal reasons
+  See http://www.strokesplus.com/forum/topic.asp?TOPIC_ID=113 for details about this setting
+- Cleaned up the default config file for some downloads, removing my damn bank login username and password (LOL!).  Needless to say, I've changed both the userID and password with my bank.
+  And to those who may have logged in, don't laugh at my very low bank balance..why do you think I have a Donate button up above?!
+- Also fixed up the config for x64 ZIP download, it was all screwed up (I though I had replaced it...too many build variations!)
+
+
+1.1.7
+- Corrected invalidate rect location on Gesture Name window for redrawing stroke on WM_EXITSIZEMOVE
+- Added 2 second timer event to the code which handles the WM_DISPLAYCHANGE message, to allow more time for the display changes to finalize before adjusting the gesture draw window. 
+  Tray icon reflects being disabled during this delay
+- Minor help page tweaks
+
+1.1.6
+- Fixed the tab order of all dialogs, to flow as expected
+- Fixed issue with gesture names having "\" in them, must've been introduceed in the update to Lua 5.2
+
+1.1.5
+- Updated to Lua 5.2
+
+1.1.4
+- Added 64-bit version
+- Fixed grouping issue in Preferences for Stroke Button.  Left, Right, and Middle were in a separate radio group than X1 and X2 (I added X1 and X2 later on)
+
+1.1.3
+- Updated KeyboardProc to consume all keys when in capture mode, previously if you were drawing a gesture and typed a letter it would pass to the foreground window.  
+  This isn't ideal, especially when it comes to the experimental Stroke key functionality.
+
+1.1.2
+- Added experimental key Stroke button option.  This allows you to specify Control, Alt, or Shift as the Stroke button.  
+For example, hold Alt and move the mouse to draw gestures. This is not an ideal configuration as it interferes with common program functions which 
+require pressing Control, Alt, or Shift.  As such, this feature is experimental, not-supported, undocumented in the help, and not available to select 
+via the interface as I don't want to make it appear as something one would typically want to select, as well as to prevent user frustration and confusion.
+I've no problem addressing issues with this feature and doing my best to make it as functional as possible, but it will not be something which will be
+considered a standard feature.  
+
+Ok, now that the disclaimer is out of the way, here's how to enable the feature:
+
+1. Edit StrokesPlus.xml
+2. Locate the <MouseButton> element
+3. Enter one of the following negative values to specify the desired Stroke key:
+   Control key: -1
+   Alt key: -2
+   Shift key: -3
+4. Save the config file
+5. Select Reload Config from the S+ tray icon
+
+1.1.1
+- Added acPlaySound - Plays a WAV file
+- Added NoMatchSound (0 or 1) and NoMatchSoundFile (full, escaped path to WAV file; or empty)
+	- NoMatchSound = 1 tells S+ to play a sound when a gesture wasn't matched to an action
+	- NoMatchSoundFile is used to indicate the full path and file name (doesn't need to be escaped) to the WAV file to be played; if empty, the sound associated with Windows Question will be played
+	- These settings will be created in your StrokesPlus.xml file if they do not exist, with NoMatchSound turned off (0) and NoMatchSoundFile set to ""
+
+1.1.0
+- Upgraded to Release status 
+- Help file updated
+- Fixed issue in acGetClipboardText() which would cause S+ to crash if there was no CF_TEXT data on the clipboard; now returns empty string if no text
+- Updated code in KeyboardProc to not consume all keypresses while drawing a gesture; now only the potential key modifiers are consumed (Ctrl, Alt, Shift)
+- Made some other tweaks to the key proc, correcting some state issues with ignore and modifier keys; likely didn't cause any issues, but is now handled properly
+
+1.0.22
+- Included Help option from tray menu
+- Changed link in Actions window to open local help file
+
+1.0.21
+- Performance enhancements in ignore/app matching routine
+- Added Program Manager, DisplayFusion Taskbar, Windows Taskbar to default install Ignore List; removed extraneous entries
+
+1.0.20
+- Added some text to the app qualifier window to help explain the fields and usage.
+- Updated text in Ignored window to use "stroke button" instead of "gesture start button", for consistency.
+- Updated S+ to build out a basic config file if it doesn't exist
+- Updated to ensure Rename and Delete gesture buttons are disabled when adding a new action under an app that previously had no actions
+
+1.0.19
+- Added shortened gesture variable names to make script reading easier:
+  - "sp_gesture_name" may also be referenced as "gnm"
+  - "sp_gesture_start_x" may also be referenced as "gsx"
+  - "sp_gesture_start_y" may also be referenced as "gsy"
+  - "sp_gesture_end_x" may also be referenced as "gex"
+  - "sp_gesture_end_y" may also be referenced as "gey"
+  - "sp_wheel_delta" may also be referenced as "gwd"
+- Updated StrokesPlus.xml in download to correct some old actions (hadn't updated the file in a while) and updated to use shorter variable names
+
+1.0.18
+- Created global string buffer to hold return values for actions which return strings. This is all behind the scenes and was only volatile for a fraction of a second before Lua pushed the string onto the stack..but this fix seals the tiny gap.
+- Fixed recursion issue in acGetDesktopWindow()
+- Changed acMessageBox() to make the foreground window the owner (to prevent message boxes from being behind other windows)
+- Updated StrokesPlus.msi to not be so ... well stupid about upgrading, etc.
+
+1.0.17
+- Made some adjustments to the code dealing with the Lua script text box and CR & LF characters, normalizing it a bit.  Should be a little cleaner (if you had even noticed).
+- S+ now handles WM_DISPLAYCHANGE gracefully, properly re-sizing the gesture draw window.
+
+1.0.16
+- Added:
+  - acGetMonitorFromName()
+  - acGetMonitorLeft()
+  - acGetMonitorTop()
+  - acGetMonitorRight()
+  - acGetMonitorBottom()  
+
+1.0.15
+- Added:
+  - acGetMonitorFromPoint()
+  - acGetMonitorName()
+  - acSendWindowToPreviousMonitor()
+  - acSendWindowToNextMonitor()
+  - acSendWindowToMonitorByHandle
+  - acSendWindowToMonitorByName()
+
+1.0.14
+- Changed MouseProc, init system metric in setMyHook instead of on each proc callback (performance improvement)
+- Replaced rounded rectangle in Actions and Gesture Name windows with static control to improve performance when drawing gesture thumbnails
+- Also updated Gesture Name window thumbnail draw code to match Actions window functionality, rather than drawing on WM_PAINT
+- Removed DrawArc, DrawEllipse, and DrawRoundRect since they're no longer used due to above change
+- Added some text to the actions window, explaining the gestures and modifiers a little bit (nothing awesome, but it was just empty space anyway)
+- Added option to download a simple MSI setup package; creates programs menu folder and puts a shortcut to StrokesPlus in the Startup folder
+
+1.0.13
+- Fixed acFindWindowByTitleRegex() to not store the BOOST regex expression as a const, so additional calls or changes to the string were ignored
+
+1.0.12
+- Added acFitWindowToScreen(), which *drumroll* fits the window to the current screen!  Kinda like maximizing it, but without actually maximizing it
+- Added acMaximizeToAllScreens()
+- S+ recognizes when a screen layout has changed.  Of course, right now it just presents a suicidal message and exits.  Will make it handle this the right way later =)
+- Renamed:
+  - acCenterWindow() to acCenterWindowToScreen()
+  - acClipWindow() to acClipWindowToScreen()
+
+1.0.11
+- Added acCenterWindow(), acClipWindow()
+- Removed Lua script message box on error, can be too big to fit on screen
+
+1.0.10
+- Added some extra code to remember the previously active window prior to opening any S+ windows.  This will ensure the previous window is reactivated after closing a S+ dialog.  Unfortunately, there's no way to do this for right clicking the tray icon without adding unnecessary and constant monitoring of active windows, which I will not add for performance reasons.  This means that much of the focus app issues have been resolved (see known issues forum), but not after right-clicking the S+ tray icon.
+- Optimized ignore key code in keyboard proc in the hook dll so it doesn't send messages to the S+ host exe every key tick during ignore key being held down
+- When adding a new action, the Rename and Delete gesture buttons are disabled initially, as no gesture is selected.
+	 
+1.0.9
+- Added the following actions to handle independently controlling modifier key down and up events:
+    acSendControlDown()
+    acSendControlUp()
+    acSendAltDown()
+    acSendAltUp()
+    acSendShiftDown()
+    acSendShiftUp()
+    acSendWinDown()
+    acSendWinUp()
+
+1.0.8
+- Added hotkey CTRL+SHIFT+WIN+Z to toggle disabling StrokesPlus
+- Updated clearCaptureVars() to ensure ignore gesture flag is properly reset. Certain race conditions involving the ignore key and disabling S+ could collide, leaving S+ permanently disabled until restarting program
+
+1.0.7
+- Refactored config saving/loading code, reducing overhead and size of exe (only about 10k) as well as improving performance in Actions window when changing between apps/actions (I/O activity dramatically reduced)
+- Embedded a manifest into StrokesPlus.exe to invoke administrator UAC prompt when starting. Admin is necessary for certain functionality and the app's interaction with various windows to occur as one would expect.
+
+1.0.6
+- acDisableNext() changes S+ icon to disabled until after next hook button is released
+- Autosave: Added code to prevent changing apps/actions while autosave is updating config file. This prevents rapid changing of actions/apps from overwritting/appending values of previous selection. e.g. if you clicked an action, then pressed the up/down arrows very quickly, values from a previously selected node can overwrite or add to the next setting. This change introduces state checking/locking to ensure the proper settings are saved and subsequent tree node changes are queued up. This likely hasn't affected anyone as you would've had to change nodes very rapidly to experience the problem, but this fix should prevent the possibility completely.
+
+1.0.5
+- Fixed the forum link so it hides properly
+- Added an Autosave checkbox to Actions window. If checked, individual App and Action changes will be saved when you either close the Actions window or when you change to a different app/action. If unchecked, you must click Save to store the new settings for each action or app. This new setting is remembered and stored in a new config setting under config.settings.Autosave in StrokesPlus.XML; the setting will be created automatically in your config file if it doesn't exist, with Autosave defaulted to off.
+
+1.0.4
+- Added link in actions screen to the Lua Scripts forum
+- Added "style" parameter to: acRunProgram(fullpath, parameters, seconds, style)
+   IMPORTANT! Having a missing style parameter defaults to 0, which means run the program hidden. 
+   Previous acRunProgram actions in the default config file did not specify a style parameter. 
+   Simply ad ",1" before the closing paren to show the window as normal.
+
+1.0.3
+- Added acGetClipboardText()
+- Added acSetClipboardText("value")
+
+1.0.2
+- Added ability to load a Lua script when StrokesPlus starts (or when you click Reload Config from tray menu). The file must be called StrokesPlus.lua and reside alongside StrokesPlus.exe. This is useful is you want to make your own Lua functions or set global variables that can be accessed from actions.
+
+1.0.1
+- Added ability to rename and delete gestures
+- Cleaned up some of the delete functionality for deleting apps/actions/ignored windows (internal)
+
+1.0.0
+- Adjusted code to properly center gesture thumbnail within box in Actions screen
+	
